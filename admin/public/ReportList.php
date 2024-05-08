@@ -7,7 +7,8 @@
 </head>
 <body>
     <?php
-        echo "<a href="."StopUser.php".">ログアウト</a>";
+        echo "<a href="."logout.php".">ログアウト</a>";
+        echo "<a href="."StopUser.php".">停止アカウント一覧へ</a>";
     ?>
 </body>
 </html>
