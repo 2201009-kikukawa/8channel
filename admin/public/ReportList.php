@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        echo "<a href="">ログアウト</a>";
+        echo "<a href="."StopUser.php".">ログアウト</a>";
     ?>
 </body>
 </html>
