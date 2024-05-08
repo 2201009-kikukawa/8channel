@@ -6,6 +6,8 @@
     <title>ReportList</title>
 </head>
 <body>
-    
+    <?php
+        echo "<a href="">ログアウト</a>";
+    ?>
 </body>
 </html>
