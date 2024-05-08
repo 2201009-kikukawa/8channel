@@ -10,6 +10,7 @@
         echo "<input type=text placeholder="."IDを入力".">";
         echo "<input type=button value=検索>";
         echo "<a href="."logout.php".">ログアウト</a>";
+        echo "<br>";
         echo "<a href="."StopUser.php".">停止アカウント一覧へ</a>";
     ?>
 </body>
