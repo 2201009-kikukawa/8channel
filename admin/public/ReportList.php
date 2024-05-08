@@ -7,6 +7,7 @@
 </head>
 <body>
     <?php
+        echo "<input type=text>";
         echo "<a href="."logout.php".">ログアウト</a>";
         echo "<a href="."StopUser.php".">停止アカウント一覧へ</a>";
     ?>
