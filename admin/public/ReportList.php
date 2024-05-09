@@ -1,3 +1,5 @@
+<?php require '../../config/db-connect.php'?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,6 @@
     <title>ReportList</title>
 </head>
 <body>
-<?php require '../../config/db-connect.php'?>
     <?php
         echo "<input type=text placeholder="."IDを入力".">";
         echo "<input type=button value=検索>";
