@@ -6,6 +6,7 @@
     <title>ReportList</title>
 </head>
 <body>
+<?php require 'db-connect.php'; ?>
     <?php
         echo "<input type=text placeholder="."IDを入力".">";
         echo "<input type=button value=検索>";
