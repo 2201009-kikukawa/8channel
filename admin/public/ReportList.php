@@ -12,6 +12,19 @@
         echo "<a href="."logout.php".">ログアウト</a>";
         echo "<br>";
         echo "<a href="."StopUser.php".">停止アカウント一覧へ</a>";
+        echo '<table>';
+    echo '<tr><th>報告したユーザーID</th><th>報告されたユーザーID</th><th>報告内容</th><th>日付</th></tr>';
+    $pdo=new PDO('mysql:host=mysql304.phy.lolipop.lan;dbname=LAA1516915-8cannel;charset=utf8','LAA1516915','Pass1111');
+    $sql=$pdo->query('select * from Report');
+    foreach($sql as $row){
+            echo '<tr>';
+            echo '<td>', $row['id'], '</td>';
+            echo '<td>', $row['title'], '</td>';
+            echo '<td>', $row['name'], '</td>';
+            echo '</tr>';
+    
+    }
+    echo '</table>';
     ?>
 </body>
 </html>
