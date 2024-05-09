@@ -7,9 +7,10 @@
     <?php
         echo "<input type=text placeholder="."IDを入力".">";
         echo "<input type=button value=検索>";
-        echo "<a href="."logout.php".">ログアウト</a>";
+        echo "<input type=button value=タグ作成>";
         echo "<br>";
         echo "<a href="."StopUser.php".">停止アカウント一覧へ</a>";
+        echo "<a href="."logout.php".">ログアウト</a>";
         echo '<table>';
     echo '<tr><th>報告したユーザーID</th><th>報告されたユーザーID</th><th>報告内容</th><th>日付</th></tr>';
     $pdo=new PDO('mysql:host=mysql304.phy.lolipop.lan;dbname=LAA1516915-8cannel;charset=utf8','LAA1516915','Pass1111');
