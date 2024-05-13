@@ -4,7 +4,7 @@
 ?>
 
 <body>
-        <input type=text placeholder="IDを入力">";
+        <input type=text placeholder="IDを入力">
         <input type=button value=検索>
         <input type=button value=タグ作成>
         <br>
