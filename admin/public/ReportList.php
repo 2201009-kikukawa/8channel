@@ -4,8 +4,10 @@
 ?>
 
 <body>
-        <input type=text placeholder="IDを入力">
-        <input type=button value=検索>
+    <form method="get">
+        <input type="text" name="search_id" placeholder="IDを入力">
+        <input type="submit" value="検索">
+    </form>
         <input type=button value=タグ作成>
         <br>
         <a href="StopUser.php">停止アカウント一覧へ</a>
