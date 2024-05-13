@@ -22,13 +22,12 @@
     
         <?php
             // ユーザーIDが入力された場合の処理
-            if(isset($_POST['search_id']) && !empty($_POST['search_id'])) {
-                $search_id = $_POST['search_id'];
-                $sql = $conn->prepare('SELECT * FROM Report WHERE report_user = ?');
-                $sql->execute([$search_id]);
-            } else { // 入力がない場合は全てのレポートを表示
-                $sql = $conn->query('SELECT * FROM Report');
-            }
+            if(isset($_POST['search_id'])){
+                $sql=$pdo->prepare('select * from Report where user_id like ?');
+                $sql->execute($_POST['search_id']);
+             }else{ // 入力がない場合は全てのレポートを表示
+                $sql=$pdo->query('select * from Report');
+             }
 
             foreach($sql as $row) {
                 echo '<tr>';
@@ -38,7 +37,7 @@
                 echo '<td>', $row['data'], '</td>';
                 echo '</tr>';
             }
-            
+
         ?>
     </table>
 </body
