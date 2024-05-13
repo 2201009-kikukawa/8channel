@@ -4,7 +4,7 @@
 ?>
 
 <body>
-    <form method="get">
+    <form method="post">
         <input type="text" name="search_id" placeholder="IDを入力">
         <input type="submit" value="検索">
     </form>
