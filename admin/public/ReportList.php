@@ -22,8 +22,8 @@
     
         <?php
             // ユーザーIDが入力された場合の処理
-            if(isset($_GET['search_id']) && !empty($_GET['search_id'])) {
-                $search_id = $_GET['search_id'];
+            if(isset($_POST['search_id']) && !empty($_POST['search_id'])) {
+                $search_id = $_POST['search_id'];
                 $sql = $conn->prepare('SELECT * FROM Report WHERE report_user = ?');
                 $sql->execute([$search_id]);
             } else { // 入力がない場合は全てのレポートを表示
