@@ -4,26 +4,40 @@
 ?>
 
 <body>
-    <?php
-        echo "<input type=text placeholder="."IDを入力".">";
-        echo "<input type=button value=検索>";
-        echo "<input type=button value=タグ作成>";
-        echo "<br>";
-        echo "<a href="."StopUser.php".">停止アカウント一覧へ</a>";
-        echo "<a href="."logout.php".">ログアウト</a>";
-        echo '<table>';
-    echo '<tr><th>報告したユーザーID</th><th>報告されたユーザーID</th><th>報告内容</th><th>日付</th></tr>';
-    $sql=$conn->query('select * from Report');
-    foreach($sql as $row){
-            echo '<tr>';
-            echo '<td>', $row['report_user'], '</td>';
-            echo '<td>', $row['user_id'], '</td>';
-            echo '<td>', $row['report_reason'], '</td>';
-            echo '<td>', $row['data'], '</td>';
-            echo '</tr>';
+        <input type=text placeholder="IDを入力">";
+        <input type=button value=検索>
+        <input type=button value=タグ作成>
+        <br>
+        <a href="StopUser.php">停止アカウント一覧へ</a>
+        <a href="logout.php">ログアウト</a>
+    <table>
+        <tr>
+            <th>報告したユーザーID</th>
+            <th>報告されたユーザーID</th>
+            <th>報告内容</th>
+            <th>日付</th>
+        </tr>
     
-    }
-    echo '</table>';
-    ?>
+    <?php
+            // ユーザーIDが入力された場合の処理
+            if(isset($_GET['search_id']) && !empty($_GET['search_id'])) {
+                $search_id = $_GET['search_id'];
+                $sql = $conn->prepare('SELECT * FROM Report WHERE report_user = ?');
+                $sql->execute([$search_id]);
+            } else { // 入力がない場合は全てのレポートを表示
+                $sql = $conn->query('SELECT * FROM Report');
+            }
+
+            // 結果の表示
+            foreach($sql as $row) {
+                echo '<tr>';
+                echo '<td>', $row['report_user'], '</td>';
+                echo '<td>', $row['user_id'], '</td>';
+                echo '<td>', $row['report_reason'], '</td>';
+                echo '<td>', $row['data'], '</td>';
+                echo '</tr>';
+            }
+        ?>
+    </table>
 </body>
 </html>
