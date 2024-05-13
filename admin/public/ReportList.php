@@ -18,7 +18,7 @@
             <th>日付</th>
         </tr>
     
-    <?php
+        <?php
             // ユーザーIDが入力された場合の処理
             if(isset($_GET['search_id']) && !empty($_GET['search_id'])) {
                 $search_id = $_GET['search_id'];
@@ -39,5 +39,4 @@
             }
         ?>
     </table>
-</body>
-</html>
+</body
