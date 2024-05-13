@@ -26,18 +26,26 @@
                 $search_id = $_POST['search_id'];
                 $sql = $conn->prepare('SELECT * FROM Report WHERE report_user = ?');
                 $sql->execute([$search_id]);
+
+                foreach($sql as $row) {
+                    echo '<tr>';
+                    echo '<td>', $row['report_user'], '</td>';
+                    echo '<td>', $row['user_id'], '</td>';
+                    echo '<td>', $row['report_reason'], '</td>';
+                    echo '<td>', $row['data'], '</td>';
+                    echo '</tr>';
+                }
             } else { // 入力がない場合は全てのレポートを表示
                 $sql = $conn->query('SELECT * FROM Report');
-            }
 
-            // 結果の表示
-            foreach($sql as $row) {
-                echo '<tr>';
-                echo '<td>', $row['report_user'], '</td>';
-                echo '<td>', $row['user_id'], '</td>';
-                echo '<td>', $row['report_reason'], '</td>';
-                echo '<td>', $row['data'], '</td>';
-                echo '</tr>';
+                foreach($sql as $row) {
+                    echo '<tr>';
+                    echo '<td>', $row['report_user'], '</td>';
+                    echo '<td>', $row['user_id'], '</td>';
+                    echo '<td>', $row['report_reason'], '</td>';
+                    echo '<td>', $row['data'], '</td>';
+                    echo '</tr>';
+                }
             }
         ?>
     </table>
