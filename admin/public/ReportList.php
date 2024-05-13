@@ -13,8 +13,7 @@
         echo "<a href="."logout.php".">ログアウト</a>";
         echo '<table>';
     echo '<tr><th>報告したユーザーID</th><th>報告されたユーザーID</th><th>報告内容</th><th>日付</th></tr>';
-    $pdo=new PDO($conn);
-    $sql=$pdo->query('select * from Report');
+    $sql=$conn->query('select * from Report');
     foreach($sql as $row){
             echo '<tr>';
             echo '<td>', $row['report_user'], '</td>';
