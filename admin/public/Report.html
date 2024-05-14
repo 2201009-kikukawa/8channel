@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.jsでの検索</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <form @submit.prevent="searchReports">
+            <input type="text" v-model="searchId" placeholder="IDを入力">
+            <button type="submit">検索</button>
+        </form>
+        <button @click="createTag">タグ作成</button>
+        <br>
+        <a href="StopUser.php">停止アカウント一覧へ</a>
+        <a href="logout.php">ログアウト</a>
+        <table>
+            <tr>
+                <th>報告したユーザーID</th>
+                <th>報告されたユーザーID</th>
+                <th>報告内容</th>
+                <th>日付</th>
+            </tr>
+            <tr v-for="report in reports" :key="report.id">
+                <td>{{ report.report_user }}</td>
+                <td>{{ report.user_id }}</td>
+                <td>{{ report.report_reason }}</td>
+                <td>{{ report.date }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                reports: [],
+                searchId: ''
+            },
+            methods: {
+                searchReports() {
+                    axios.get('search_reports.php', {
+                        params: {
+                            search_id: this.searchId
+                        }
+                    })
+                    .then(response => {
+                        this.reports = response.data;
+                    })
+                    .catch(error => {
+                        console.error('検索エラー:', error);
+                    });
+                },
+                createTag() {
+                    // タグ作成の処理をここに追加
+                }
+            }
+        });
+    </script>
+</body>
+</html>
