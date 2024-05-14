@@ -24,7 +24,7 @@
             // ユーザーIDが入力された場合の処理
             if(isset($_POST['search_id'])){
                 $sql=$conn->prepare('select * from Report where user_id like ?');
-                $sql->execute([$search_id]); // 配列に変更
+                $sql->execute(['%'.$_POST['search_id'].'%']);
              }else{ // 入力がない場合は全てのレポートを表示
                 $sql=$conn->query('select * from Report');
              }
