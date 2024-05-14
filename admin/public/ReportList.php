@@ -31,13 +31,12 @@
 
             foreach($sql as $row) {
                 echo '<tr>';
-                echo '<td>', $row['report_user'], '</td>';
-                echo '<td>', $row['user_id'], '</td>';
-                echo '<td>', $row['report_reason'], '</td>';
-                echo '<td>', $row['data'], '</td>';
+                    echo '<td>', $row['report_user'], '</td>';
+                    echo '<td>', $row['user_id'], '</td>';
+                    echo '<td>', $row['report_reason'], '</td>';
+                    echo '<td>', $row['data'], '</td>';
                 echo '</tr>';
             }
-
         ?>
     </table>
 </body
