@@ -7,23 +7,22 @@ $pass = $_POST['pass'];
 
 $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO users (mail, name, pass) VALUES (?, ?, ?)";
+$sql = "INSERT INTO user (mail, user_name, password) VALUES (:mail, :name, :pass)";
+$stmt = $pdo->prepare($sql);
 
-$stmt = $conn->prepare($sql);
+$stmt->bindParam(':mail', $mail);
+$stmt->bindParam(':name', $name);
+$stmt->bindParam(':pass', $hashed_pass);
 
-if ($stmt === false) {
-    die('prepare() failed: ' . htmlspecialchars($conn->error));
+try {
+    if ($stmt->execute()) {
+        $message = "ユーザーが正常に登録されました。";
+    } else {
+        $message = "エラーが発生しました。";
+    }
+} catch (PDOException $e) {
+    $message = "エラー: " . $e->getMessage();
 }
 
-$stmt->bind_param('sss', $mail, $name, $hashed_pass);
-
-if ($stmt->execute()) {
-    echo "ユーザーが正常に登録されました。";
-} else {
-    echo "エラー: " . htmlspecialchars($stmt->error);
-}
-
-$stmt->close();
-
-$conn->close();
+echo "<script type='text/javascript'>alert('$message'); window.location.href = '/8channel/user/public';</script>";
 ?>
