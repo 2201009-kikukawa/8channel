@@ -24,10 +24,10 @@
             // ユーザーIDが入力された場合の処理
             if(isset($_POST['search_id'])){
                 $search_id = '%' . $_POST['search_id'] . '%'; // ワイルドカードを追加
-                $sql=$conn->prepare('SELECT * FROM Report WHERE user_id LIKE ?');
+                $sql=$conn->prepare('serect * from Report WHERE user_id LIKE ?');
                 $sql->execute([$search_id]); // 配列に変更
              }else{ // 入力がない場合は全てのレポートを表示
-                $sql=$conn->query('SELECT * FROM Report');
+                $sql=$conn->query('serect * from Report');
              }
 
             foreach($sql as $row) {
