@@ -25,7 +25,7 @@
             if(isset($_POST['search_id'])){
                 $search_id = $_POST['search_id'];
                 $sql=$conn->prepare('select * from Report where user_id = ?');
-                $sql->execute(['search_id']);
+                $sql->execute([$search_id]);
              }else{ // 入力がない場合は全てのレポートを表示
                 $sql=$conn->query('select * from Report');
              }
