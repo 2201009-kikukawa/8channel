@@ -1,4 +1,9 @@
 <?php
+    require '../../config/db-connect.php';
+    require 'header.php';
+?>
+
+<?php
 // データベースへの接続などの初期化が必要な場合はここで行う
 
 // クライアントから送信された検索IDを取得
