@@ -1,64 +1,52 @@
-<!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue.jsでの検索</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>User Search</title>
 </head>
 <body>
-    <div id="app">
-        <form @submit.prevent="searchReports">
-            <input type="text" v-model="searchId" placeholder="IDを入力">
-            <button type="submit">検索</button>
-        </form>
-        <button @click="createTag">タグ作成</button>
-        <br>
-        <a href="StopUser.php">停止アカウント一覧へ</a>
-        <a href="logout.php">ログアウト</a>
-        <table>
-            <tr>
-                <th>報告したユーザーID</th>
-                <th>報告されたユーザーID</th>
-                <th>報告内容</th>
-                <th>日付</th>
-            </tr>
-            <tr v-for="report in reports" :key="report.id">
-                <td>{{ report.report_user }}</td>
-                <td>{{ report.user_id }}</td>
-                <td>{{ report.report_reason }}</td>
-                <td>{{ report.date }}</td>
-            </tr>
-        </table>
-    </div>
+<div id="app">
+    <input type="text" v-model="keyword">
+    <table>
+        <tr v-for="user in users" :key="user.id">
+            <td v-text="user.id"></td>
+            <td v-text="user.name"></td>
+            <td v-text="user.email"></td>
+        </tr>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+<script>
 
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                reports: [],
-                searchId: ''
-            },
-            methods: {
-                searchReports() {
-                    axios.get('search_reports.php', {
-                        params: {
-                            search_id: this.searchId
-                        }
-                    })
-                    .then(response => {
-                        this.reports = response.data;
+    new Vue({
+        el: '#app',
+        data: {
+            keyword: '',
+            users: []
+        },
+        mounted() {
+            this.fetchUsers();
+        },
+        methods: {
+            fetchUsers() {
+                fetch('/api/users')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.users = data;
                     })
                     .catch(error => {
-                        console.error('検索エラー:', error);
+                        console.error('Error fetching users:', error);
                     });
-                },
-                createTag() {
-                    // タグ作成の処理をここに追加
-                }
             }
-        });
-    </script>
+        },
+        computed: {
+            filteredUsers: function() {
+                return this.users.filter(user =>
+                    user.name.includes(this.keyword) ||
+                    user.email.includes(this.keyword)
+                );
+            }
+        }
+    });
+
+</script>
 </body>
 </html>
