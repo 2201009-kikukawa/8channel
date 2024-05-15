@@ -21,12 +21,15 @@
         </tr>
     
         <?php
+        echo 1;
             // ユーザーIDが入力された場合の処理
             if(isset($_POST['search_id'])){
+            echo 2;
                 $search_id = $_POST['search_id'];
                 $sql=$conn->prepare('select * from Report where user_id = ?');
                 $sql->execute([$search_id]);
              }else{ // 入力がない場合は全てのレポートを表示
+            echo 3;
                 $sql=$conn->query('select * from Report');
              }
 
