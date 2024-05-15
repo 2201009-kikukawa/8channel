@@ -22,6 +22,7 @@
     
         <?php
         echo 1;
+        echo "searchid / ", $_POST['search_id'];
             // ユーザーIDが入力された場合の処理
             if(isset($_POST['search_id'])){
             echo 2;
