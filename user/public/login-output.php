@@ -1,23 +1,28 @@
-<?php require '../../config/db-connect.php' ;?>
-<?php require 'session/session_start.php' ;?>
+<?php require '../../config/db-connect.php'; ?>
+<?php require 'session/session_start.php'; ?>
 
 <?php
-    $sql = $conn -> prepare('select * from  User mail = ?');
-    $sql -> execute([$_POST['mail']]);
-    foreach ($sql as $row) {
-        if(password_verify($_POST['pass'],$row['password']) == true){
-            $_SESSION['User']=[
-                'id' => $row['user_id'],
-                'mail' => $row['mail'],
-                'name' => $row['user_name']
-            ];
-        }
-    }
-    if (isset($_SESSION['User'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $sql = $pdo->prepare('SELECT * FROM User WHERE mail = ?');
+    $sql->execute([$_POST['mail']]);
+    $user = $sql->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && password_verify($_POST['pass'], $user['password'])) {
+        $_SESSION['User'] = [
+            'id' => $user['user_id'],
+            'mail' => $user['mail'],
+            'name' => $user['user_name']
+        ];
         header('Location: Top.php');
         exit();
     } else {
-        header('Location: login.php');
+        $error = 'ログインに失敗しました。メールアドレスまたはパスワードが正しくありません。';
+        header('Location: login.php?error=' . urlencode($error));
         exit();
     }
+} else {
+    $error = '無効なリクエストです。';
+    header('Location: login.php?error=' . urlencode($error));
+    exit();
+}
 ?>
