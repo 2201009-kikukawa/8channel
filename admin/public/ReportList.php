@@ -28,8 +28,10 @@
             // ユーザーIDが入力された場合の処理
             if(!empty($_POST['search_id'])){
             echo 2;
-                $sql=$conn->prepare('select * from Report where user_id = ?');
+
+                $sql=$conn->prepare('select * from Report where report_user = ?');
                 $sql->execute([$_POST['search_id']]);
+                var_dump($sql);
              }else{ // 入力がない場合は全てのレポートを表示
             echo 3;
                 $sql=$conn->query('select * from Report');
@@ -37,10 +39,11 @@
 
             foreach($sql as $row) {
                 echo '<tr>';
+                    echo '<td>', $row['report_id'], '</td>';
                     echo '<td>', $row['report_user'], '</td>';
                     echo '<td>', $row['user_id'], '</td>';
-                    echo '<td>', $row['report_reason'], '</td>';
                     echo '<td>', $row['data'], '</td>';
+                    echo '<td>', $row['report_reason'], '</td>';
                 echo '</tr>';
             }
         ?>
