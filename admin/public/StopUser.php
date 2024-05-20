@@ -21,7 +21,7 @@
         </tr>
     
         <?php
-        /**echo 1;
+        echo 1;
         echo "<br>====<br>";
         var_dump($_POST);
         echo "<br>====<br>";
@@ -34,7 +34,10 @@
                 var_dump($sql);
              }else{ // 入力がない場合は全てのレポートを表示
             echo 3;
-                $sql=$conn->query('select * from Stop_user');
+                //$sql=$conn->query('select * from Stop_user');
+                $sql = $conn->query('SELECT su.user_id, u.user_name, su.stop_reason 
+                                 FROM Stop_user su 
+                                 JOIN User u ON su.user_id = u.user_id');
              }
 
             foreach($sql as $row) {
@@ -50,58 +53,6 @@
                     echo '</td>';
                 echo '</tr>';
             }
-        ?>
-    </table>
-</body>**/
-if (!empty($_POST['search'])) {
-            $search_id = $_POST['search'];
-
-            // Stop_userテーブルからユーザー情報を取得
-            $sql_stop_user = $conn->prepare('SELECT * FROM Stop_user WHERE user_id = ?');
-            $sql_stop_user->execute([$search_id]);
-
-            foreach ($sql_stop_user as $stop_user_row) {
-                // Userテーブルからユーザー名を取得
-                $sql_user = $conn->prepare('SELECT user_name FROM User WHERE user_id = ?');
-                $sql_user->execute([$stop_user_row['user_id']]);
-                $user_row = $sql_user->fetch();
-
-                // テーブルに表示
-                echo '<tr>';
-                echo '<td>', $stop_user_row['user_id'], '</td>';
-                echo '<td>', $user_row['user_name'], '</td>';
-                echo '<td>', $stop_user_row['stop_reason'], '</td>';
-                echo '<td>';
-                echo '<form action="" method="post">';
-                echo '<input type="hidden" name="id" value="', $stop_user_row['user_id'], '">';
-                echo '<button type="submit">解除</button>';
-                echo '</form>';
-                echo '</td>';
-                echo '</tr>';
-            }
-        } else { // 入力がない場合は全てのレポートを表示
-            $sql_stop_user = $conn->query('SELECT * FROM Stop_user');
-
-            foreach ($sql_stop_user as $stop_user_row) {
-                // Userテーブルからユーザー名を取得
-                $sql_user = $conn->prepare('SELECT user_name FROM User WHERE user_id = ?');
-                $sql_user->execute([$stop_user_row['user_id']]);
-                $user_row = $sql_user->fetch();
-
-                // テーブルに表示
-                echo '<tr>';
-                echo '<td>', $stop_user_row['user_id'], '</td>';
-                echo '<td>', $user_row['user_name'], '</td>';
-                echo '<td>', $stop_user_row['stop_reason'], '</td>';
-                echo '<td>';
-                echo '<form action="" method="post">';
-                echo '<input type="hidden" name="id" value="', $stop_user_row['user_id'], '">';
-                echo '<button type="submit">解除</button>';
-                echo '</form>';
-                echo '</td>';
-                echo '</tr>';
-            }
-        }
         ?>
     </table>
 </body>
