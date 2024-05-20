@@ -1,5 +1,6 @@
-<?php 
+<?php
 require '../../config/db-connect.php';
+header('Content-Type: application/json');
 
 function getThreads($pdo) {
     $response = [];
@@ -25,4 +26,5 @@ function getThreads($pdo) {
 
     return json_encode($response);
 }
-?>
+
+echo getThreads($pdo);
