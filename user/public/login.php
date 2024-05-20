@@ -16,7 +16,7 @@
     <button type="submit" class="btn btn-outline-success" name="login"><span>ログイン</span></button>
   </form>
   <div class="newlogin-confirmation">
-    <a href="newUser.php">8ちゃんねる ID 作成</a>
+    <a href="user_insert.php">8ちゃんねる ID 作成</a>
   </div>
   <?php
   // エラーメッセージの表示
