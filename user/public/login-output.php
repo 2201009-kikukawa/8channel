@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'mail' => $user['mail'],
             'name' => $user['user_name']
         ];
-        header('Location: Topindex.php');
+        header('Location: Top-index.php');
         exit();
     } else {
         $error = 'ログインに失敗しました。メールアドレスまたはパスワードが正しくありません。';
