@@ -29,12 +29,16 @@
             if(!empty($_POST['search'])){
             echo 2;
 
-                $sql=$conn->prepare('select * from Stop_user where user_id = ?');
+                /**$sql=$conn->prepare('select * from Stop_user where user_id = ?');
                 $sql->execute([$_POST['search']]);
-                var_dump($sql);
+                var_dump($sql);**/
+                $sql = $conn->prepare('SELECT su.user_id, u.user_name, su.stop_reason 
+                                   FROM Stop_user su 
+                                   JOIN User u ON su.user_id = u.user_id 
+                                   WHERE su.user_id = ?');
+                $sql->execute([$search_id]);
              }else{ // 入力がない場合は全てのレポートを表示
             echo 3;
-                //$sql=$conn->query('select * from Stop_user');
                 $sql = $conn->query('SELECT su.user_id, u.user_name, su.stop_reason 
                                  FROM Stop_user su 
                                  JOIN User u ON su.user_id = u.user_id');
