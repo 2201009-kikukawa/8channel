@@ -5,19 +5,19 @@
 
 <body>
     <form method="post">
-        <input type="text" name="search_id" placeholder="IDを入力">
+        <input type="text" name="search" placeholder="IDを入力">
         <input type="submit" value="検索">
     </form>
         <input type=button value=タグ作成>
         <br>
-        <a href="StopUser.php">停止アカウント一覧へ</a>
+        <a href="ReportList.php">報告一覧へ</a>
         <a href="logout.php">ログアウト</a>
     <table>
         <tr>
-            <th>報告したユーザーID</th>
-            <th>報告されたユーザーID</th>
-            <th>報告内容</th>
-            <th>日付</th>
+            <th>ユーザーID</th>
+            <th>ユーザー名</th>
+            <th>停止理由</th>
+            <th>削除ボタン</th>
         </tr>
     
         <?php
@@ -26,24 +26,28 @@
         var_dump($_POST);
         echo "<br>====<br>";
             // ユーザーIDが入力された場合の処理
-            if(!empty($_POST['search_id'])){
+            if(!empty($_POST['search'])){
             echo 2;
 
-                $sql=$conn->prepare('select * from Report where report_user = ?');
-                $sql->execute([$_POST['search_id']]);
+                $sql=$conn->prepare('select * from Stop_user where user_id = ?');
+                $sql->execute([$_POST['search']]);
                 var_dump($sql);
              }else{ // 入力がない場合は全てのレポートを表示
             echo 3;
-                $sql=$conn->query('select * from Report');
+                $sql=$conn->query('select * from Stop_user');
              }
 
             foreach($sql as $row) {
                 echo '<tr>';
-                    echo '<td>', $row['report_id'], '</td>';
-                    echo '<td>', $row['report_user'], '</td>';
                     echo '<td>', $row['user_id'], '</td>';
-                    echo '<td>', $row['data'], '</td>';
-                    echo '<td>', $row['report_reason'], '</td>';
+                    echo '<td>', $row['user_name'], '</td>';
+                    echo '<td>', $row['stop_reason'], '</td>';
+                    echo '<td>';
+                        echo '<form action="" method="post">';
+                            echo '<input type="hidden" name="id" value="', $row['id'], '">';
+                            echo '<button type="submit">解除</button>';
+                        echo '</form>';
+                    echo '</td>';
                 echo '</tr>';
             }
         ?>
