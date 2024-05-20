@@ -4,7 +4,7 @@
 ?>
 
 <body>
-    <form method="post">
+    <form action="StopUser.php" method="post">
         <input type="text" name="search" placeholder="IDを入力">
         <input type="submit" value="検索">
     </form>
@@ -26,7 +26,7 @@
         var_dump($_POST);
         echo "<br>====<br>";
             // ユーザーIDが入力された場合の処理
-            if(!empty($_POST['search'])){
+            if(isset($_POST['search'])){
             echo 2;
 
                 /**$sql=$conn->prepare('select * from Stop_user where user_id = ?');
