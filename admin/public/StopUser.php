@@ -32,6 +32,7 @@
                 /**$sql=$conn->prepare('select * from Stop_user where user_id = ?');
                 $sql->execute([$_POST['search']]);
                 var_dump($sql);**/
+                $search_id = $_POST['search'];
                 $sql = $conn->prepare('SELECT su.user_id, u.user_name, su.stop_reason 
                                    FROM Stop_user su 
                                    JOIN User u ON su.user_id = u.user_id 
