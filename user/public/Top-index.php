@@ -1,5 +1,4 @@
 <?php require './header.php'; ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -7,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>8channel TOP</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuejs-paginate@2.1.0"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         .search-container {
@@ -31,6 +31,31 @@
         .search-container button:hover {
             background: #0056b3;
         }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+        .pagination li {
+            margin: 0 5px;
+        }
+        .pagination a {
+            display: block;
+            padding: 8px 16px;
+            color: #007bff;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .pagination a:hover {
+            background-color: #f0f0f0;
+        }
+        .pagination .active a {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
     </style>
 </head>
 <body>
@@ -52,12 +77,28 @@
         </div>
 
         <div class="list-group">
-            <a v-for="thread in filteredThreads" :key="thread.thread_id" :href="'thread.php?id=' + thread.thread_id" class="list-group-item list-group-item-action">
+            <a v-for="thread in paginatedThreads" :key="thread.thread_id" :href="'thread.php?id=' + thread.thread_id" class="list-group-item list-group-item-action">
                 <h5 class="mb-1">{{ thread.thread_name }}</h5>
                 <small>投稿日: {{ thread.date }}</small>
             </a>
             <p v-if="filteredThreads.length === 0">スレッドが見つかりませんでした。</p>
         </div>
+
+        <!-- ページネーション -->
+        <paginate
+            v-if="pageCount > 1"
+            :page-count="pageCount"
+            :click-handler="goToPage"
+            :prev-text="'前'"
+            :next-text="'次'"
+            :container-class="'pagination'"
+            :page-class="'page-item'"
+            :page-link-class="'page-link'"
+            :prev-class="'page-item'"
+            :next-class="'page-item'"
+            :prev-link-class="'page-link'"
+            :next-link-class="'page-link'"
+        ></paginate>
     </div>
 
     <script src="./src/top-vue.js"></script>
