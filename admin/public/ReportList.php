@@ -5,7 +5,7 @@
 
 <body>
     <form method="post">
-        <input type="text" name="search_id" placeholder="IDを入力">
+        <input type="text" name="search_id" placeholder="報告側のIDを入力">
         <input type="submit" value="検索">
     </form>
         <input type=button value=タグ作成>
@@ -21,29 +21,21 @@
         </tr>
     
         <?php
-        echo 1;
-        echo "<br>====<br>";
-        var_dump($_POST);
-        echo "<br>====<br>";
             // ユーザーIDが入力された場合の処理
             if(!empty($_POST['search_id'])){
-            echo 2;
 
-                $sql=$conn->prepare('select * from Report where report_user = ?');
+                $sql=$pdo->prepare('select * from Report where report_user = ?');
                 $sql->execute([$_POST['search_id']]);
-                var_dump($sql);
              }else{ // 入力がない場合は全てのレポートを表示
-            echo 3;
-                $sql=$conn->query('select * from Report');
+                $sql=$pdo->query('select * from Report');
              }
 
             foreach($sql as $row) {
                 echo '<tr>';
-                    echo '<td>', $row['report_id'], '</td>';
                     echo '<td>', $row['report_user'], '</td>';
                     echo '<td>', $row['user_id'], '</td>';
-                    echo '<td>', $row['data'], '</td>';
                     echo '<td>', $row['report_reason'], '</td>';
+                    echo '<td>', $row['data'], '</td>';
                 echo '</tr>';
             }
         ?>
