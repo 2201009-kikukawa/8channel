@@ -41,7 +41,6 @@ new Vue({
                 console.log('Fetched raw text:', text);
                 try {
                     const data = JSON.parse(text); // JSONに変換
-                    console.log('Parsed data:', data);
                     if (data.error) {
                         throw new Error(data.error);
                     }
