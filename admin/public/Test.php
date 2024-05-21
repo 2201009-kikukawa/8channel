@@ -29,14 +29,14 @@
             if(!empty($_POST['search'])){
             echo 2;
             $search_id = $_POST['search'];
-                $sql = $conn->prepare('SELECT su.user_id, u.user_name, su.stop_reason 
+                $sql = $pdo->prepare('SELECT su.user_id, u.user_name, su.stop_reason 
                                    FROM Stop_user su 
                                    JOIN User u ON su.user_id = u.user_id 
                                    WHERE su.user_id = ?');
                 $sql->execute([$search_id]);
              }else{ // 入力がない場合は全てのレポートを表示
             echo 3;
-                $sql = $conn->query('SELECT su.user_id, u.user_name, su.stop_reason 
+                $sql = $pdo->query('SELECT su.user_id, u.user_name, su.stop_reason 
                                  FROM Stop_user su 
                                  JOIN User u ON su.user_id = u.user_id');
              }
