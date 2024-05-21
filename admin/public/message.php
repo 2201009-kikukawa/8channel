@@ -60,7 +60,7 @@
     <script>
         function stopFunction() {
             // 実際の停止機能をここに実装します
-            alert("停止しました。");
+            window.location.href = 'stop_check.php';
         }
 
         function goBack() {
