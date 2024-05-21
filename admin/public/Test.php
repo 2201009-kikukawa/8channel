@@ -25,18 +25,18 @@
         echo "<br>====<br>";
         var_dump($_POST);
         echo "<br>====<br>";
-        $pdo=new PDO('mysql:host=mysql304.phy.lolipop.lan;dbname=LAA1516915-8cannel;charset=utf8','LAA1516915','Pass1111');
             // ユーザーIDが入力された場合の処理
-            if(isset($_POST['search'])){
+            if(!empty($_POST['search'])){
             echo 2;
-                $sql = $pdo->prepare('SELECT su.user_id, u.user_name, su.stop_reason 
+            $search_id = $_POST['search'];
+                $sql = $conn->prepare('SELECT su.user_id, u.user_name, su.stop_reason 
                                    FROM Stop_user su 
                                    JOIN User u ON su.user_id = u.user_id 
                                    WHERE su.user_id = ?');
-                $sql->execute($_POST['search']);
+                $sql->execute([$search_id]);
              }else{ // 入力がない場合は全てのレポートを表示
             echo 3;
-                $sql = $pdo->query('SELECT su.user_id, u.user_name, su.stop_reason 
+                $sql = $conn->query('SELECT su.user_id, u.user_name, su.stop_reason 
                                  FROM Stop_user su 
                                  JOIN User u ON su.user_id = u.user_id');
              }
