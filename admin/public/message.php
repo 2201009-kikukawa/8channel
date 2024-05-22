@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +9,27 @@
         body {
             font-family: Arial, sans-serif;
         }
+
         main {
             padding: 20px;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+
+        th,
+        td {
             padding: 10px;
             border: 1px solid #000;
             text-align: left;
         }
+
         th {
             background-color: #f2f2f2;
         }
+
         button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -31,11 +38,12 @@
         }
     </style>
 </head>
+
 <body>
     <?php
-        include 'header.php';
-        // クエリパラメータからユーザーIDを取得
-        $user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
+    include 'header.php';
+    // クエリパラメータからユーザーIDを取得
+    $user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
     ?>
     <main>
         <?php include 'message_output.php'; ?>
@@ -44,13 +52,15 @@
     </main>
     <script>
         function stopFunction() {
-            // 実際の停止機能をここに実装します
-            window.location.href = 'stop_check.php?user_id=<?php echo htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8'); ?>';
+            var userId = <?php echo $user_id; ?>;
+            window.location.href = 'stop_check.php?user_id=' + userId;
         }
+
 
         function goBack() {
             window.history.back();
         }
     </script>
 </body>
+
 </html>
