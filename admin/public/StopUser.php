@@ -41,7 +41,7 @@
                     echo '<td>', $row['user_name'], '</td>';
                     echo '<td>', $row['stop_reason'], '</td>';
                     echo '<td>';
-                        echo '<form action="" method="post">';
+                        echo '<form action="UserLift_input.php" method="post">';
                             echo '<input type="hidden" name="id" value="', $row['user_id'], '">';
                             echo '<button type="submit">解除</button>';
                         echo '</form>';
