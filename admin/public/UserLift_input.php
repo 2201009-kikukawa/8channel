@@ -18,10 +18,10 @@
         $sql->execute([$user_id]);
         // 結果を取得
         $user = $sql->fetch(PDO::FETCH_ASSOC);
-    } else {
+    //} else {
         // ユーザーIDが送信されていない場合、エラーを表示
-        echo "Error: ユーザーIDが指定されていません。";
-        exit; // スクリプトの実行を終了
+    //    echo "Error: ユーザーIDが指定されていません。";
+    //    exit; // スクリプトの実行を終了
     }
 ?>
 
