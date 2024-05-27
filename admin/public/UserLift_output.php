@@ -17,6 +17,16 @@
         $sql->execute([$user_id]);
         // 結果を取得
         $user = $sql->fetch(PDO::FETCH_ASSOC);
+
+        // ユーザーのアカウントフラグを更新するクエリを準備
+        $sql_update = $pdo->prepare('UPDATE User SET account_flag = 0 WHERE user_id = ?');
+        // ユーザーのアカウントフラグを0に更新
+        $sql_update->execute([$user_id]);
+
+        // Stop_userからユーザーを削除するクエリを準備
+        $sql_delete = $pdo->prepare('DELETE FROM Stop_user WHERE user_id = ?');
+        // ユーザーを削除
+        $sql_delete->execute([$user_id]);
     } else {
         // ユーザーIDが送信されていない場合、エラーを表示
         echo "Error: ユーザーIDが指定されていません。";
@@ -29,20 +39,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ユーザー情報</title>
+    <title>アカウント解除完了</title>
 </head>
 <body>
-    <h2>このアカウントを解除してもよろしいですか？</h2>
+    <h2>アカウントの停止を解除しました</h2>
     <p>ユーザーID: <?php echo $user['user_id']; ?></p>
     <p>ユーザー名: <?php echo $user['user_name']; ?></p>
     <p>停止理由: <?php echo $user['stop_reason']; ?></p>
     <?php
-        echo '<form action="UserLift_output.php" method="post">';
-            echo '<input type="hidden" name="id" value="', $row['user_id'], '">';
-            echo '<button type="submit">はい</button>';
-        echo '</form>';
         echo '<form action="StopUser.php">';
-            echo '<button type="submit">いいえ</button>';
+            echo '<button type="submit">停止アカウント一覧へ</button>';
         echo '</form>';
     ?>
 </body>
