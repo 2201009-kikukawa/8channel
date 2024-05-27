@@ -33,10 +33,18 @@
     <title>ユーザー情報</title>
 </head>
 <body>
-    <h1>ユーザー情報</h1>
+    <h2>このアカウントを解除してもよろしいですか？</h2>
     <p>ユーザーID: <?php echo $user['user_id']; ?></p>
     <p>ユーザー名: <?php echo $user['user_name']; ?></p>
     <p>停止理由: <?php echo $user['stop_reason']; ?></p>
-    <a href="UserLift_output.php">戻る</a> <!-- ユーザー情報を表示した後、任意のページにリダイレクトするリンク -->
+    <?php
+        echo '<form action="UserLift_output.php" method="post">';
+            echo '<input type="hidden" name="id" value="', $row['user_id'], '">';
+            echo '<button type="submit">はい</button>';
+        echo '</form>';
+        echo '<form action="StopUser.php">';
+            echo '<button type="submit">いいえ</button>';
+        echo '</form>';
+    ?>
 </body>
 </html>
