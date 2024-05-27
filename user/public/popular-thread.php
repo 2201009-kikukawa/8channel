@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8channel TOP</title>
+    <title>人気スレッド</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuejs-paginate@2.1.0"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -60,11 +60,11 @@
 </head>
 <body>
     <div id="app" class="container mt-4">
-        <h1>8ちゃんねる</h1>
+        <h3>{{tag_name}}スレッド一覧</h3>
         
         <div class="d-flex justify-content-around my-4">
             <a href="#" class="btn btn-primary">最新スレッド</a>
-            <a href="./popular-thread.php" class="btn btn-success">人気スレッド</a>
+            <a href="get_thread.php" class="btn btn-success">人気スレッド</a>
             <a href="#" class="btn btn-info">ゲーム一覧</a>
         </div>
 
@@ -101,6 +101,6 @@
         ></paginate>
     </div>
 
-    <script src="./src/top-vue.js"></script>
+    <script src="./src/popular-thread.js"></script>
 </body>
 </html>
