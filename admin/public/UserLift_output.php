@@ -24,11 +24,6 @@
             exit;
         }
 
-        // ユーザーID、ユーザー名、停止理由を表示
-        echo "<p>ユーザーID: {$user['user_id']}</p>";
-        echo "<p>ユーザー名: {$user['user_name']}</p>";
-        echo "<p>停止理由: {$user['stop_reason']}</p>";
-
         // ユーザーのアカウントフラグを更新するクエリを準備
         $sql_update = $pdo->prepare('UPDATE User SET account_flag = 0 WHERE user_id = ?');
         // ユーザーのアカウントフラグを0に更新
