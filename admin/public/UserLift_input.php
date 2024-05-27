@@ -37,6 +37,6 @@
     <p>ユーザーID: <?php echo $user['user_id']; ?></p>
     <p>ユーザー名: <?php echo $user['user_name']; ?></p>
     <p>停止理由: <?php echo $user['stop_reason']; ?></p>
-    <a href="somepage.php">戻る</a> <!-- ユーザー情報を表示した後、任意のページにリダイレクトするリンク -->
+    <a href="UserLift_output.php">戻る</a> <!-- ユーザー情報を表示した後、任意のページにリダイレクトするリンク -->
 </body>
 </html>
