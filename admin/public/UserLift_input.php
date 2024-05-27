@@ -38,7 +38,7 @@
     <p>停止理由: <?php echo $user['stop_reason']; ?></p>
     <?php
         echo '<form action="UserLift_output.php" method="post">';
-            echo '<input type="hidden" name="id" value="', $row['user_id'], '">';
+            echo '<input type="hidden" name="id" value="', $user['user_id'], '">';
             echo '<button type="submit">はい</button>';
         echo '</form>';
         echo '<form action="StopUser.php">';
