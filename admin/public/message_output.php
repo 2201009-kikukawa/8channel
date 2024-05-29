@@ -2,9 +2,9 @@
 $rootDirectory = basename($_SERVER['DOCUMENT_ROOT']);
 // xamppを利用したlocal環境を使う場合は自分のDB情報を入力
 $SERVER = '127.0.0.1';
-$DBNAME = '8channel';
-$USER = 'eiki';
-$PASS = 'Pass0103';
+$DBNAME = '8cannel';
+$USER = 'kazu';
+$PASS = 'kazu9030kk';
 
 if ($rootDirectory != 'htdocs') {
     $SERVER = "mysql304.phy.lolipop.lan";
