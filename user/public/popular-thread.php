@@ -56,15 +56,43 @@
             color: white;
             border: 1px solid #007bff;
         }
+
+        @media(min-width: 1024px){
+            #side{
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
-    <div id="app" class="container mt-4">
+    <div id = "app">
+    <div id = "side">
+        <div class = "collapse" id = "navbarToggleExternalContent" data-bs-theme="dark">
+            <div class="bg-dark p-4">
+                <h5 class="text-body-emphasis h4">タグ一覧</h5>
+                <span class="text-body-secondary">
+                    <button v-for="tag in tags" :key="tag.tag_id" @click.prevent="filterThreadsByTag(tag.tag_id)" class="list-group-item list-group-item-action">
+                        <h5 class="mb-1">{{ tag.tag_name }}</h5>
+                    </button>
+                    <p v-if="tags.length === 0">タグが見つかりませんでした。</p>
+                </span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="container mt-4">
         <h3>{{tag_name}}スレッド一覧</h3>
         
         <div class="d-flex justify-content-around my-4">
             <a href="#" class="btn btn-primary">最新スレッド</a>
-            <a href="get_thread.php" class="btn btn-success">人気スレッド</a>
+            <a href="popular-thread.php" class="btn btn-success">人気スレッド</a>
             <a href="#" class="btn btn-info">ゲーム一覧</a>
         </div>
 
@@ -100,7 +128,7 @@
             :next-link-class="'page-link'"
         ></paginate>
     </div>
-
-    <script src="./src/popular-thread.js"></script>
+    </div>
+    <script src="./src/popular-threads.js"></script>
 </body>
 </html>
