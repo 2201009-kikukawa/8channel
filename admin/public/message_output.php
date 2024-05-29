@@ -26,7 +26,7 @@ try {
 // データベースからユーザーのメッセージを取得
 $user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
 
-$stmt = $pdo->prepare('SELECT user.user_name, message.data, message.message_txt FROM message INNER JOIN user ON message.user_id = user.user_id WHERE message.user_id = :user_id');
+$stmt = $pdo->prepare('SELECT user.user_name, message.data, message.message_txt FROM Message INNER JOIN user ON message.user_id = user.user_id WHERE message.user_id = :user_id');
 $stmt->execute(['user_id' => $user_id]);
 $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
