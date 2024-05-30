@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     .catch(error => console.error('Error:', error));
             },
             fetchThreads() {
-                fetch('../../config/control/get_popular.php')
+                fetch('../../config/control/get_latest.php')
                     .then(response => response.json())
                     .then(data => {
                         this.threads = data;
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     .catch(error => console.error('Error:', error));
             },
             filterThreadsByTag(tagId,tagName) {
-                fetch(`../../config/control/get_popular.php?tag_id=${tagId}`)
+                fetch(`../../config/control/get_latest.php?tag_id=${tagId}`)
                     .then(response => response.json())
                     .then(data => {
                         this.threads = data;

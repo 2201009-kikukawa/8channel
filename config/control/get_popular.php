@@ -2,11 +2,28 @@
 require '../../config/db-connect.php';
 header('Content-Type: application/json');
 
-function getThreads($pdo) {
+$tagId = isset($_GET['tag_id']) ? $_GET['tag_id'] : null;
+function getThreads($pdo, $tagId = null) {
     $response = [];
     try {
-        $stmt = $pdo->query("SELECT * FROM thread ORDER BY views DESC");
+        if ($tagId !== null) {
+            // tag_idが指定されている場合はtag_mngテーブルからスレッドを取得
+            $stmt = $pdo->prepare("
+                SELECT t.* 
+                FROM thread t 
+                JOIN tag_mng tm ON t.thread_id = tm.thread_id 
+                WHERE tm.tag_id = :tagId
+                ORDER BY views DESC
+            ");
+            $stmt->bindValue(':tagId', $tagId, PDO::PARAM_INT);
+        } else {
+            // tag_idが指定されていない場合は全てのスレッドを取得
+            $stmt = $pdo->query("SELECT * FROM thread ORDER BY views DESC");
+        }
+
+        $stmt->execute();
         $threads = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         if ($threads) {
             foreach ($threads as $thread) {
                 $response[] = [
@@ -27,4 +44,5 @@ function getThreads($pdo) {
     return json_encode($response);
 }
 
-echo getThreads($pdo);
+echo getThreads($pdo, $tagId);
+?>

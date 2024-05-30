@@ -88,7 +88,7 @@
     </div>
     
     <div class="container mt-4">
-        <h3>{{tag_name}}人気スレッド一覧</h3>
+        <h3>{{tag_name}}最新スレッド一覧</h3>
         
         <div class="d-flex justify-content-around my-4">
             <a href="latest-thread.php" class="btn btn-primary">最新スレッド</a>
@@ -129,6 +129,6 @@
         ></paginate>
     </div>
     </div>
-    <script src="./src/popular-threads.js"></script>
+    <script src="./src/latest-threads.js"></script>
 </body>
 </html>

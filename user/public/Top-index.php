@@ -63,8 +63,8 @@
         <h1>8ちゃんねる</h1>
         
         <div class="d-flex justify-content-around my-4">
-            <a href="#" class="btn btn-primary">最新スレッド</a>
-            <a href="./popular-thread.php" class="btn btn-success">人気スレッド</a>
+            <a href="latest-thread.php" class="btn btn-primary">最新スレッド</a>
+            <a href="popular-thread.php" class="btn btn-success">人気スレッド</a>
             <a href="#" class="btn btn-info">ゲーム一覧</a>
         </div>
 
