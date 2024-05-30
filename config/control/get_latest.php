@@ -13,12 +13,12 @@ function getThreads($pdo, $tagId = null) {
                 FROM thread t 
                 JOIN tag_mng tm ON t.thread_id = tm.thread_id 
                 WHERE tm.tag_id = :tagId
-                ORDER BY views DESC
+                ORDER BY date DESC
             ");
             $stmt->bindValue(':tagId', $tagId, PDO::PARAM_INT);
         } else {
-            // tag_idが指定されていない場合は全てのスレッドを取得
-            $stmt = $pdo->query("SELECT * FROM thread");
+            // tag_idが指定されていない場合は全てのスレッドを新しい順に取得
+            $stmt = $pdo->query("SELECT * FROM `thread` ORDER BY `thread`.`date` DESC");
         }
 
         $stmt->execute();
