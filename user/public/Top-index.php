@@ -77,7 +77,7 @@
         </div>
 
         <div class="list-group">
-            <a v-for="thread in paginatedThreads" :key="thread.thread_id" :href="'thread.php?id=' + thread.thread_id" class="list-group-item list-group-item-action">
+            <a v-for="thread in paginatedThreads" :key="thread.thread_id" :href="'thread_detail.php?thread_id=' + thread.thread_id" class="list-group-item list-group-item-action">
                 <h5 class="mb-1">{{ thread.thread_name }}</h5>
                 <small>投稿日: {{ thread.date }}</small>
             </a>
