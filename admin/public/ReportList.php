@@ -32,8 +32,8 @@
 
             foreach($sql as $row) {
                 echo '<tr>';
-                    echo '<td>', '<a href="message.php?ユーザーID=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
-                    echo '<td>', '<a href="message.php?ユーザーID=', $row['user_id'], '">', $row['user_id'], '</a>', '</td>';
+                    echo '<td>', '<a href="message.php?user_id=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
+                    echo '<td>', '<a href="message.php?user_id=', $row['user_id'], '">', $row['user_id'], '</a>', '</td>';
                     echo '<td>', $row['report_reason'], '</td>';
                     echo '<td>', $row['data'], '</td>';
                 echo '</tr>';
