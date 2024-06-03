@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // user_idが既に存在するか確認
-        $stmt = $conn->prepare("SELECT COUNT(*) FROM stop_user WHERE user_id = :user_id");
+        $stmt = $conn->prepare("SELECT COUNT(*) FROM Stop_user WHERE user_id = :user_id");
         $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
         $userExists = $stmt->fetchColumn();
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $message = "このユーザーIDは既に登録されています。";
         } else {
             // SQL文を準備
-            $stmt = $conn->prepare("INSERT INTO stop_user (user_id, stop_reason) VALUES (:user_id, :stop_reason)");
+            $stmt = $conn->prepare("INSERT INTO Stop_user (user_id, stop_reason) VALUES (:user_id, :stop_reason)");
             // 値をバインド
             $stmt->bindParam(':user_id', $user_id);
             $stmt->bindParam(':stop_reason', $stop_reason);
