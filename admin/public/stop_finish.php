@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p><strong>ユーザーID:</strong> <?php echo htmlspecialchars($user_id); ?></p>
         <p><strong>ユーザー名:</strong> <?php echo htmlspecialchars($userName); ?></p>
         <p><strong>停止理由:</strong> <?php echo htmlspecialchars($stop_reason); ?></p>
-        <form action="report_list.php" method="get">
+        <form action="ReportList.php" method="get">
             <button type="submit">報告一覧に戻る</button>
         </form>
     </main>
