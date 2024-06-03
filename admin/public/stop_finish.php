@@ -31,6 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($userExists) {
             $message = "このユーザーIDは既に登録されています。";
         } else {
+            //account_flagを1に
+            $stmt = $conn->prepare("UPDATE User SET account_flag = 1 WHERE user_id = :user_id");
+            $stmt->bindParam(':user_id', $user_id);
+            $stmt->execute();
+
             // SQL文を準備
             $stmt = $conn->prepare("INSERT INTO Stop_user (user_id, stop_reason) VALUES (:user_id, :stop_reason)");
             // 値をバインド
