@@ -10,9 +10,9 @@ if ($user_id == 0) {
 
 // データベース接続情報
 $SERVER = '127.0.0.1';
-$DBNAME = '8channel';
-$USER = 'eiki';
-$PASS = 'Pass0103';
+$DBNAME = '8cannel';
+$USER = 'kazu';
+$PASS = 'kazu9030kk';
 
 $rootDirectory = basename($_SERVER['DOCUMENT_ROOT']);
 
@@ -32,7 +32,7 @@ try {
 }
 
 // データベースからユーザー名を取得
-$sql = "SELECT user_name FROM user WHERE user_id = ?";
+$sql = "SELECT user_name FROM User WHERE user_id = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$user_id]);
 $userName = $stmt->fetchColumn();
