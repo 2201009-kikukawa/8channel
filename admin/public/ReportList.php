@@ -30,13 +30,20 @@
                 $sql=$pdo->query('select * from Report');
              }
 
-            foreach($sql as $row) {
-                echo '<tr>';
+            // 検索結果の行数を取得
+            $rowCount = $sql->rowCount();
+
+            if($rowCount === 0) { // 検索結果がない場合
+                echo '<tr><td colspan="4">データが見つかりません</td></tr>';
+            } else { // 検索結果がある場合
+                foreach($sql as $row) {
+                    echo '<tr>';
                     echo '<td>', '<a href="message.php?user_id=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
                     echo '<td>', '<a href="message.php?user_id=', $row['user_id'], '">', $row['user_id'], '</a>', '</td>';
                     echo '<td>', $row['report_reason'], '</td>';
                     echo '<td>', $row['data'], '</td>';
-                echo '</tr>';
+                    echo '</tr>';
+                }
             }
         ?>
     </table>
