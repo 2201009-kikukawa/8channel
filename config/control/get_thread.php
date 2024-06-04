@@ -3,11 +3,12 @@ require '../../config/db-connect.php';
 header('Content-Type: application/json');
 
 $tagId = isset($_GET['tag_id']) ? $_GET['tag_id'] : null;
-function getThreads($pdo, $tagId = null) {
+$channelId = isset($_GET['channel_id']) ? $_GET['channel_id'] : null;
+
+function getThreads($pdo, $tagId = null, $channelId = null) {
     $response = [];
     try {
         if ($tagId !== null) {
-            // tag_idが指定されている場合はtag_mngテーブルからスレッドを取得
             $stmt = $pdo->prepare("
                 SELECT t.* 
                 FROM thread t 
@@ -16,8 +17,15 @@ function getThreads($pdo, $tagId = null) {
                 ORDER BY views DESC
             ");
             $stmt->bindValue(':tagId', $tagId, PDO::PARAM_INT);
+        } elseif ($channelId !== null) {
+            $stmt = $pdo->prepare("
+                SELECT * 
+                FROM thread 
+                WHERE channel_id = :channelId
+                ORDER BY views DESC
+            ");
+            $stmt->bindValue(':channelId', $channelId, PDO::PARAM_INT);
         } else {
-            // tag_idが指定されていない場合は全てのスレッドを取得
             $stmt = $pdo->query("SELECT * FROM thread");
         }
 
@@ -44,5 +52,5 @@ function getThreads($pdo, $tagId = null) {
     return json_encode($response);
 }
 
-echo getThreads($pdo, $tagId);
+echo getThreads($pdo, $tagId, $channelId);
 ?>
