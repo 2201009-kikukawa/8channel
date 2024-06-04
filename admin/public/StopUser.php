@@ -35,8 +35,14 @@
                                  JOIN User u ON su.user_id = u.user_id');
              }
 
-            foreach($sql as $row) {
-                echo '<tr>';
+            // 検索結果の行数を取得
+            $rowCount = $sql->rowCount();
+
+            if($rowCount === 0) { // データがない場合
+                echo '<tr><td colspan="4">データが見つかりません</td></tr>';
+            } else { // データがある場合
+                foreach($sql as $row) {
+                    echo '<tr>';
                     echo '<td>', $row['user_id'], '</td>';
                     echo '<td>', $row['user_name'], '</td>';
                     echo '<td>', $row['stop_reason'], '</td>';
@@ -46,7 +52,8 @@
                             echo '<button type="submit">解除</button>';
                         echo '</form>';
                     echo '</td>';
-                echo '</tr>';
+                    echo '</tr>';
+                }
             }
         ?>
     </table>
