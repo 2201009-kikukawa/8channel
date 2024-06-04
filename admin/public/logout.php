@@ -1,4 +1,3 @@
-<!-- logout.php -->
 <?php
 // セッションの開始または再開
 session_start();
