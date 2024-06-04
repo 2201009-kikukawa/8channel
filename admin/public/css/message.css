@@ -1,0 +1,62 @@
+/* 全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* 背景色を黒に変更 */
+    color: #fff; /* テキストの色を白に変更 */
+}
+
+/* メインコンテナのスタイル */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #000; /* 背景色を黒に変更 */
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #00ff00; /* 緑色の枠線を追加 */
+}
+
+/* 見出しのスタイル */
+
+/* ボタンのスタイル */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #00ff00; /* 緑色の枠線を追加 */
+    border-radius: 5px;
+    background-color: #000; /* 背景色を黒に変更 */
+    color: white; /* テキストの色を緑に変更 */
+    margin-right: 10px;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+/* クラス名に対応するスタイル */
+.green-border {
+    border: 1px solid #00ff00;
+}
+
+.green-text {
+    color: #00ff00;
+}
+u{
+    color: #fff;
+}
+
+/* クラス.heager-messageのスタイル */
+.heager-message th {
+    background-color: black !important; /* 背景色を黒に変更 */
+    color: #fff !important; /* テキストの色を白に変更 */
+}
+.heager-message{
+    border: 1px solid #00ff00; /* 緑色の枠線を追加 */
+    border-radius: 5px;
+}
+.message-row{
+    border: 1px solid #00ff00; /* 緑色の枠線を追加 */
+    border-radius: 5px;
+}
