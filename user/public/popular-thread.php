@@ -89,6 +89,8 @@
     
     <div class="container mt-4">
         <h3>{{tag_name}}人気スレッド一覧</h3>
+
+        <a href="thread_create.php" class="btn btn-primary">スレッド作成</a>
         
         <div class="d-flex justify-content-around my-4">
             <a href="latest-thread.php" class="btn btn-primary">最新スレッド</a>
