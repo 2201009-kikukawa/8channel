@@ -1,4 +1,6 @@
-<!-- logout_output.php -->
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +10,6 @@
 </head>
 <body>
     <?php
-    // セッションの開始または再開
-    session_start();
 
     // セッションが破棄されたことを確認する
     if (!isset($_SESSION['user_id'])) {
