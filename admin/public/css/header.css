@@ -1,0 +1,50 @@
+body {
+    background-color: black;
+    color: rgb(239, 233, 233);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.wave-container1 {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20px; /* タイトルとの距離を調整 */
+}
+
+.svg1 {
+    display: block;
+    width: 100%;
+    height: 100px;
+}
+
+.login-title {
+    margin-top: 40px; /* 波線との距離を調整 */
+}
+
+form {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+label, input {
+    display: block;
+    margin: 10px 0;
+}
+
+input[type="email"], input[type="password"] {
+    padding: 5px;
+    width: 200px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: blue;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkblue;
+}
