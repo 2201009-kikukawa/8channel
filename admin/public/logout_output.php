@@ -21,7 +21,7 @@
     <p>ログイン画面に戻ります...</p>
     <script>
         setTimeout(function(){
-            window.location.href = '../login_input.php'; // ログイン画面のURLにリダイレクト
+            window.location.href = './login_input.php'; // ログイン画面のURLにリダイレクト
         }, 3000); // 3秒後にリダイレクト
     </script>
 </body>
