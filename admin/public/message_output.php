@@ -37,7 +37,7 @@ if (empty($messages)) {
 ?>
 
 <h2>
-    <u>ID：<?php echo htmlspecialchars($messages[0]['user_name'], ENT_QUOTES, 'UTF-8'); ?>の投稿一覧</u>
+    <u>ID：<?php echo htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8'); ?>の投稿一覧</u>
 </h2>
 <table class="table table-bordered">
     <thead>
