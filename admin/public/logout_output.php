@@ -22,7 +22,7 @@
     <script>
         setTimeout(function(){
             window.location.href = './login_input.php'; // ログイン画面のURLにリダイレクト
-        }, 3000); // 3秒後にリダイレクト
+        }, 2000); // 2秒後にリダイレクト
     </script>
 </body>
 </html>
