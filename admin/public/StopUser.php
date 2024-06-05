@@ -11,7 +11,6 @@
         <input type=button value=タグ作成>
         <br>
         <a href="ReportList.php">報告一覧へ</a>
-        <a href="logout.php">ログアウト</a>
     <table>
         <tr>
             <th>ユーザーID</th>
