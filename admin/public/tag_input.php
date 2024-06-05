@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <button type="button" onclick="addTextBox()">+</button>
     <button type="submit">作成</button>
 </form>
-
+<button onclick="goBack()">戻る</button>
 <script>
     let textBoxCounter = 1;
 
@@ -105,6 +105,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         textBoxContainer.appendChild(textBox);
         container.appendChild(textBoxContainer);
+    }
+    function goBack() {
+        window.location.href = 'ReportList.php';
     }
 </script>
 </body>
