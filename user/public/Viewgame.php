@@ -60,28 +60,27 @@
 </head>
 <body>
     <div id="app" class="container mt-4">
-        <h1>8ちゃんねる</h1>
-        
-        <div class="d-flex justify-content-around my-4">
-            <a href="latest-thread.php" class="btn btn-primary">最新スレッド</a>
-            <a href="popular-thread.php" class="btn btn-success">人気スレッド</a>
-            <a href="Viewgame.php" class="btn btn-info">ゲーム一覧</a>
-        </div>
 
         <!-- 検索バー -->
         <div class="search-container">
-            <input type="text" v-model="searchQuery" placeholder="スレッドを検索">
+            <input type="text" v-model="searchQuery" placeholder="ゲームを検索">
             <button>
                 <i class="fas fa-search"></i>
             </button>
         </div>
 
-        <div class="list-group">
-            <a v-for="thread in paginatedThreads" :key="thread.thread_id" :href="'thread_detail.php?thread_id=' + thread.thread_id" class="list-group-item list-group-item-action">
-                <h5 class="mb-1">{{ thread.thread_name }}</h5>
-                <small>投稿日: {{ thread.date }}</small>
-            </a>
-            <p v-if="filteredThreads.length === 0">スレッドが見つかりませんでした。</p>
+        <!--ゲーム一覧-->
+        <div class="row">
+            <div v-for="channel in paginatedChannels" :key="channel.channel_id" class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="mb-1">
+                        <a :href="'game-thread-View.php?id=' + channel.channel_id">{{ channel.channel_name }}</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <p v-if="filteredChannels.length === 0" class="col-12">ゲームが見つかりませんでした。</p>
         </div>
 
         <!-- ページネーション -->
@@ -101,6 +100,8 @@
         ></paginate>
     </div>
 
-    <script src="./src/top-vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="./src/view-game.js"></script>
 </body>
 </html>

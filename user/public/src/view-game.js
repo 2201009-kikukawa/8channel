@@ -5,23 +5,23 @@ new Vue({
     },
     data: {
         searchQuery: '',
-        threads: [],
+        channels: [],
         pageNumber: 1,
         pageSize: 10
     },
     computed: {
-        filteredThreads() {
-            return this.threads.filter(thread => 
-                thread.thread_name.toLowerCase().includes(this.searchQuery.toLowerCase())
+        filteredChannels() {
+            return this.channels.filter(channel => 
+                channel.channel_name.toLowerCase().includes(this.searchQuery.toLowerCase())
             );
         },
-        paginatedThreads() {
+        paginatedChannels() {
             const start = (this.pageNumber - 1) * this.pageSize;
             const end = start + this.pageSize;
-            return this.filteredThreads.slice(start, end);
+            return this.filteredChannels.slice(start, end);
         },
         pageCount() {
-            return Math.ceil(this.filteredThreads.length / this.pageSize);
+            return Math.ceil(this.filteredChannels.length / this.pageSize);
         }
     },
     methods: {
@@ -30,7 +30,7 @@ new Vue({
         }
     },
     created() {
-        fetch('../../config/control/get_thread.php')
+        fetch('../../config/control/get_channel.php')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -45,7 +45,7 @@ new Vue({
                     if (data.error) {
                         throw new Error(data.error);
                     }
-                    this.threads = data;
+                    this.channels = data;
                 } catch (e) {
                     throw new Error(`JSON parse error: ${e.message}`);
                 }

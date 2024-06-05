@@ -60,8 +60,10 @@
 </head>
 <body>
     <div id="app" class="container mt-4">
-        <h1>8ちゃんねる</h1>
+        <h1>{{channel_name}}のスレッド一覧
+        </h1>
         
+        <a href="thread_create.php" class="btn btn-primary">スレッド作成</a>
         <div class="d-flex justify-content-around my-4">
             <a href="latest-thread.php" class="btn btn-primary">最新スレッド</a>
             <a href="popular-thread.php" class="btn btn-success">人気スレッド</a>
@@ -101,6 +103,6 @@
         ></paginate>
     </div>
 
-    <script src="./src/top-vue.js"></script>
+    <script src="./src/game-thread-vue.js"></script>
 </body>
 </html>
