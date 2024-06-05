@@ -16,13 +16,17 @@ session_destroy();
         function redirectToLogin() {
             window.location.href = 'logout_output.php'; // ログイン画面のURLにリダイレクト
         }
+
+        function redirectToReportList() {
+            window.location.href = 'ReportList.php'; // ReportList.php にリダイレクト
+        }
     </script>
 </head>
 <body>
     <main>
         <h1>ログアウトしますか？</h1>
         <button onclick="handleLogout()">はい</button>
-        <button onclick="redirectToLogin()">いいえ</button>
+        <button onclick="redirectToReportList()">いいえ</button>
     </main>
     <script>
         function handleLogout() {
