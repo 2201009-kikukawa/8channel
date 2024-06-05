@@ -74,7 +74,7 @@
 
 
         function goBack() {
-            window.history.back();
+            window.location.href = 'ReportList.php';
         }
     </script>
 </body>
