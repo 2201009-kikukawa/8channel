@@ -8,7 +8,6 @@
         <input type="text" name="search" placeholder="IDを入力">
         <input type="submit" value="検索">
     </form>
-        <input type=button value=タグ作成>
         <br>
         <a href="ReportList.php">報告一覧へ</a>
     <table>
