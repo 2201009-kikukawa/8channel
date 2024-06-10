@@ -4,13 +4,11 @@
 ?>
 
 <body>
-    <p>
     <form method="post">
         <input type="text" name="search_id" placeholder="報告側のIDを入力">
         <input type="submit" value="検索">
     </form>
         <input type=button value=タグ作成 onclick="redirectToTagInput()">
-        </p>
         <br>
         <a href="StopUser.php">停止アカウント一覧へ</a>
         <a href="logout.php">ログアウト</a>
