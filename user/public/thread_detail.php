@@ -7,19 +7,14 @@ error_reporting(E_ALL);
 require './header.php';
 require '../../config/db-connect.php';
 
-// URLパラメータからスレッドIDを取得
 $thread_id = isset($_GET['thread_id']) ? intval($_GET['thread_id']) : 0;
 
-// limitパラメータの取得、デフォルトは10
-$limit = isset($_GET['limit']) ? intval($_GET['limit']) : 10;
-
-// スレッドIDが無効な場合、エラーメッセージを表示して終了
 if ($thread_id === 0) {
-    die('無効なスレッドIDです。');
+    die('Invalid thread ID.');
 }
 
 try {
-    // ビューカウントを更新
+    // ビューカウントを更新する
     $stmt = $pdo->prepare("UPDATE thread SET views = views + 1 WHERE thread_id = :thread_id");
     $stmt->bindParam(':thread_id', $thread_id);
     $stmt->execute();
@@ -30,28 +25,22 @@ try {
     $stmt->execute();
     $thread = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // スレッドが存在しない場合、エラーメッセージを表示して終了
     if (!$thread) {
         die('スレッドが見つかりませんでした。');
     }
 
     // メッセージを取得（降順）
-    $sql = "
-        SELECT m.message_id, m.message_txt, m.data, u.user_name, md.message_cnt
+    $stmt = $pdo->prepare("
+        SELECT m.message_id, m.message_txt, m.data, u.user_id, u.user_name, md.message_cnt
         FROM message m
         JOIN user u ON m.user_id = u.user_id
         JOIN message_detail md ON m.message_id = md.message_id
         WHERE m.thread_id = :thread_id
         ORDER BY m.data DESC
-    ";
-    if ($limit > 0) {
-        $sql .= " LIMIT :limit";
-    }
-    $stmt = $pdo->prepare($sql);
+        LIMIT 10
+    ");
+
     $stmt->bindParam(':thread_id', $thread_id);
-    if ($limit > 0) {
-        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
-    }
     $stmt->execute();
     $messages_desc = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -68,6 +57,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>スレッド詳細</title>
+    <link rel="stylesheet" href="./css/report_modal.css">
 </head>
 <body>
     <h1><?= htmlspecialchars($thread['thread_name']) ?></h1>
@@ -78,26 +68,47 @@ try {
         <ul>
             <?php foreach ($messages_asc as $message): ?>
                 <li>
-                    <strong><?= htmlspecialchars($message['message_cnt']) ?></strong>
+                    <strong><?= $message['message_cnt'] ?></strong>
                     <strong><?= htmlspecialchars($message['user_name']) ?></strong>
                     <p><?= htmlspecialchars($message['message_txt']) ?></p>
                     <small><?= htmlspecialchars($message['data']) ?></small>
+                    <button class="report-button" data-message-id="<?= $message['message_id'] ?>"  data_user_name="<?= htmlspecialchars($message['user_name']) ?>"data_user_id="<?= htmlspecialchars($message['user_id'])?>" >報告</button>
                 </li>
             <?php endforeach; ?>
         </ul>
-        <?php if ($limit > 0): ?>
-            <a href="?thread_id=<?= $thread_id ?>&limit=0">すべて表示</a>
-        <?php else: ?>
-            <a href="?thread_id=<?= $thread_id ?>&limit=10">最新10件を表示</a>
-        <?php endif; ?>
+        <input type="hidden"id = "userid" value=<?php $_SESSION['User']['id']?>>
     <?php endif; ?>
 
     <h2>メッセージを投稿</h2>
     <form action="post_message.php" method="post">
         <textarea name="message_txt" rows="6" cols="50" required></textarea><br>
         <input type="hidden" name="thread_id" value="<?= $thread_id ?>">
-        <input type="hidden" name="user_id" value="<?= isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : '' ?>">
+        <input type="hidden" name="user_id" id="user_id" value="<?= isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : '' ?>">
         <button type="submit">投稿</button>
     </form>
+
+<!-- 報告モーダル -->
+<div id="report-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>このコメントを報告</h2>
+        <!-- ユーザー名を表示する要素 -->
+        <div id="reported-user-name"></div>
+        <form id="report-form">
+        <input type="hidden" id="report_user_id" name="report_user_id" value="">
+            <label for="report_reason">報告理由:</label>
+            <select name="report_reason" id="report-reason" required>
+                <option value="1">迷惑なコメント</option>
+                <option value="2">暴力的なコメント</option>
+                <option value="3">卑猥なコメント</option>
+            </select><br>
+            <button type="submit">報告する</button>
+        </form>
+    </div>
+</div>
+
+<script src="./src/report_modalver1.js" defer></script>
+
+
 </body>
 </html>
