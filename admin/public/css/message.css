@@ -1,34 +1,35 @@
 /* 全体のスタイル */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #000; /* 背景色を黒に変更 */
-    color: #fff; /* テキストの色を白に変更 */
+html {
+    max-width: 100%;
+    background-color: #000;
 }
 
 /* メインコンテナのスタイル */
 main {
-    max-width: 800px;
+    text-align: center;
     margin: 20px auto;
-    background-color: #000; /* 背景色を黒に変更 */
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #00ff00; /* 緑色の枠線を追加 */
+    background-color: #000;
+    /* 背景色を黒に変更 */
 }
 
 /* 見出しのスタイル */
+h2 {
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
 
 /* ボタンのスタイル */
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    border: 1px solid #00ff00; /* 緑色の枠線を追加 */
+    border: 1px solid #00ff00;
+    /* 緑色の枠線を追加 */
     border-radius: 5px;
-    background-color: #000; /* 背景色を黒に変更 */
-    color: white; /* テキストの色を緑に変更 */
-    margin-right: 10px;
+    background-color: #000;
+    /* 背景色を黒に変更 */
+    color: white;
+    /* テキストの色を緑に変更 */
 }
 
 button:last-child {
@@ -43,20 +44,52 @@ button:last-child {
 .green-text {
     color: #00ff00;
 }
-u{
+
+u {
     color: #fff;
 }
 
 /* クラス.heager-messageのスタイル */
-.heager-message th {
-    background-color: black !important; /* 背景色を黒に変更 */
-    color: #fff !important; /* テキストの色を白に変更 */
-}
 .heager-message{
-    border: 1px solid #00ff00; /* 緑色の枠線を追加 */
+    border: 2px solid #00ff00;
+}
+.heager-message th {
+    text-align: center;
+    background-color: black !important;
+    /* 背景色を黒に変更 */
+    color: #fff !important;
+    /* テキストの色を白に変更 */
+}
+
+
+
+/* クラス.message-rowのスタイル */
+.message-row {
+    max-width: 100%;
+    /* テーブル行の最大幅を100%に制限 */
+    border: 1px solid #00ff00;
+    /* 緑色の枠線を追加 */
     border-radius: 5px;
 }
-.message-row{
-    border: 1px solid #00ff00; /* 緑色の枠線を追加 */
-    border-radius: 5px;
+
+table {
+    max-width: 50%;
+    margin-left: 25%;
+}
+
+/* クラス.heager-messageのスタイル */
+.heager-message th.date-colum {
+    width: 30%;
+    /* 日付セルの幅を変更 */
+    text-align: center;
+    /* テキストを中央揃えにする */
+    /* 緑色の枠線を追加 */
+    border-radius: 30px;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* ボタンを中央に配置 */
+    gap: 20%;
+    margin-top: 5%;
 }

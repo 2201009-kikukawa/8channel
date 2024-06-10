@@ -42,7 +42,7 @@ if (empty($messages)) {
 <table class="table table-bordered">
     <thead>
         <tr class="heager-message">
-            <th scope="col">日付</th>
+            <th scope="col" class="date-colum">日付</th>
             <th scope="col">メッセージ</th>
         </tr>
     </thead>

@@ -14,8 +14,10 @@
     ?>
     <main>
         <?php include 'message_output.php'; ?>
+        <div class="button-container">
         <button onclick="stopFunction()">停止</button>
         <button onclick="goBack()">戻る</button>
+        </div>
     </main>
     <script>
         function stopFunction() {
