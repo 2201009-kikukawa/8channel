@@ -2,7 +2,9 @@
     require '../../config/db-connect.php';
     require 'header.php';
 ?>
-
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/ReportList.css">
+</head>
 <body>
     <form method="post">
         <input type="text" name="search_id" placeholder="報告側のIDを入力">
@@ -11,7 +13,7 @@
         <input type=button value=タグ作成>
         <br>
         <a href="StopUser.php">停止アカウント一覧へ</a>
-        <a href="logout.php">ログアウト</a>
+        <a href="logout.php" class="logout">ログアウト</a>
     <table>
         <tr>
             <th>報告したユーザーID</th>
