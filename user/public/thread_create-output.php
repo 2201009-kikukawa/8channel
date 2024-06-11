@@ -10,18 +10,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $th_name = $_POST['th_name'];
     $channel_id = $_POST['channel_id'];
     $tag_id = $_POST['tag_id'];
-    $content = $_POST['thread_text'];
+    $content = $_POST['thread_txt'];
 
     try {
         // トランザクション開始
         $pdo->beginTransaction();
 
         // threadテーブルにデータを挿入
-        $stmt = $pdo->prepare("INSERT INTO thread (thread_name, channel_id, tag_id, thread_text) VALUES (:thread_name, :channel_id, :tag_id, :thread_text)");
+        $stmt = $pdo->prepare("INSERT INTO thread (thread_name, channel_id, tag_id, thread_txt) VALUES (:thread_name, :channel_id, :tag_id, :thread_txt)");
         $stmt->bindParam(':thread_name', $th_name);
         $stmt->bindParam(':channel_id', $channel_id);
         $stmt->bindParam(':tag_id', $tag_id);
-        $stmt->bindParam(':thread_text', $content);
+        $stmt->bindParam(':thread_txt', $content);
         $stmt->execute();
 
         // 挿入したスレッドのIDを取得

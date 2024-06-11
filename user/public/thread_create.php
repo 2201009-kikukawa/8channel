@@ -85,7 +85,7 @@ require '../../config/db-connect.php';
         <!--時間があったら改行も指定できるようにしたい-->
         <div class="thread">内容</div>
         <div class="thread-box">
-            <textarea name="thread_text" cols="33" rows="3" placeholder="スレッド内容を入力してください(100文字以内)" required></textarea>
+            <textarea name="thread_txt" cols="33" rows="3" placeholder="スレッド内容を入力してください(100文字以内)" required></textarea>
         </div>
 
         <button class="btn btn-outline-success" type="button" onclick="history.back()">戻る</button>
