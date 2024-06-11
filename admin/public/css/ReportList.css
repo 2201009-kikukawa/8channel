@@ -42,7 +42,7 @@ input[type="button"] {
 
 a {
     display: inline-block; /* リンクをブロック要素として表示 */
-    margin-right: 40px; /* リンク間のスペースを広げる */
+    margin-right: 20px; /* リンク間のスペースを広げる */
 }
 
 a.logout {
