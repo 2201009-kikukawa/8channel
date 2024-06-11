@@ -27,7 +27,7 @@
                 $sql=$pdo->prepare('select * from Report where report_user = ?');
                 $sql->execute([$_POST['search_id']]);
              }else{ // 入力がない場合は全てのレポートを表示
-                $sql=$pdo->query('select * from Report');
+                $sql=$pdo->query('select * from report');
              }
 
             // 検索結果の行数を取得
