@@ -7,24 +7,24 @@ include 'stop_check_output.php'; // ユーザー情報の取得
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stop_check.css">
     <title>アカウント停止確認</title>
-    <style>
-        /* スタイルはそのまま */
-    </style>
 </head>
 <body>
     <?php include 'header.php'; ?>
     <main>
         <form method="post" action="stop_finish.php">
             <h1>アカウントを停止してもよろしいですか？</h1>
-            <p><strong>ユーザーID:</strong> <?php echo htmlspecialchars($user_id); ?></p>
-            <p><strong>ユーザー名:</strong> <?php echo htmlspecialchars($userName); ?></p>
-            <label for="detail">停止理由を選択してください</label>
+            <p class="ID"><strong>ユーザーID:&nbsp;&nbsp;&nbsp;</strong> <?php echo htmlspecialchars($user_id); ?></p>
+            <p><strong>ユーザー名:&nbsp;&nbsp;&nbsp;</strong> <?php echo htmlspecialchars($userName); ?></p>
+            <div class="stop">
+            <label for="detail">停止理由を選択してください:&nbsp;&nbsp;&nbsp;</label>
             <select name="reason" id="detail">
                 <option value="1">理由1</option>
                 <option value="2">理由2</option>
                 <option value="3">理由3</option>
             </select>
+            </div>
 
             <div class="button-container">
                 <button type="submit" class="button-yes">はい</button>

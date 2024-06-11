@@ -1,0 +1,50 @@
+html{
+    background-color: black;
+}
+main{
+    background-color: black;
+    text-align: center;
+}
+h1{
+    color: white !important;
+    margin-top: 5% !important;
+    border: 1px solid #00ff00;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+p{
+    color: white;
+    font-size: 32px;
+    border: 1px solid #00ff00;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.ID{
+    margin-top: 5%;
+}
+.stop{
+    color: white;
+    font-size: 32px;
+    border: 1px solid #00ff00;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+select{
+    color: white;
+    background-color: black;
+}
+button {
+    padding: 10px 60px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #00ff00;
+    /* 緑色の枠線を追加 */
+    background-color: black;
+    /* 背景色を黒に変更 */
+    color: white;
+    /* テキストの色を緑に変更 */
+    margin-top: 5% !important;
+}
+.button-yes{
+    margin-right: 10%;
+}
