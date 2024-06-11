@@ -1,9 +1,9 @@
-<?php require '../../config/db-connect.php'; ?>
-<?php require 'session/session_start.php'; ?>
-
 <?php
+session_start();
+require '../../config/db-connect.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $sql = $pdo->prepare('SELECT * FROM User WHERE mail = ?');
+    $sql = $pdo->prepare('SELECT * FROM user WHERE mail = ?');
     $sql->execute([$_POST['mail']]);
     $user = $sql->fetch(PDO::FETCH_ASSOC);
 
