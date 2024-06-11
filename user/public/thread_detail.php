@@ -20,7 +20,7 @@ try {
     $stmt->execute();
 
     // スレッド名を取得
-    $stmt = $pdo->prepare("SELECT thread_name FROM thread WHERE thread_id = :thread_id");
+    $stmt = $pdo->prepare("SELECT thread_name,thread_txt FROM thread WHERE thread_id = :thread_id");
     $stmt->bindParam(':thread_id', $thread_id);
     $stmt->execute();
     $thread = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -61,7 +61,7 @@ try {
 </head>
 <body>
     <h1><?= htmlspecialchars($thread['thread_name']) ?></h1>
-
+    <h3><?= nl2br(htmlspecialchars($thread['thread_txt'])) ?></h3>
     <?php if (empty($messages_asc)): ?>
         <p>このスレッドにはまだメッセージがありません。</p>
     <?php else: ?>
