@@ -59,55 +59,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stop_finish.css">
     <title>アカウント停止完了画面</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        main {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        p {
-            color: #666;
-            margin: 10px 0;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
     <main>
         <h1><?php echo $message; ?></h1>
-        <p><strong>ユーザーID:</strong> <?php echo htmlspecialchars($user_id); ?></p>
+        <p class="ID"><strong>ユーザーID:</strong> <?php echo htmlspecialchars($user_id); ?></p>
         <p><strong>ユーザー名:</strong> <?php echo htmlspecialchars($userName); ?></p>
         <p><strong>停止理由:</strong> <?php echo htmlspecialchars($stop_reason); ?></p>
         <form action="ReportList.php" method="get">
