@@ -25,14 +25,14 @@
             if(!empty($_POST['search'])){
             $search_id = $_POST['search'];
                 $sql = $pdo->prepare('SELECT su.user_id, u.user_name, su.stop_reason 
-                                   FROM Stop_user su 
-                                   JOIN User u ON su.user_id = u.user_id 
+                                   FROM stop_user su 
+                                   JOIN user u ON su.user_id = u.user_id 
                                    WHERE su.user_id = ?');
                 $sql->execute([$search_id]);
              }else{ // 入力がない場合は全てのレポートを表示
                 $sql = $pdo->query('SELECT su.user_id, u.user_name, su.stop_reason 
-                                 FROM Stop_user su 
-                                 JOIN User u ON su.user_id = u.user_id');
+                                 FROM stop_user su 
+                                 JOIN user u ON su.user_id = u.user_id');
              }
 
             // 検索結果の行数を取得
