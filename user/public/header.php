@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -20,12 +21,12 @@
             </div>
 
             <div>
-                <?php if (isset($_SESSION['id'])): ?>
-                    <a href="#" class="btn btn-outline-primary">Logout</a>
+                <?php if (isset($_SESSION['User']['id'])) :?>
+                    <a href="./logout.php" class="btn btn-outline-primary">Logout</a>
                 <?php else: ?>
-                    <a href="#" class="btn btn-primary">Login</a>
+                    <a href="./login.php" class="btn btn-primary">Login</a>
                 <?php endif; ?>
-                <a href="#" class="btn btn-link">Admin Login</a>
+                <a href="../../admin/public/login_input.php" class="btn btn-link">Admin Login</a>
             </div>
         </div>
     </header>
