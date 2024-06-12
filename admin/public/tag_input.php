@@ -84,10 +84,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="tags[]" placeholder="タグ1">
         </div>
     </div>
-    <button onclick="goBack()">戻る</button>
     <button type="submit">作成</button>
     <button type="button" onclick="addTextBox()">+</button>
 </form>
+<button onclick="goBack()">戻る</button>
 <script>
     let textBoxCounter = 1;
 
