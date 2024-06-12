@@ -16,7 +16,7 @@ require "header.php";
             <path d="M0,40 C500,100 700,0 1200,80" fill="none" stroke="lime" stroke-width="2"/>
         </svg>
     </div>
-    <form>
+    <form action="./login_output.php">
         <label for="email">mail:</label>
         <input type="email" id="email" name="email" placeholder="aaa@bbb.com">
         <br>
