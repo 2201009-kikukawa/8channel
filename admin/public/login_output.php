@@ -30,13 +30,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mail']) && isset($_PO
     }
 }
 ?>
-
-<form method="post" action="">
-    <label for="mail">メールアドレス:</label>
-    <input type="email" name="mail" id="mail" required>
-    <br>
-    <label for="password">パスワード:</label>
-    <input type="password" name="password" id="password" required>
-    <br>
-    <button type="submit">ログイン</button>
-</form>
