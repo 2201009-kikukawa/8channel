@@ -43,6 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':stop_reason', $stop_reason);
             // SQL実行
             $stmt->execute();
+
+            $stmt = $conn->prepare("DELETE FROM report WHERE report_user = :user_id");
+            $stmt->bindParam(':user_id', $user_id);
+            $stmt->execute();
+
             $message = "アカウントが正常に停止されました。";
         }
     } catch (PDOException $e) {
