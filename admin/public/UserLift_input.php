@@ -10,8 +10,8 @@
 
         // ユーザーの情報を取得するクエリを準備
         $sql = $pdo->prepare('SELECT su.user_id, u.user_name, su.stop_reason 
-                              FROM Stop_user su 
-                              JOIN User u ON su.user_id = u.user_id 
+                              FROM stop_user su 
+                              JOIN user u ON su.user_id = u.user_id 
                               WHERE su.user_id = ?');
         // ユーザーIDをバインドしてクエリを実行
         $sql->execute([$user_id]);

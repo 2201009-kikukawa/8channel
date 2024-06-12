@@ -10,8 +10,8 @@
 
         // ユーザーの情報を取得するクエリを準備
         $sql = $pdo->prepare('SELECT su.user_id, u.user_name, su.stop_reason 
-                              FROM Stop_user su 
-                              JOIN User u ON su.user_id = u.user_id 
+                              FROM stop_user su 
+                              JOIN user u ON su.user_id = u.user_id 
                               WHERE su.user_id = ?');
         // ユーザーIDをバインドしてクエリを実行
         $sql->execute([$user_id]);
@@ -25,12 +25,12 @@
         }
 
         // ユーザーのアカウントフラグを更新するクエリを準備
-        $sql_update = $pdo->prepare('UPDATE User SET account_flag = 0 WHERE user_id = ?');
+        $sql_update = $pdo->prepare('UPDATE user SET account_flag = 0 WHERE user_id = ?');
         // ユーザーのアカウントフラグを0に更新
         $sql_update->execute([$user_id]);
 
         // Stop_userからユーザーを削除するクエリを準備
-        $sql_delete = $pdo->prepare('DELETE FROM Stop_user WHERE user_id = ?');
+        $sql_delete = $pdo->prepare('DELETE FROM stop_user WHERE user_id = ?');
         // ユーザーを削除
         $sql_delete->execute([$user_id]);
     } else {
