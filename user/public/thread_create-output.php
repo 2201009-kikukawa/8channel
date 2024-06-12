@@ -1,9 +1,11 @@
 <?php
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require '../../config/db-connect.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // POSTデータを受け取る
@@ -11,6 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $channel_id = $_POST['channel_id'];
     $tag_ids = $_POST['tag_id']; // これは配列です
     $content = $_POST['thread_txt'];
+    $user_id = isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : 0;
+
+    if ($user_id === 0) {
+        die('ログインをしてください。ログインは<a href="login.php">「ゲーマーの登竜門」</a>からどうぞ。');
+    }
 
     try {
         // トランザクション開始
