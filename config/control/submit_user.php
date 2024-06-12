@@ -24,5 +24,5 @@ try {
     $message = "エラー: " . $e->getMessage();
 }
 
-echo "<script type='text/javascript'>alert('$message'); window.location.href = '/8channel/user/public';</script>";
+echo "<script type='text/javascript'>alert('$message'); window.location.href = '/8channel/user/public/login.php';</script>";
 ?>

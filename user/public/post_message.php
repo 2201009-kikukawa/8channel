@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_id = isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : 0;
 
     if ($user_id === 0) {
-        die('Invalid user ID.');
+        die('ログインをしてください。ログインは<a href="login.php">「ゲーマーの登竜門」</a>からどうぞ。');
     }
 
     try {

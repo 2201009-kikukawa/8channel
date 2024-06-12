@@ -1,5 +1,4 @@
 <?php
-session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -8,6 +7,7 @@ require './header.php';
 require '../../config/db-connect.php';
 
 $thread_id = isset($_GET['thread_id']) ? intval($_GET['thread_id']) : 0;
+$show_all = isset($_GET['show_all']) ? intval($_GET['show_all']) : 0;
 
 if ($thread_id === 0) {
     die('Invalid thread ID.');
@@ -20,7 +20,7 @@ try {
     $stmt->execute();
 
     // スレッド名を取得
-    $stmt = $pdo->prepare("SELECT thread_name,thread_txt FROM thread WHERE thread_id = :thread_id");
+    $stmt = $pdo->prepare("SELECT thread_name, thread_txt FROM thread WHERE thread_id = :thread_id");
     $stmt->bindParam(':thread_id', $thread_id);
     $stmt->execute();
     $thread = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -29,16 +29,27 @@ try {
         die('スレッドが見つかりませんでした。');
     }
 
-    // メッセージを取得（降順）
-    $stmt = $pdo->prepare("
-        SELECT m.message_id, m.message_txt, m.data, u.user_id, u.user_name, md.message_cnt
-        FROM message m
-        JOIN user u ON m.user_id = u.user_id
-        JOIN message_detail md ON m.message_id = md.message_id
-        WHERE m.thread_id = :thread_id
-        ORDER BY m.data DESC
-        LIMIT 10
-    ");
+    // メッセージを取得
+    if ($show_all) {
+        $stmt = $pdo->prepare("
+            SELECT m.message_id, m.message_txt, m.data, u.user_id, u.user_name, md.message_cnt
+            FROM message m
+            JOIN user u ON m.user_id = u.user_id
+            JOIN message_detail md ON m.message_id = md.message_id
+            WHERE m.thread_id = :thread_id
+            ORDER BY m.data DESC
+        ");
+    } else {
+        $stmt = $pdo->prepare("
+            SELECT m.message_id, m.message_txt, m.data, u.user_id, u.user_name, md.message_cnt
+            FROM message m
+            JOIN user u ON m.user_id = u.user_id
+            JOIN message_detail md ON m.message_id = md.message_id
+            WHERE m.thread_id = :thread_id
+            ORDER BY m.data DESC
+            LIMIT 10
+        ");
+    }
 
     $stmt->bindParam(':thread_id', $thread_id);
     $stmt->execute();
@@ -63,10 +74,11 @@ try {
 <body>
     <h1><?= htmlspecialchars($thread['thread_name']) ?></h1>
     <h3><?= nl2br(htmlspecialchars($thread['thread_txt'])) ?></h3>
+
     <?php if (empty($messages_asc)): ?>
         <p>このスレッドにはまだメッセージがありません。</p>
     <?php else: ?>
-        <ul>
+        <ul id="message-list">
             <?php foreach ($messages_asc as $message): ?>
                 <li class="message" data-message-id="<?= $message['message_id'] ?>" data-message-text="<?= htmlspecialchars($message['message_txt']) ?>">
                     <strong><?= $message['message_cnt'] ?></strong>
@@ -78,6 +90,9 @@ try {
                 </li>
             <?php endforeach; ?>
         </ul>
+        <button id="toggle-display" data-show-all="<?= $show_all ? '1' : '0' ?>">
+            <?= $show_all ? '最新10件表示' : 'すべて表示' ?>
+        </button>
     <?php endif; ?>
 
     <h2>メッセージを投稿</h2>
@@ -131,6 +146,14 @@ try {
 
     <script src="./src/report_modal.js" defer></script>
     <script src="./src/sns_shere.js" defer></script>
+    <script>
+        document.getElementById('toggle-display').addEventListener('click', function() {
+            const showAll = this.getAttribute('data-show-all') === '1';
+            const threadId = document.getElementById('thread-id').value;
+            const url = `?thread_id=${threadId}&show_all=${showAll ? '0' : '1'}`;
+            window.location.href = url;
+        });
+    </script>
 
 </body>
 </html>

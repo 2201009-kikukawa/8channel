@@ -2,7 +2,6 @@ html{
     background-color: black;
 }
 main{
-    background-color: black;
     text-align: center;
     margin-top: 13%;
 }
@@ -23,17 +22,6 @@ p{
 .ID{
     margin-top: 5%;
 }
-.stop{
-    color: white;
-    font-size: 32px;
-    border: 1px solid #00ff00;
-    margin-left: 20%;
-    margin-right: 20%;
-}
-select{
-    color: white;
-    background-color: black;
-}
 button {
     padding: 10px 60px;
     font-size: 16px;
@@ -45,7 +33,4 @@ button {
     color: white;
     /* テキストの色を緑に変更 */
     margin-top: 5% !important;
-}
-.button-yes{
-    margin-right: 10%;
 }

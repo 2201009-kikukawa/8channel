@@ -10,6 +10,7 @@
     <?php
     // セッションの開始または再開
     session_start();
+    session_destroy();
 
     // セッションが破棄されたことを確認する
     if (!isset($_SESSION['user_id'])) {
