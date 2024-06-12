@@ -18,7 +18,7 @@ require "header.php";
     </div>
     <form>
         <label for="email">mail:</label>
-        <input type="email" id="email" name="email" value="aaa@bbb.com">
+        <input type="email" id="email" name="email" placeholder="aaa@bbb.com">
         <br>
         <label for="password">パスワード:</label>
         <input type="password" id="password" name="password">
