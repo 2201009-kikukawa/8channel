@@ -16,10 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mail']) && isset($_PO
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-        if (isset($user) && $password == $user['password']) { // Compare passwords (plain text, insecure)
-            // Process on successful login
+        if ($user !== false && $password == $user['password']) {
+            // ログイン成功の処理
             $_SESSION['mail'] = $mail;
-            header('Location: ReportList.php'); // Redirect after login
+            header('Location: ReportList.php');
             exit();
         } else {
             $login_error = "ユーザー名またはパスワードが間違っています。";
