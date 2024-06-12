@@ -20,6 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     try {
+        // スレッド名の重複をチェック
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM thread WHERE thread_name = :th_name");
+        $stmt->bindParam(':th_name', $th_name);
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
+
+        if ($count > 0) {
+            // 重複がある場合はアラート表示してスレッド作成ページに戻る
+            echo "<script>alert('このスレッド名はすでに使用されています。');</script>";
+            echo '<script>window.location.href = "thread_create.php";</script>';
+            exit;
+        }
+
         // トランザクション開始
         $pdo->beginTransaction();
 

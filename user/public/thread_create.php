@@ -5,7 +5,6 @@ error_reporting(E_ALL);
 
 require 'header.php';
 require '../../config/db-connect.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +12,8 @@ require '../../config/db-connect.php';
 <head>
   <meta charset="UTF-8">
   <title>スレッド作成</title>
-  <link rel="stylesheet" href="thread.css">
+  <!--<link rel="stylesheet" href="./css/thread.css">-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <form action="thread_create-output.php" method="post">
@@ -24,7 +24,8 @@ require '../../config/db-connect.php';
         <!--スレッド名入力-->
         <div class="th_name">名前</div>
         <div class="th_name-box">
-            <input type="text" name="th_name" required>
+            <input type="text" name="th_name" id="th_name" required>
+            <div id="name_check_result" style="color: red;"></div>
         </div>
 
         <!--ゲーム名選択-->
@@ -81,7 +82,6 @@ require '../../config/db-connect.php';
         </div>
 
         <!--スレッド内容入力-->
-        <!--時間があったら改行も指定できるようにしたい-->
         <div class="thread">内容</div>
         <div class="thread-box">
             <textarea name="thread_txt" cols="33" rows="3" placeholder="スレッド内容を入力してください(100文字以内)" required></textarea>
@@ -90,5 +90,24 @@ require '../../config/db-connect.php';
         <button class="btn btn-outline-success" type="button" onclick="history.back()">戻る</button>
         <button type="submit" class="btn btn-outline-success" name="create"><span>スレッドを作成</span></button>
     </form>
+
+    <script>
+    $(document).ready(function() {
+        $('#th_name').on('input', function() {
+            var th_name = $(this).val();
+            if (th_name.length > 0) {
+                $.ajax({
+                    url: 'check_thread_name.php',
+                    type: 'POST',
+                    data: { th_name: th_name },
+                    success: function(response) {
+                        $('#name_check_result').html(response);
+                    }
+                });
+            }
+        });
+    });
+    </script>
+
 </body>
 </html>
