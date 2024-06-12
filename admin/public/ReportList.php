@@ -24,7 +24,7 @@
             // ユーザーIDが入力された場合の処理
             if(!empty($_POST['search_id'])){
 
-                $sql=$pdo->prepare('select * from report where report_user = ?');
+                $sql=$pdo->prepare('select * from report where user_id = ?');
                 $sql->execute([$_POST['search_id']]);
              }else{ // 入力がない場合は全てのレポートを表示
                 $sql=$pdo->query('select * from report');
