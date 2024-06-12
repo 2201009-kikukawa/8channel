@@ -61,6 +61,8 @@
 <body>
     <div id="app" class="container mt-4">
         <h1>8ちゃんねる</h1>
+
+        <a href="thread_create.php" class="btn btn-primary">スレッド作成</a>
         
         <div class="d-flex justify-content-around my-4">
             <a href="latest-thread.php" class="btn btn-primary">最新スレッド</a>
