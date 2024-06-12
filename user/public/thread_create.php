@@ -57,35 +57,34 @@ require '../../config/db-connect.php';
         <!--タグ選択-->
         <div class="tag">タグ</div>
         <div class="tag-select">
-            <select name="tag_id" required>
-                <option value="">選択してください</option>
-                <?php
-                try {
-                    // クエリ実行
-                    $query = "SELECT tag_id, tag_name FROM tag";
-                    $stmt = $pdo->query($query);
+            <?php
+            try {
+                // クエリ実行
+                $query = "SELECT tag_id, tag_name FROM tag";
+                $stmt = $pdo->query($query);
 
-                    // 結果をチェック
-                    if ($stmt->rowCount() > 0) {
-                        // データをプルダウンメニューに追加
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            echo '<option value="' . htmlspecialchars($row['tag_id']) . '">' . htmlspecialchars($row['tag_name']) . '</option>';
-                        }
-                    } else {
-                        echo '<option value="">タグが見つかりません</option>';
+                // 結果をチェック
+                if ($stmt->rowCount() > 0) {
+                    // データをチェックボックスに追加
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo '<div>';
+                        echo '<input type="checkbox" name="tag_id[]" value="' . htmlspecialchars($row['tag_id']) . '"> ' . htmlspecialchars($row['tag_name']);
+                        echo '</div>';
                     }
-                } catch (PDOException $e) {
-                    echo '<option value="">クエリの実行に失敗しました: ' . htmlspecialchars($e->getMessage()) . '</option>';
+                } else {
+                    echo '<p>タグが見つかりません</p>';
                 }
-                ?>
-            </select>
+            } catch (PDOException $e) {
+                echo '<p>クエリの実行に失敗しました: ' . htmlspecialchars($e->getMessage()) . '</p>';
+            }
+            ?>
         </div>
 
         <!--スレッド内容入力-->
         <!--時間があったら改行も指定できるようにしたい-->
         <div class="thread">内容</div>
         <div class="thread-box">
-            <textarea name="thread_text" cols="33" rows="3" placeholder="スレッド内容を入力してください(100文字以内)" required></textarea>
+            <textarea name="thread_txt" cols="33" rows="3" placeholder="スレッド内容を入力してください(100文字以内)" required></textarea>
         </div>
 
         <button class="btn btn-outline-success" type="button" onclick="history.back()">戻る</button>

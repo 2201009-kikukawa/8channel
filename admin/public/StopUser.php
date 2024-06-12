@@ -8,8 +8,10 @@
         <input type="text" name="search" placeholder="IDを入力">
         <input type="submit" value="検索">
     </form>
+    <input type=button value=タグ作成 onclick="redirectToTagInput()">
         <br>
         <a href="ReportList.php">報告一覧へ</a>
+        <a href="logout.php">ログアウト</a>
     <table>
         <tr>
             <th>ユーザーID</th>
@@ -55,4 +57,9 @@
             }
         ?>
     </table>
+    <script>
+        function redirectToTagInput() {
+            window.location.href = 'tag_input.php';
+        }
+    </script>
 </body>

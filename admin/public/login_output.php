@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mail']) && isset($_PO
 
     try {
         // PDOを使用してクエリを準備
-        $stmt = $pdo->prepare("SELECT * FROM Admin_user WHERE mail = :mail");
+        $stmt = $pdo->prepare("SELECT * FROM admin_user WHERE mail = :mail");
         $stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);

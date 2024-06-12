@@ -2,9 +2,9 @@
 $rootDirectory = basename($_SERVER['DOCUMENT_ROOT']);
 // xamppを利用したlocal環境を使う場合は自分のDB情報を入力
 $SERVER = '127.0.0.1';
-$DBNAME = '8cannel';
-$USER = 'kazu';
-$PASS = 'kazu9030kk';
+$DBNAME = '8channel';
+$USER = 'eiki';
+$PASS = 'Pass0103';
 
 if ($rootDirectory != 'htdocs') {
     $SERVER = "mysql304.phy.lolipop.lan";
@@ -37,18 +37,18 @@ if (empty($messages)) {
 ?>
 
 <h2>
-    <u>ID：<?php echo htmlspecialchars($messages[0]['user_name'], ENT_QUOTES, 'UTF-8'); ?>の投稿一覧</u>
+    <u>ID：<?php echo htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8'); ?>の投稿一覧</u>
 </h2>
 <table class="table table-bordered">
     <thead>
-        <tr>
-            <th scope="col">日付</th>
+        <tr class="heager-message">
+            <th scope="col" class="date-colum">日付</th>
             <th scope="col">メッセージ</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($messages as $message): ?>
-        <tr>
+        <tr class="message-row">
             <td><?php echo htmlspecialchars($message['data'], ENT_QUOTES, 'UTF-8'); ?></td>
             <td><?php echo htmlspecialchars($message['message_txt'], ENT_QUOTES, 'UTF-8'); ?></td>
         </tr>

@@ -9,19 +9,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // POSTデータを受け取る
     $th_name = $_POST['th_name'];
     $channel_id = $_POST['channel_id'];
-    $tag_id = $_POST['tag_id'];
-    $content = $_POST['thread_text'];
+    $tag_ids = $_POST['tag_id']; // これは配列です
+    $content = $_POST['thread_txt'];
 
     try {
         // トランザクション開始
         $pdo->beginTransaction();
 
         // threadテーブルにデータを挿入
-        $stmt = $pdo->prepare("INSERT INTO thread (thread_name, channel_id, tag_id, thread_text) VALUES (:thread_name, :channel_id, :tag_id, :thread_text)");
+        // 最初のタグIDを使用
+        $first_tag_id = $tag_ids[0];
+        $stmt = $pdo->prepare("INSERT INTO thread (thread_name, channel_id, tag_id, thread_txt) VALUES (:thread_name, :channel_id, :tag_id, :thread_txt)");
         $stmt->bindParam(':thread_name', $th_name);
         $stmt->bindParam(':channel_id', $channel_id);
-        $stmt->bindParam(':tag_id', $tag_id);
-        $stmt->bindParam(':thread_text', $content);
+        $stmt->bindParam(':tag_id', $first_tag_id);
+        $stmt->bindParam(':thread_txt', $content);
         $stmt->execute();
 
         // 挿入したスレッドのIDを取得
@@ -29,9 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // tag_mngテーブルにデータを挿入
         $stmt = $pdo->prepare("INSERT INTO tag_mng (thread_id, tag_id) VALUES (:thread_id, :tag_id)");
-        $stmt->bindParam(':thread_id', $thread_id);
-        $stmt->bindParam(':tag_id', $tag_id);
-        $stmt->execute();
+        foreach ($tag_ids as $tag_id) {
+            $stmt->bindParam(':thread_id', $thread_id);
+            $stmt->bindParam(':tag_id', $tag_id);
+            $stmt->execute();
+        }
 
         // コミット
         $pdo->commit();

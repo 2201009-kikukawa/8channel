@@ -8,7 +8,7 @@
         <input type="text" name="search_id" placeholder="報告側のIDを入力">
         <input type="submit" value="検索">
     </form>
-        <input type=button value=タグ作成>
+        <input type=button value=タグ作成 onclick="redirectToTagInput()">
         <br>
         <a href="StopUser.php">停止アカウント一覧へ</a>
         <a href="logout.php">ログアウト</a>
@@ -27,7 +27,7 @@
                 $sql=$pdo->prepare('select * from Report where report_user = ?');
                 $sql->execute([$_POST['search_id']]);
              }else{ // 入力がない場合は全てのレポートを表示
-                $sql=$pdo->query('select * from Report');
+                $sql=$pdo->query('select * from report');
              }
 
             // 検索結果の行数を取得
@@ -47,4 +47,9 @@
             }
         ?>
     </table>
+    <script>
+        function redirectToTagInput() {
+            window.location.href = 'tag_input.php';
+        }
+    </script>
 </body>
