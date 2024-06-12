@@ -1,26 +1,25 @@
 <?php
 session_start();
-ob_start(); // 出力バッファリングを開始
+ob_start(); // Start output buffering
 
-require '../../config/db-connect.php'; // db-connect.phpで$pdoが設定されていることを確認
-require 'header.php';
+require '../../config/db-connect.php'; // Ensure $pdo is set in db-connect.php
 
-// ログイン処理
+// Login processing
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mail']) && isset($_POST['password'])) {
     $mail = $_POST['mail'];
     $password = $_POST['password'];
 
     try {
-        // PDOを使用してクエリを準備
-        $stmt = $pdo->prepare("SELECT * FROM admin_user WHERE mail = :mail");
-        $stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
-        $stmt->execute();
+        // Prepare the query using PDO
+        $stmt = $pdo->prepare("SELECT * FROM admin_user WHERE mail = ?");
+        $stmt->execute([$mail]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && $password === $user['password']) { // パスワードをプレーンテキストで比較
-            // ログイン成功時の処理
+
+        if (isset($user) && $password == $user['password']) { // Compare passwords (plain text, insecure)
+            // Process on successful login
             $_SESSION['mail'] = $mail;
-            header('Location: ReportList.php'); // ログイン後のリダイレクト先
+            header('Location: ReportList.php'); // Redirect after login
             exit();
         } else {
             $login_error = "ユーザー名またはパスワードが間違っています。";
@@ -30,6 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mail']) && isset($_PO
         echo 'データベースエラー: ' . $e->getMessage();
     }
 }
-
-ob_end_flush(); // 出力バッファリングを終了し、バッファの内容を出力
 ?>
+
+<form method="post" action="">
+    <label for="mail">メールアドレス:</label>
+    <input type="email" name="mail" id="mail" required>
+    <br>
+    <label for="password">パスワード:</label>
+    <input type="password" name="password" id="password" required>
+    <br>
+    <button type="submit">ログイン</button>
+</form>
