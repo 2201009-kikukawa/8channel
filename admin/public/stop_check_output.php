@@ -32,7 +32,7 @@ try {
 }
 
 // データベースからユーザー名を取得
-$sql = "SELECT user_name FROM User WHERE user_id = ?";
+$sql = "SELECT user_name FROM user WHERE user_id = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$user_id]);
 $userName = $stmt->fetchColumn();

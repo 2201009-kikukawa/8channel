@@ -24,7 +24,7 @@
             // ユーザーIDが入力された場合の処理
             if(!empty($_POST['search_id'])){
 
-                $sql=$pdo->prepare('select * from Report where report_user = ?');
+                $sql=$pdo->prepare('select * from report where user_id = ?');
                 $sql->execute([$_POST['search_id']]);
              }else{ // 入力がない場合は全てのレポートを表示
                 $sql=$pdo->query('select * from report');
@@ -38,8 +38,8 @@
             } else { // 検索結果がある場合
                 foreach($sql as $row) {
                     echo '<tr>';
-                    echo '<td>', '<a href="message.php?user_id=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
                     echo '<td>', '<a href="message.php?user_id=', $row['user_id'], '">', $row['user_id'], '</a>', '</td>';
+                    echo '<td>', '<a href="message.php?user_id=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
                     echo '<td>', $row['report_reason'], '</td>';
                     echo '<td>', $row['data'], '</td>';
                     echo '</tr>';

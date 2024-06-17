@@ -20,11 +20,9 @@
         echo "<p>ログアウトに失敗しました。</p>";
     }
     ?>
-    <p>ログイン画面に戻ります...</p>
-    </main>
     <script>
         setTimeout(function(){
-            window.location.href = './login_input.php'; // ログイン画面のURLにリダイレクト
+            window.location.href = '../../user/public/Top-index.php'; // ログイン画面のURLにリダイレクト
         }, 2000); // 2秒後にリダイレクト
     </script>
 </body>
