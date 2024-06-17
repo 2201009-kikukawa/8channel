@@ -4,6 +4,43 @@
 ?>
 <head>
     <link rel="stylesheet" type="text/css" href="./css/ReportList.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            padding-top: 50px; /* 上部の余白を追加 */
+            margin: 0; /* デフォルトのmarginをリセット */
+        }
+        table {
+            border-collapse: collapse;
+            width: 65%; /* 横幅の70%に設定 */
+            margin: auto; /* 中央に配置 */
+            border: 2px solid #9ACD32; /* テーブルのラインを黄緑に設定 */
+            margin-top: 20px; /* テーブル上部の余白を追加 */
+            margin-bottom: 20px; /* テーブル下部の余白を追加 */
+        }
+        th {
+            background-color: black; /* thタグの背景を黒に設定 */
+            color: white; /* thタグのテキストを白に設定 */
+            border: 1px solid #dddddd;
+            text-align: center; /* 中央揃えに設定 */
+            padding: 8px;
+        }
+        td {
+            border: 1px solid #dddddd;
+            text-align: center; /* 中央揃えに設定 */
+            padding: 8px;
+        }
+        a {
+            color: white; /* リンクのテキストを白に設定 */
+            text-decoration: none; /* リンクの下線を削除 */
+        }
+        .container {
+            max-width: 800px; /* 必要に応じて幅を調整 */
+            margin: auto; /* 中央に配置 */
+            margin-top: 20px; /* コンテナの上部の余白を追加 */
+        }
+    </style>
 </head>
 <body>
     <form method="post">
