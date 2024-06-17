@@ -12,7 +12,7 @@ if(isset($_POST['th_name'])) {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if($result['count'] > 0) {
-        echo '<span style="color: red;">このスレッド名は既に使われています。</span>';
+        echo '<span id="error" value = "true" style="color: red;">このスレッド名は既に使われています。</span>';
     } else {
     }
 }

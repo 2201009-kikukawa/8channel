@@ -12,11 +12,10 @@ require '../../config/db-connect.php';
 <head>
   <meta charset="UTF-8">
   <title>スレッド作成</title>
-  <!--<link rel="stylesheet" href="./css/thread.css">-->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <form action="thread_create-output.php" method="post">
+    <form method="post" id="form">
         <div class="fs-1">スレッド作成</div>
         <div class="fs-3">スレッドの作成のためにはログインが必要です</div>
         <div class="fs-3">ログインは<a href="login.php">「ゲーマーの登竜門」</a>からどうぞ。</div>
@@ -87,11 +86,23 @@ require '../../config/db-connect.php';
             <textarea name="thread_txt" cols="33" rows="3" placeholder="スレッド内容を入力してください(100文字以内)" required></textarea>
         </div>
 
-        <button class="btn btn-outline-success" type="button" onclick="history.back()">戻る</button>
-        <button type="submit" class="btn btn-outline-success" name="create"><span>スレッドを作成</span></button>
+        <button class="btn btn-outline-success" type="button" onclick="back()">戻る</button>
+        <button type="submit" class="btn btn-outline-success"><span>スレッドを作成</span></button>
     </form>
 
     <script>
+    function create(event) {
+        event.preventDefault();
+        var form = document.getElementById('form');
+        form.action = "thread_create-output.php";
+        console.log('Form submitted to: ' + form.action);
+        form.submit();
+    }
+
+    function back(){
+        window.location.href = 'Top-index.php'; // referrerが空の場合のデフォルトURL
+    }
+
     $(document).ready(function() {
         $('#th_name').on('input', function() {
             var th_name = $(this).val();
@@ -104,10 +115,15 @@ require '../../config/db-connect.php';
                         $('#name_check_result').html(response);
                     }
                 });
+            } else {
+                $('#name_check_result').empty();
             }
         });
+
+        $('#form').on('submit', create);
     });
     </script>
 
 </body>
 </html>
+
