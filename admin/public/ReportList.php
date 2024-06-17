@@ -3,6 +3,9 @@
     require 'header.php';
 ?>
 
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/ReportList.css">
+</head>
 <body>
     <form method="post">
         <input type="text" name="search_id" placeholder="報告側のIDを入力">
