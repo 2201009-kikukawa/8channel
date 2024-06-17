@@ -1,3 +1,4 @@
+<!-- logout.php -->
 <?php
 // セッションの開始または再開
 session_start();
@@ -11,22 +12,19 @@ session_destroy();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/logout.css">
     <title>ログアウト</title>
     <script>
         function redirectToLogin() {
             window.location.href = 'logout_output.php'; // ログイン画面のURLにリダイレクト
-        }
-
-        function redirectToReportList() {
-            window.location.href = 'ReportList.php'; // ReportList.php にリダイレクト
         }
     </script>
 </head>
 <body>
     <main>
         <h1>ログアウトしますか？</h1>
-        <button onclick="handleLogout()">はい</button>
-        <button onclick="redirectToReportList()">いいえ</button>
+        <button class="button-yes" onclick="handleLogout()">はい</button>
+        <button onclick="redirectToLogin()">いいえ</button>
     </main>
     <script>
         function handleLogout() {

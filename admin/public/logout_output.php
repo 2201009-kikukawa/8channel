@@ -6,9 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/logout.css">
     <title>ログアウト結果</title>
 </head>
 <body>
+    <main>
     <?php
 
     // セッションが破棄されたことを確認する
@@ -18,7 +20,6 @@
         echo "<p>ログアウトに失敗しました。</p>";
     }
     ?>
-    <p>ユーザー画面に戻ります...</p>
     <script>
         setTimeout(function(){
             window.location.href = '../../user/public/Top-index.php'; // ログイン画面のURLにリダイレクト
