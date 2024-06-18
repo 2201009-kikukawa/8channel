@@ -13,9 +13,11 @@
     </form>
         <input type=button value=タグ作成 onclick="redirectToTagInput()">
         <br>
+    <div class="a1">
         <a href="StopUser.php">停止アカウント一覧へ</a>
         <a href="logout.php">ログアウト</a>
-    <table>
+    </div>
+        <table>
         <tr>
             <th>報告したユーザーID</th>
             <th>報告されたユーザーID</th>

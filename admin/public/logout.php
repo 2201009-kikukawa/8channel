@@ -15,16 +15,20 @@ session_destroy();
     <link rel="stylesheet" href="css/logout.css">
     <title>ログアウト</title>
     <script>
-        function redirectToLogin() {
+        function redirectToLogout() {
             window.location.href = 'logout_output.php'; // ログイン画面のURLにリダイレクト
+        }
+
+        function redirectToReportList() {
+            window.location.href = 'ReportList.php'; // ReportList.phpにリダイレクト
         }
     </script>
 </head>
 <body>
     <main>
         <h1>ログアウトしますか？</h1>
-        <button class="button-yes" onclick="handleLogout()">はい</button>
-        <button onclick="redirectToLogin()">いいえ</button>
+        <button class="button-yes" onclick="redirectToLogout()">はい</button>
+        <button onclick="redirectToReportList()">いいえ</button>
     </main>
     <script>
         function handleLogout() {
