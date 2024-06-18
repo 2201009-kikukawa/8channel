@@ -1,0 +1,44 @@
+header{
+    text-align: center;
+}
+
+.header-text{
+    position: relative;
+    left: 6%;
+}
+
+.h1{
+    color: white;
+}
+.hedbtn{
+    border: solid 0.05rem #18CE0F;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.header-btn{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 10px;
+}
+
+.admin-link{
+    color:white
+}
+
+@media (max-width: 768px) {
+    .header-text {
+        position: relative;
+        left: 0%;
+    }
+    
+    .header-btn{
+        position: relative;
+        left: 10em;
+        top: 5px;
+    }
+}
