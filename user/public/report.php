@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $report_user_id = isset($_SESSION['User']['id']) ? $_SESSION['User']['id'] : null;
     
     if (!$report_user_id) {
-        $response["message"] = "ログインしていません。ログインをしてください。ログインは<a href='login.php'>「ゲーマーの登竜門」</a>からどうぞ。";
+        $response["message"] = "報告をするには、ログインが必要です";
         echo json_encode($response);
         exit;
     }
