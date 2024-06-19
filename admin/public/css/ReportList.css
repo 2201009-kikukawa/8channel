@@ -61,3 +61,7 @@ a {
 a.logout {
     margin-left: 20px; /* ログアウトリンクの左側にマージンを追加 */
 }
+
+.a1 {
+    margin-right: 100;
+}
