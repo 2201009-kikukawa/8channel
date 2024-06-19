@@ -54,12 +54,11 @@ input[type="button"] {
 }
 
 a {
-    color: white; /* リンクのテキストを白に設定 */
-    text-decoration: none; /* リンクの下線を削除 */
+    color: white;
 }
 
-a.logout {
-    margin-left: 20px; /* ログアウトリンクの左側にマージンを追加 */
+.a5,.a6{
+    text-decoration: none; /* リンクの下線を削除 */
 }
 
 .a1 {

@@ -41,8 +41,8 @@
             } else { // 検索結果がある場合
                 foreach($sql as $row) {
                     echo '<tr>';
-                    echo '<td>', '<a href="message.php?user_id=', $row['user_id'], '">', $row['user_id'], '</a>', '</td>';
-                    echo '<td>', '<a href="message.php?user_id=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
+                    echo '<td>', '<a class="a5" href="message.php?user_id=', $row['user_id'], '">', $row['user_id'], '</a>', '</td>';
+                    echo '<td>', '<a class="a6" href="message.php?user_id=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
                     echo '<td>', $row['report_reason'], '</td>';
                     echo '<td>', $row['data'], '</td>';
                     echo '</tr>';
