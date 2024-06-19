@@ -17,7 +17,7 @@
         <a href="StopUser.php">停止アカウント一覧へ</a>
         <a href="logout.php">ログアウト</a>
     </div>
-        <table>
+        <table class="a2">
         <tr>
             <th>報告したユーザーID</th>
             <th>報告されたユーザーID</th>

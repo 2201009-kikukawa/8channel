@@ -28,6 +28,12 @@ table {
     margin-bottom: 20px; /* テーブル下部の余白を追加 */
 }
 
+.a2 td{
+    border-bottom: none !important;
+    border-right: none !important;
+    border-left: none !important;
+}
+
 th {
     background-color: black; /* thタグの背景を黒に設定 */
     color: white; /* thタグのテキストを白に設定 */
