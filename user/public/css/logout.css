@@ -1,0 +1,32 @@
+html{
+    background-color: black;
+}
+main{
+    background-color: black;
+    text-align: center;
+    margin-top: 17%;
+}
+h1{
+    font-size: 64px;
+    color: white !important;
+    margin-top: 5% !important;
+}
+button {
+    padding: 10px 60px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #00ff00;
+    /* 緑色の枠線を追加 */
+    background-color: black;
+    /* 背景色を黒に変更 */
+    color: white;
+    /* テキストの色を緑に変更 */
+    margin-top: 5% !important;
+}
+.button-yes{
+    margin-right: 10%;
+}
+p{
+    color: white;
+    font-size: 64px;
+}
