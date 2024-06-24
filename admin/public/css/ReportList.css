@@ -70,15 +70,18 @@ a {
     justify-content: center;
     background-color: #fff;
     border: solid 2px #31ff26;
-    max-width: 250px;
-    height: 35px;
+    max-width: 400px;
+    height: 30px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 4px;
 }
 
 #sbox3{ 
-    width:240px ;
+    height: 23px;
+    margin-top: none;
+    margin-bottom: none;
+    width:400px ;
     padding: 0 15px;
     border-radius: initial;
     background:transparent;
@@ -87,12 +90,12 @@ a {
 }
 
 #sbtn4{
-    width: 50px;
+    width: 30px;
     background:transparent;
     border-radius: initial;
     border:none;
-    color:#31ff26;
-    font-size:18px;
+    color: black;
+    font-size:15px;
     cursor: pointer;
 }
 #sbtn4:hover{
