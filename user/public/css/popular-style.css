@@ -245,4 +245,9 @@ nav{
     .tag-button {
         width: 48%;
     }
+
+    h5{
+        font-size: 20px;
+        margin-top: 5px;
+    }
 }
