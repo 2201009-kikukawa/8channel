@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <form method="post" id="form2">
-        <input id="sbox3" type="text" name="search_id" placeholder="報告側のIDを入力">
-        <button id="sbtn4" type="submit">
-                <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-    </form>
+        <form method="post" id="form2">
+            <input id="sbox3" type="text" name="search_id" placeholder="報告側のIDを入力">
+            <button id="sbtn4" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
         <input type=button value=タグ作成 onclick="redirectToTagInput()">
         <br>
         <a class="a1" href="StopUser.php">停止アカウント一覧へ</a>
         <a class="a2" href="logout.php">ログアウト</a>
-        <table>
+    <table>
         <tr>
             <th>報告したユーザーID</th>
             <th>報告されたユーザーID</th>
