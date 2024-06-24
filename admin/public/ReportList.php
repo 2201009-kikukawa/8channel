@@ -17,7 +17,7 @@
         <input type=button value=タグ作成 onclick="redirectToTagInput()">
         <br>
         <a class="a1" href="StopUser.php">停止アカウント一覧へ</a>
-        <a href="logout.php">ログアウト</a>
+        <a class="a2" href="logout.php">ログアウト</a>
         <table>
         <tr>
             <th>報告したユーザーID</th>
