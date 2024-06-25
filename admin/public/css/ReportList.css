@@ -62,16 +62,12 @@ a {
 }
 
 .a1 {
-    margin-right: 500px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
-.a1,.a2{
+.aa,.a1,.a2{
     font-size: 20px;
-}
-
-#p1{
-    display: flex;
-    justify-content: center;
 }
 
 #form2{
@@ -81,15 +77,11 @@ a {
     border: solid 2px #31ff26;
     max-width: 400px;
     height: 30px;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 4px;
 }
 
-#sbox3{ 
+#sbox3{
     height: 23px;
-    margin-top: none;
-    margin-bottom: none;
     width:400px ;
     padding: 0 15px;
     border-radius: initial;

@@ -14,8 +14,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </form>
-        <input type=button value=タグ作成 onclick="redirectToTagInput()">
-        <br>
+        <a class="aa" href="#" onclick="redirectToTagInput()">タグ作成</a>
         <a class="a1" href="StopUser.php">停止アカウント一覧へ</a>
         <a class="a2" href="logout.php">ログアウト</a>
     <table>
