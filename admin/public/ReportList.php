@@ -1,6 +1,5 @@
 <?php
     require '../../config/db-connect.php';
-    require 'header.php';
 ?>
 
 <head>
