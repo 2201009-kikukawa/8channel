@@ -4,6 +4,7 @@
 ?>
 
 <body>
+<link rel="stylesheet" href="css/login.css">
     <form action="StopUser.php" method="post">
         <input type="text" name="search" placeholder="IDを入力">
         <input type="submit" value="検索">
