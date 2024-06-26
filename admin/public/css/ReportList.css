@@ -21,7 +21,7 @@ form {
 
 table {
     border-collapse: collapse;
-    width: 65%; /* 横幅の70%に設定 */
+    width: 80%; /* 横幅の70%に設定 */
     margin: auto; /* 中央に配置 */
     border: none; /* テーブルのラインを黄緑に設定 */
     margin-top: 20px; /* テーブル上部の余白を追加 */
