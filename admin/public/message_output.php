@@ -1,6 +1,6 @@
+<link rel="stylesheet" href="css/message_output.css">
 <?php
 require '../../config/db-connect.php';
-
 
 // データベースからユーザーのメッセージを取得
 $user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
@@ -11,10 +11,14 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (empty($messages)) {
     echo '<p>ユーザーID: ' . htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8') . ' のメッセージが見つかりません。</p>';
+    echo '<script>
+        setTimeout(function() {
+            window.history.back();
+        }, 2000);
+    </script>';
     exit;
 }
 ?>
-
 <h2>
     <u>ID：<?php echo htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8'); ?>の投稿一覧</u>
 </h2>

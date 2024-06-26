@@ -11,14 +11,14 @@
     </form>
     <input type=button value=タグ作成 onclick="redirectToTagInput()">
         <br>
-        <a href="ReportList.php">報告一覧へ</a>
-        <a href="logout.php">ログアウト</a>
+        <a class="a1" href="ReportList.php">報告一覧へ</a>
+        <a class="a2" href="logout.php">ログアウト</a>
     <table>
         <tr>
             <th>ユーザーID</th>
             <th>ユーザー名</th>
             <th>停止理由</th>
-            <th>削除ボタン</th>
+            <th>解除ボタン</th>
         </tr>
     
         <?php
