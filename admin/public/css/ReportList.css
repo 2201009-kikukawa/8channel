@@ -71,6 +71,7 @@ a {
 }
 
 #form2{
+    margin: 20px auto;
     display: flex;
     justify-content: center;
     background-color: #fff;
@@ -81,6 +82,7 @@ a {
 }
 
 #sbox3{
+    flex: 1;
     height: 23px;
     width:400px ;
     padding: 0 15px;
