@@ -90,10 +90,10 @@ a {
 
 #sbox3{
     flex: 1;
-    height: 27px;
+    height: 25px;
     width:400px ;
     padding: 0 15px;
-    border-radius: initial;
+    border-radius: 9px;
     background:transparent;
     border:none;
     outline:0;
