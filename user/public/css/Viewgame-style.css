@@ -1,0 +1,113 @@
+body {
+    background-color: black;
+    background-image: url('./path-to-your-background-image.jpg'); /* Adjust the path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+#btns {
+    border: solid 0.05rem #18CE0F;
+    background-color: black;
+    color: white;
+    padding: 0.90rem 4.5rem;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    width: 16em;
+    margin-bottom: 20px;
+}
+
+#btns:hover {
+    background-color: #18CE0F;
+    color: black;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.search-container input {
+    width: 50%;
+    padding: 10px;
+    border: 0.05rem solid #18CE0F;
+    border-radius: 4px 0 0 4px;
+    background-color: black;
+    color: white;
+}
+
+.search-container button {
+    padding: 10px;
+    background: #18CE0F;
+    border: none;
+    color: black;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+.search-container button:hover {
+    background: #0E8C0A;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a {
+    display: block;
+    padding: 8px 16px;
+    color: #18CE0F;
+    text-decoration: none;
+    border: 1px solid #18CE0F;
+    border-radius: 4px;
+    background-color: black;
+}
+
+.pagination a:hover {
+    background-color: #0E8C0A;
+}
+
+.pagination .active a {
+    background-color: #18CE0F;
+    color: black;
+    border: 1px solid #18CE0F;
+}
+
+.title{
+    text-align: center;
+    margin: revert;
+}
+
+.mb-1{
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.card-body{
+    background-color: black;
+    border: solid 0.05rem #18CE0F;
+}
+
+@media (max-width: 768px) {
+    .title{
+        font-size: 1.5rem;
+    }
+
+    .mb-1{
+        font-size: 1.2rem;
+    }
+}
