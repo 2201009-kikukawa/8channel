@@ -1,13 +1,75 @@
+body {
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black; /* 背景を黒に設定 */
+    color: white; /* テキストを白に設定 */
+    padding-top: 50px; /* 上部の余白を追加 */
+}
 
-button {
-    padding: 10px 60px;
-    font-size: 16px;
+.container {
+    max-width: 800px; /* 必要に応じて幅を調整 */
+    margin: auto; /* 中央に配置 */
+    margin-top: 20px; /* コンテナの上部の余白を追加 */
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 65%; /* 横幅の70%に設定 */
+    margin: auto; /* 中央に配置 */
+    border: none; /* テーブルのラインを黄緑に設定 */
+    margin-top: 20px; /* テーブル上部の余白を追加 */
+    margin-bottom: 20px; /* テーブル下部の余白を追加 */
+}
+
+th {
+    background-color: black; /* thタグの背景を黒に設定 */
+    color: white; /* thタグのテキストを白に設定 */
+    border: 2px solid #31ff26;
+    text-align: center; /* 中央揃えに設定 */
+    padding: 8px;
+}
+
+td {
+    text-align: center; /* 中央揃えに設定 */
+    padding: 8px;
+    border-bottom: none !important;
+    border-right: none !important;
+    border-left: none !important;
+}
+
+input[type="text"], input[type="submit"] {
+    margin-bottom: 10px;
+}
+
+input[type="button"] {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+a {
+    color: white;
+}
+
+.a1,.a2{
+    font-size: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+button{
     cursor: pointer;
     border: 1px solid #00ff00;
-   
-    background-color: black;
+    /* 緑色の枠線を追加 */
+    border-radius: 5px;
+    background-color: #000;
     /* 背景色を黒に変更 */
     color: white;
     /* テキストの色を緑に変更 */
-    margin-top: 5% !important;
+    padding: 10px 40px;
 }
