@@ -1,3 +1,10 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: black;
     background-image: url('./path-to-your-background-image.jpg'); /* Adjust the path */
@@ -8,15 +15,17 @@ body {
 }
 
 h1 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
     text-align: center;
-    color: white;
-    margin: -10px;
-    margin-top: -20px;
+    font-size: 45px;
 }
 
-h5{
+h5 {
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 20px;
 }
 
@@ -45,14 +54,14 @@ h5{
 }
 
 a.list-group-item {
+    margin: auto;
     border: solid 0.05rem #18CE0F;
     background-color: black;
     color: white;
-    padding: 15px;
-    margin-bottom: 10px;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
     text-align: end;
+    width: 80%;
 }
 
 a.list-group-item:hover {
@@ -139,7 +148,7 @@ a.list-group-item:hover {
 }
 
 .title-text {
-    font-size: 50px;
+    font-size: 30px;
     margin: auto;
     position: relative;
     left: 65px;
@@ -197,16 +206,16 @@ a.list-group-item:hover {
         font-size: medium;
         left: 45px;
     }
-    .button-group{
+    .button-group {
         margin-top: 0px;
     }
-    h1{
+    h1 {
         text-align: center;
         color: white;
         margin: -5px;
         margin-top: -20px;
     }
-    h5{
+    h5 {
         font-size: 20px;
         margin-top: 5px;
     }
