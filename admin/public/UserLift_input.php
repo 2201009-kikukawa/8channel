@@ -29,6 +29,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/UserLift_input.css">
     <title>ユーザー情報</title>
 </head>
 <body>
@@ -39,10 +40,10 @@
     <?php
         echo '<form action="UserLift_output.php" method="post">';
             echo '<input type="hidden" name="id" value="', $user['user_id'], '">';
-            echo '<button type="submit">はい</button>';
+            echo '<button type="submit" class="button-yes">はい</button>';
         echo '</form>';
         echo '<form action="StopUser.php">';
-            echo '<button type="submit">いいえ</button>';
+            echo '<button type="submit" class="button-no">いいえ</button>';
         echo '</form>';
     ?>
 </body>
