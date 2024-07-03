@@ -1,23 +1,22 @@
 <?php
     require '../../config/db-connect.php';
-    require 'header.php';
 ?>
 
 <head>
     <link rel="stylesheet" type="text/css" href="./css/ReportList.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <form method="post">
-        <input type="text" name="search_id" placeholder="報告側のIDを入力">
-        <input type="submit" value="検索">
-    </form>
-        <input type=button value=タグ作成 onclick="redirectToTagInput()">
-        <br>
-    <div class="a1">
-        <a href="StopUser.php">停止アカウント一覧へ</a>
-        <a href="logout.php">ログアウト</a>
-    </div>
-        <table class="a2">
+        <form method="post" id="form2">
+            <input id="sbox3" type="text" name="search_id" placeholder="報告側のIDを入力">
+            <button id="sbtn4" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+        <a class="aa" href="#" onclick="redirectToTagInput()">タグ作成</a>
+        <a class="a1" href="StopUser.php">停止アカウント一覧へ</a>
+        <a class="a2" href="logout.php">ログアウト</a>
+    <table>
         <tr>
             <th>報告したユーザーID</th>
             <th>報告されたユーザーID</th>
@@ -43,8 +42,8 @@
             } else { // 検索結果がある場合
                 foreach($sql as $row) {
                     echo '<tr>';
-                    echo '<td>', '<a href="message.php?user_id=', $row['user_id'], '">', $row['user_id'], '</a>', '</td>';
-                    echo '<td>', '<a href="message.php?user_id=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
+                    echo '<td>', '<a class="a5" href="message.php?user_id=', $row['user_id'], '">', $row['user_id'], '</a>', '</td>';
+                    echo '<td>', '<a class="a6" href="message.php?user_id=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
                     echo '<td>', $row['report_reason'], '</td>';
                     echo '<td>', $row['data'], '</td>';
                     echo '</tr>';

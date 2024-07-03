@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>8ちゃんねるログイン</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
   <form name="loginForm" action="login-output.php" method="post" onsubmit="return validateForm()">
