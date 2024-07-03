@@ -8,6 +8,7 @@
     <title>ID入力フォーム</title>
 </head>
 <body>
+<link rel="stylesheet" href="css/user_insert.css">
     <h1>8ちゃんねる ID 登録</h1>
     <form action="../../config/control/submit_user.php" method="post">
         <div>
