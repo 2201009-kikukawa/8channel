@@ -1,0 +1,139 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-image: url('../image/Group\ 161haikei.jpg'); /* Adjust the path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#title{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+h2{
+    padding-top: 5%;
+}
+
+h4{
+    padding-top: 2%;
+    margin-bottom: 10%;
+}
+
+textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 150px;
+    border: 1px solid #18ef00;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #18ef00;
+}
+
+
+.m-button{  
+    margin: 0;
+    margin-top: 3%;
+    float:right;
+    /* 背景色を無色に */
+    background: transparent;
+    /* 枠線を消す */
+    border: none;
+    /* クリックした際に枠線をnone消す */
+    outline: none;
+    /* 影を消す */
+    box-shadow: none;
+}
+
+.message{
+    text-align: left;
+    list-style: none;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-width: 0.05rem;
+    border-style: solid;
+    border-color: #18ce0f;
+}
+
+#m-number{
+    font-size: 1.1rem;
+    margin-left: 3%;
+}
+
+#m-name{
+    font-size: 1.1rem;
+    margin-left: 8%;
+}
+
+#m-data{
+    margin-left: 35%;
+}
+
+#m-message{
+    margin-left: 3%;
+    width: 700px;
+    overflow-wrap: break-word;
+}
+
+.display-button{
+    text-align: right;
+}
+
+#imgbutton{
+    background-color: black;
+    height: 2rem;
+    width: 3rem;
+}
+
+.hyouzibotan{
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: right;
+}
+
+.display-button {
+    border: none;
+    background-color: #18ce0f; /* Yellow background */
+    color: black; /* Text color */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove default outline */
+}
+
+.display-button:hover {
+    transform: translateY(2px); /* Slightly moves down on hover */
+}
+
+textarea{
+    background-color: #000000;
+}
+
+.toukou-button{
+    border: none;
+    background-color: #18ce0f; /* Yellow background */
+    color: black; /* Text color */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove default outline */
+}

@@ -70,11 +70,13 @@ try {
     <title>スレッド詳細</title>
     <link rel="stylesheet" href="./css/report_modal.css">
     <link rel="stylesheet" href="./css/sns_shere.css">
-    
+    <link rel="stylesheet" href="./css/thread_detail.css">
 </head>
 <body>
-    <h1><?= htmlspecialchars($thread['thread_name']) ?></h1>
-    <h3><?= nl2br(htmlspecialchars($thread['thread_txt'])) ?></h3>
+    <div id="title">
+        <h2><?= htmlspecialchars($thread['thread_name']) ?></h2>
+        <h4><?= nl2br(htmlspecialchars($thread['thread_txt'])) ?></h4>
+    </div>
 
     <?php if (empty($messages_asc)): ?>
         <p>このスレッドにはまだメッセージがありません。</p>
@@ -82,27 +84,36 @@ try {
         <ul id="message-list">
             <?php foreach ($messages_asc as $message): ?>
                 <li class="message" data-message-id="<?= $message['message_id'] ?>" data-message-text="<?= htmlspecialchars($message['message_txt']) ?>">
-                    <strong><?= $message['message_cnt'] ?></strong>
-                    <strong><?= htmlspecialchars($message['user_name']) ?></strong>
-                    <p><?= htmlspecialchars($message['message_txt']) ?></p>
-                    <small><?= htmlspecialchars($message['data']) ?></small>
-                    <button class="report-button" data-message-id="<?= $message['message_id'] ?>" data_user_name="<?= htmlspecialchars($message['user_name']) ?>" data_user_id="<?= htmlspecialchars($message['user_id']) ?>">報告</button>
-                    <button class="share-button">共有</button>
+                    <div class=m-list>
+                        <strong id="m-number"><?= $message['message_cnt'] ?></strong>
+                        <strong id="m-name"><?= htmlspecialchars($message['user_name']) ?></strong>
+                        <small id="m-data"><?= htmlspecialchars($message['data']) ?></small>
+                        <button id="rightbutton" class="m-button report-button" data-message-id="<?= $message['message_id'] ?>" data_user_name="<?= htmlspecialchars($message['user_name']) ?>" data_user_id="<?= htmlspecialchars($message['user_id']) ?>">
+                            <img id="imgbutton"  src="./image/houkoku.png" alt="報告">
+                        </button>
+                        <button class="m-button share-button">
+                            <img id="imgbutton" src="./image/kyouyu.png" alt="共有">
+                        </button>
+                        <p id="m-message"><?= htmlspecialchars($message['message_txt']) ?></p>
+                    </div>
                 </li>
             <?php endforeach; ?>
         </ul>
-        <button id="toggle-display" data-show-all="<?= $show_all ? '1' : '0' ?>">
-            <?= $show_all ? '最新10件表示' : 'すべて表示' ?>
-        </button>
+        <div class="hyouzibotan">
+            <button id="toggle-display" class="display-button" data-show-all="<?= $show_all ? '1' : '0' ?>">
+                <?= $show_all ? '最新10件表示' : 'すべて表示' ?>
+            </button>
+        </div>
     <?php endif; ?>
-
-    <h2>メッセージを投稿</h2>
-    <form action="post_message.php" method="post">
-        <textarea name="message_txt" rows="6" cols="50" required></textarea><br>
-        <input type="hidden" name="thread_id" value="<?= $thread_id ?>">
-        <input type="hidden" name="user_id" id="user_id" value="<?= isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : '' ?>">
-        <button type="submit">投稿</button>
-    </form>
+    <div class="container"></div>
+        <h2>メッセージを投稿</h2>
+        <form action="post_message.php" method="post">
+            <textarea name="message_txt" rows="6" cols="50" required></textarea><br>
+            <input type="hidden" name="thread_id" value="<?= $thread_id ?>">
+            <input type="hidden" name="user_id" id="user_id" value="<?= isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : '' ?>">
+            <button id="toukou" class="toukou-button" type="submit">投稿</button>
+        </form>
+    </div>
 
     <!-- 報告モーダル -->
     <div id="report-modal" class="modal">
