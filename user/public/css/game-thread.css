@@ -1,0 +1,222 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    background-image: url('./path-to-your-background-image.jpg'); /* Adjust the path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    font-size: 45px;
+}
+
+h5 {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#btns {
+    border: solid 0.05rem #18CE0F;
+    background-color: black;
+    color: white;
+    padding: 0.90rem 4.5rem;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    width: 16em;
+    margin-bottom: 20px;
+}
+
+#btns:hover {
+    background-color: #18CE0F;
+    color: black;
+}
+
+a.list-group-item {
+    margin: auto;
+    border: solid 0.05rem #18CE0F;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: end;
+    width: 80%;
+}
+
+a.list-group-item:hover {
+    background-color: #18CE0F;
+    color: black;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    width: 50%;
+    padding: 10px;
+    border: 0.05rem solid #18CE0F;
+    border-radius: 4px 0 0 4px;
+    background-color: black;
+    color: white;
+}
+
+.search-container button {
+    padding: 10px;
+    background: #18CE0F;
+    border: none;
+    color: black;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+.search-container button:hover {
+    background: #0E8C0A;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a {
+    display: block;
+    padding: 8px 16px;
+    color: #18CE0F;
+    text-decoration: none;
+    border: 1px solid #18CE0F;
+    border-radius: 4px;
+    background-color: black;
+}
+
+.pagination a:hover {
+    background-color: #0E8C0A;
+}
+
+.pagination .active a {
+    background-color: #18CE0F;
+    color: black;
+    border: 1px solid #18CE0F;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 48em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title-text {
+    font-size: 30px;
+    margin: auto;
+    position: relative;
+    left: 65px;
+}
+
+#title-btn {
+    border: solid 0.05rem #18CE0F;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#title-btn:hover {
+    background-color: #18CE0F;
+    color: black;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -15px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    .search-container input {
+        width: 70%;
+    }
+
+    #btns {
+        padding: 0.50rem 2.0rem;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    .title {
+        width: 100%;
+        justify-content: space-between;
+
+    }
+    #title-btn {
+        border: solid 0.05rem #18CE0F;
+        background-color: black;
+        color: white;
+        transition: background-color 0.3s, color 0.3s;
+        position: relative;
+        font-size: .5rem;
+    }
+    .title-text {
+        margin: auto;
+        font-size: medium;
+        left: 45px;
+    }
+    .button-group {
+        margin-top: 0px;
+    }
+    h1 {
+        text-align: center;
+        color: white;
+        margin: -5px;
+        margin-top: -20px;
+    }
+    h5 {
+        font-size: 20px;
+        margin-top: 5px;
+    }
+}
