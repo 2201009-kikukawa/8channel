@@ -2,16 +2,21 @@
     require '../../config/db-connect.php';
 ?>
 
+<header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</header>
+
 <body>
 <link rel="stylesheet" href="css/StopUser.css">
-    <form action="StopUser.php" method="post">
-        <input type="text" name="search" placeholder="IDを入力">
-        <input type="submit" value="検索">
-    </form>
-    <input type=button value=タグ作成 onclick="redirectToTagInput()">
-        <br>
-        <a class="a1" href="ReportList.php">報告一覧へ</a>
-        <a class="a2" href="logout.php">ログアウト</a>
+        <form method="post" id="form2">
+            <input id="sbox3" type="text" name="search" placeholder="ユーザーIDを入力">
+            <button id="sbtn4" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+    <a class="aa" href="#" onclick="redirectToTagInput()">タグ作成</a>
+    <a class="a1" href="ReportList.php">報告一覧へ</a>
+    <a class="a2" href="logout.php">ログアウト</a>
     <table>
         <tr>
             <th>ユーザーID</th>
@@ -49,7 +54,7 @@
                     echo '<td>';
                         echo '<form action="UserLift_input.php" method="post">';
                             echo '<input type="hidden" name="id" value="', $row['user_id'], '">';
-                            echo '<button type="submit">解除</button>';
+                            echo '<button class="xx" type="submit">解除</button>';
                         echo '</form>';
                     echo '</td>';
                     echo '</tr>';

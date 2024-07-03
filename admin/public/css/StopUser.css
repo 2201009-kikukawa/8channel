@@ -21,7 +21,7 @@ form {
 
 table {
     border-collapse: collapse;
-    width: 65%; /* 横幅の70%に設定 */
+    width: 80%; /* 横幅の70%に設定 */
     margin: auto; /* 中央に配置 */
     border: none; /* テーブルのラインを黄緑に設定 */
     margin-top: 20px; /* テーブル上部の余白を追加 */
@@ -57,12 +57,52 @@ a {
     color: white;
 }
 
-.a1,.a2{
-    font-size: 20px;
-    margin-left: 15%;
-    margin-right: 15%;
+.a1 {
+    margin-left: 150px;
+    margin-right: 150px;
 }
-button{
+
+.aa,.a1,.a2{
+    font-size: 20px;
+}
+
+#form2{
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border: solid 2px #31ff26;
+    max-width: 400px;
+    height: 25px;
+    border-radius: 10px;
+}
+
+#sbox3{
+    flex: 1;
+    height: 25px;
+    width:400px ;
+    padding: 0 15px;
+    border-radius: 9px;
+    background:transparent;
+    border:none;
+    outline:0;
+}
+
+#sbtn4{
+    width: 30px;
+    background:transparent;
+    border-radius: 9px;
+    border:none;
+    color: black;
+    font-size:15px;
+    cursor: pointer;
+}
+#sbtn4:hover{
+  background: #7fbfff;
+  color:#fff;
+}
+
+.xx{
     cursor: pointer;
     border: 1px solid #00ff00;
     /* 緑色の枠線を追加 */
