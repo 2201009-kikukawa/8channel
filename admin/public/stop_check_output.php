@@ -8,14 +8,13 @@ if ($user_id == 0) {
     exit();
 }
 
-// データベース接続情報
-$SERVER = '127.0.0.1';
-$DBNAME = '8cannel';
-$USER = 'kazu';
-$PASS = 'kazu9030kk';
-
+// データベース接続情報<?php
 $rootDirectory = basename($_SERVER['DOCUMENT_ROOT']);
-
+//xamppを利用したlocal環境を使う場合は自分のDB情報を入力
+$SERVER = '127.0.0.1';
+$DBNAME = '8channel';
+$USER = 'eiki';
+$PASS = 'Pass0103';
 if ($rootDirectory != 'htdocs') {
     $SERVER = "mysql304.phy.lolipop.lan";
     $USER = "LAA1516915";
@@ -26,9 +25,8 @@ if ($rootDirectory != 'htdocs') {
 $conn = 'mysql:host=' . $SERVER . ';dbname=' . $DBNAME . ';charset=utf8';
 try {
     $pdo = new PDO($conn, $USER, $PASS);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die("データベース接続に失敗しました: " . $e->getMessage());
+    die("Connection failed: " . $e->getMessage() . " - Server: " . $SERVER);
 }
 
 // データベースからユーザー名を取得

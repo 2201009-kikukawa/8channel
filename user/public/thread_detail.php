@@ -70,6 +70,7 @@ try {
     <title>スレッド詳細</title>
     <link rel="stylesheet" href="./css/report_modal.css">
     <link rel="stylesheet" href="./css/sns_shere.css">
+    
 </head>
 <body>
     <h1><?= htmlspecialchars($thread['thread_name']) ?></h1>
