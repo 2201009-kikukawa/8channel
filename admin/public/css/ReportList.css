@@ -21,7 +21,7 @@ form {
 
 table {
     border-collapse: collapse;
-    width: 65%; /* 横幅の70%に設定 */
+    width: 80%; /* 横幅の70%に設定 */
     margin: auto; /* 中央に配置 */
     border: none; /* テーブルのラインを黄緑に設定 */
     margin-top: 20px; /* テーブル上部の余白を追加 */
@@ -57,13 +57,20 @@ a {
     color: white;
 }
 
-.a5,.a6{
+.a5, .a6{
     text-decoration: none; /* リンクの下線を削除 */
 }
 
+.a5:hover, .a6:hover {
+    text-decoration: underline;
+    text-decoration-color: #31ff26;
+    text-decoration-thickness: 2px;
+    font-size: 20px;
+}
+
 .a1 {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 .aa,.a1,.a2{
@@ -77,16 +84,16 @@ a {
     background-color: #fff;
     border: solid 2px #31ff26;
     max-width: 400px;
-    height: 30px;
-    border-radius: 4px;
+    height: 25px;
+    border-radius: 10px;
 }
 
 #sbox3{
     flex: 1;
-    height: 23px;
+    height: 25px;
     width:400px ;
     padding: 0 15px;
-    border-radius: initial;
+    border-radius: 9px;
     background:transparent;
     border:none;
     outline:0;
@@ -95,7 +102,7 @@ a {
 #sbtn4{
     width: 30px;
     background:transparent;
-    border-radius: initial;
+    border-radius: 9px;
     border:none;
     color: black;
     font-size:15px;
