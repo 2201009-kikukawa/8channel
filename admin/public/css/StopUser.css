@@ -101,3 +101,15 @@ a {
   background: #7fbfff;
   color:#fff;
 }
+
+.xx{
+    cursor: pointer;
+    border: 1px solid #00ff00;
+    /* 緑色の枠線を追加 */
+    border-radius: 5px;
+    background-color: #000;
+    /* 背景色を黒に変更 */
+    color: white;
+    /* テキストの色を緑に変更 */
+    padding: 10px 40px;
+}

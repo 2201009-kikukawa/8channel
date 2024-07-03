@@ -54,7 +54,7 @@
                     echo '<td>';
                         echo '<form action="UserLift_input.php" method="post">';
                             echo '<input type="hidden" name="id" value="', $row['user_id'], '">';
-                            echo '<button type="submit">解除</button>';
+                            echo '<button class="xx" type="submit">解除</button>';
                         echo '</form>';
                     echo '</td>';
                     echo '</tr>';
