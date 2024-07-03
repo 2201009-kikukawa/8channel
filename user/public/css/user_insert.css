@@ -38,26 +38,16 @@ input[type="email"], input[type="password"], input[type="text"] {
     width: 300px;
     margin: 0 auto;
     display: block;
-<<<<<<< HEAD
     background-color: rgb(0, 0, 0); /* Change the background color of input fields to white */
     color: #ffffff; /* Change the text color inside input fields to black */
     border: 0.05rem solid #18CE0F; /* Add a border to the input fields */
-=======
-    background-color: white; /* Change the background color of input fields to white */
-    color: black; /* Change the text color inside input fields to black */
-    border: 1px solid #ccc; /* Add a border to the input fields */
->>>>>>> 815ba801aff420f7b13963acdbab2fbe5dee2979
     border-radius: 5px; /* Add rounded corners to the input fields */
 }
 
 button {
     margin-top: 20px;
     padding: 10px 20px;
-<<<<<<< HEAD
     background-color: #18CE0F;
-=======
-    background-color: blue;
->>>>>>> 815ba801aff420f7b13963acdbab2fbe5dee2979
     color: white; /* Change button text color to white for better contrast */
     border: none;
     cursor: pointer;
@@ -65,9 +55,5 @@ button {
 }
 
 button:hover {
-<<<<<<< HEAD
     background-color: #18CE0F; /* Change button background color on hover */
-=======
-    background-color: darkblue; /* Change button background color on hover */
->>>>>>> 815ba801aff420f7b13963acdbab2fbe5dee2979
 }
