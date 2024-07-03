@@ -70,31 +70,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>タグ作成フォーム</title>
+<link rel="stylesheet" type="text/css" href="tag_input.css">
 </head>
 <body>
-<h1>タグ作成</h1>
-<?php if (!empty($errors)): ?>
-    <div class="error-messages">
-        <?php echo implode('<br>', $errors); ?>
-    </div>
-<?php endif; ?>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <div id="container">
+<div class="container">
+    <h1>タグ作成</h1>
+    <?php if (!empty($errors)): ?>
+        <div class="error-messages">
+            <?php echo implode('<br>', $errors); ?>
+        </div>
+    <?php endif; ?>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <div class="textbox-container">
             <input type="text" name="tags[]" placeholder="タグ1">
         </div>
-    </div>
-    <button type="submit">作成</button>
-    <button type="button" onclick="addTextBox()">+</button>
-</form>
-<button onclick="goBack()">戻る</button>
+        <div class="buttons-container">
+            <button type="submit">作成</button>
+            <button type="button" onclick="addTextBox()">＋</button>
+            <button type="button" onclick="goBack()">戻る</button>
+        </div>
+    </form>
+</div>
 <script>
     let textBoxCounter = 1;
 
     function addTextBox() {
         textBoxCounter++;
 
-        const container = document.getElementById("container");
+        const container = document.querySelector('.container');
         const textBoxContainer = document.createElement("div");
         textBoxContainer.className = "textbox-container";
 
@@ -103,9 +106,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         textBox.name = "tags[]";
         textBox.placeholder = "タグ " + textBoxCounter;
 
+        const addButton = document.createElement("button");
+        addButton.type = "button";
+        addButton.textContent = "＋";
+        addButton.onclick = addTextBox;
+
         textBoxContainer.appendChild(textBox);
-        container.appendChild(textBoxContainer);
+        textBoxContainer.appendChild(addButton);
+        container.insertBefore(textBoxContainer, document.querySelector('.buttons-container'));
     }
+
     function goBack() {
         window.location.href = 'ReportList.php';
     }

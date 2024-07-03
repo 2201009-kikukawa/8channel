@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 400px;
+    text-align: center; /* 中央揃え */
+}
+
+.error-messages {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffc107;
+    border: 1px solid #d4a600;
+    border-radius: 4px;
+    text-align: center; /* 中央揃え */
+}
