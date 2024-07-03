@@ -9,7 +9,7 @@
 <body>
 <link rel="stylesheet" href="css/StopUser.css">
         <form method="post" id="form2">
-            <input id="sbox3" type="text" name="search_id" placeholder="報告側のIDを入力">
+            <input id="sbox3" type="text" name="search" placeholder="ユーザーIDを入力">
             <button id="sbtn4" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
             </button>
