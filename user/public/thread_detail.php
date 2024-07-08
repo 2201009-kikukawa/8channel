@@ -73,6 +73,8 @@ try {
     <link rel="stylesheet" href="./css/thread_detail.css">
 </head>
 <body>
+    
+
     <div id="title">
         <h2><?= htmlspecialchars($thread['thread_name']) ?></h2>
         <h4><?= nl2br(htmlspecialchars($thread['thread_txt'])) ?></h4>
@@ -88,8 +90,8 @@ try {
                         <strong id="m-number"><?= $message['message_cnt'] ?></strong>
                         <strong id="m-name"><?= htmlspecialchars($message['user_name']) ?></strong>
                         <small id="m-data"><?= htmlspecialchars($message['data']) ?></small>
-                        <button id="rightbutton" class="m-button report-button" data-message-id="<?= $message['message_id'] ?>" data_user_name="<?= htmlspecialchars($message['user_name']) ?>" data_user_id="<?= htmlspecialchars($message['user_id']) ?>">
-                            <img id="imgbutton"  src="./image/houkoku.png" alt="報告">
+                        <button id="rightbutton" class="report-button m-button" >
+                            <img id="imgbutton"　data-message-id="<?= $message['message_id'] ?>" data_user_name="<?= htmlspecialchars($message['user_name']) ?>" data_user_id="<?= htmlspecialchars($message['user_id']) ?>"  src="./image/houkoku.png" alt="報告">
                         </button>
                         <button class="m-button share-button">
                             <img id="imgbutton" src="./image/kyouyu.png" alt="共有">
