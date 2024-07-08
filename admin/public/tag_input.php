@@ -13,25 +13,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // フォームから送信されたデータの取得
     $tags = $_POST['tags'];
 
+    // 空のタグ名をチェック
+    foreach ($tags as $tag) {
+        if (empty($tag)) {
+            $errors[] = "タグ名を入力してください";
+        }
+    }
+
     // 重複しているタグを格納する配列
     $duplicate_tags = [];
 
     // タグをデータベースに挿入
     foreach ($tags as $tag) {
-        // タグ名の重複を確認
-        $sql_check_duplicate = "SELECT * FROM Tag WHERE tag_name = ?";
-        $stmt_check_duplicate = $pdo->prepare($sql_check_duplicate);
-        $stmt_check_duplicate->execute([$tag]);
-        $existing_tag = $stmt_check_duplicate->fetch();
+        // タグ名が空でない場合のみ処理
+        if (!empty($tag)) {
+            // タグ名の重複を確認
+            $sql_check_duplicate = "SELECT * FROM tag WHERE tag_name = ?";
+            $stmt_check_duplicate = $pdo->prepare($sql_check_duplicate);
+            $stmt_check_duplicate->execute([$tag]);
+            $existing_tag = $stmt_check_duplicate->fetch();
 
-        if ($existing_tag) {
-            // 重複するタグを配列に追加
-            $duplicate_tags[] = $tag;
-        } else {
-            // SQLインジェクションを防止するために、プリペアドステートメントを使用する
-            $sql_insert_tag = "INSERT INTO Tag (tag_name) VALUES (?)"; // テーブル名 'tag' を 'Tag' に修正
-            $stmt_insert_tag = $pdo->prepare($sql_insert_tag);
-            $stmt_insert_tag->execute([$tag]);
+            if ($existing_tag) {
+                // 重複するタグを配列に追加
+                $duplicate_tags[] = $tag;
+            } else {
+                // SQLインジェクションを防止するために、プリペアドステートメントを使用する
+                $sql_insert_tag = "INSERT INTO tag (tag_name) VALUES (?)"; // テーブル名 'tag' を 'Tag' に修正
+                $stmt_insert_tag = $pdo->prepare($sql_insert_tag);
+                $stmt_insert_tag->execute([$tag]);
+            }
         }
     }
 
@@ -70,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>タグ作成フォーム</title>
-<link rel="stylesheet" type="text/css" href="tag_input.css">
+<link rel="stylesheet" type="text/css" href="./css/tag_input.css">
 </head>
 <body>
 <div class="container">
@@ -95,30 +105,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     let textBoxCounter = 1;
 
     function addTextBox() {
-        textBoxCounter++;
+    textBoxCounter++;
 
+    // 新しいテキストボックスを作成
+    const textBoxContainer = document.createElement("div");
+    textBoxContainer.className = "textbox-container";
+
+    const textBox = document.createElement("input");
+    textBox.type = "text";
+    textBox.name = "tags[]";
+    textBox.placeholder = "タグ " + textBoxCounter;
+
+    textBoxContainer.appendChild(textBox);
+
+    // 新しい要素を追加する前に、既存の最後のテキストボックスを探す
+    const currentTextBoxContainers = document.querySelectorAll('.textbox-container');
+    const lastTextBoxContainer = currentTextBoxContainers[currentTextBoxContainers.length - 1];
+
+    // 既存のテキストボックスが見つかった場合にのみ追加する
+    if (lastTextBoxContainer) {
+        lastTextBoxContainer.parentNode.insertBefore(textBoxContainer, lastTextBoxContainer.nextSibling);
+    } else {
+        // 既存のテキストボックスが見つからなかった場合は直接挿入する
         const container = document.querySelector('.container');
-        const textBoxContainer = document.createElement("div");
-        textBoxContainer.className = "textbox-container";
-
-        const textBox = document.createElement("input");
-        textBox.type = "text";
-        textBox.name = "tags[]";
-        textBox.placeholder = "タグ " + textBoxCounter;
-
-        const addButton = document.createElement("button");
-        addButton.type = "button";
-        addButton.textContent = "＋";
-        addButton.onclick = addTextBox;
-
-        textBoxContainer.appendChild(textBox);
-        textBoxContainer.appendChild(addButton);
-        container.insertBefore(textBoxContainer, document.querySelector('.buttons-container'));
+        container.insertBefore(textBoxContainer, document.querySelector('.buttons-container').nextSibling);
     }
+}
 
-    function goBack() {
-        window.location.href = 'ReportList.php';
-    }
+function goBack() {
+    window.location.href = 'ReportList.php';
+}
 </script>
 </body>
 </html>
