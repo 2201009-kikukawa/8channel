@@ -2,9 +2,7 @@ body{
     margin: 0;
     padding: 0;
     text-align: center;
-    background-image: url('../image/Group\ 161haikei.jpg'); /* Adjust the path */
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #000000;
     color: white;
 }
 
@@ -136,4 +134,8 @@ textarea{
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
     outline: none; /* Remove default outline */
+}
+
+.toukou-button:hover{
+    transform: translateY(2px); /* Slightly moves down on hover */
 }

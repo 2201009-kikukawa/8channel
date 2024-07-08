@@ -1,5 +1,6 @@
 header{
     text-align: center;
+    /*background: url(../image/haikeiTop.png);*/
 }
 
 .header-text{
@@ -14,7 +15,6 @@ header{
 }
 .hedbtn{
     border: solid 0.05rem #18CE0F;
-    background-color: black;
     color: white;
     text-decoration: none;
     text-align: center;
