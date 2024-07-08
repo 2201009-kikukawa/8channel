@@ -11,7 +11,8 @@ header{
 .h1{
     color: white;
     position: relative;
-    right: 30px;
+    right: 0px;
+    text-align: center;
 }
 .hedbtn{
     border: solid 0.05rem #18CE0F;
