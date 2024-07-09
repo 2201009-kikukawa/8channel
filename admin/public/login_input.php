@@ -1,5 +1,8 @@
 <?php
 require "header.php";
+session_start();
+$error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
+unset($_SESSION['error']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -24,6 +27,9 @@ require "header.php";
         <input type="password" id="password" name="password">
         <br>
         <button type="submit">ログイン</button>
+        <?php if ($error): ?>
+        <p style="color: red;"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
+    <?php endif; ?>
     </form>
 </body>
 </html>
