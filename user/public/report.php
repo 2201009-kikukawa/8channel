@@ -1,3 +1,6 @@
+<?php require 'footer.php'?>
+
+   <link rel="stylesheet" href="./css/footer.css">
 <?php
 session_start();
 ini_set('display_errors', 1);
