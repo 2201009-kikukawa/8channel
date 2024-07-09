@@ -13,8 +13,38 @@
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #000;
+    color: white;
+    border: 0.05rem solid #18CE0F; /* Add a border to the input fields */
+    border-radius: 5px; /* Add rounded corners to the input fields */
     margin: 5% auto;
     padding: 20px;
-    border: 1px solid
+}
+
+.modal-houkoku{
+    margin-top: 1rem;
+    background: transparent;
+    /* クリックした際に枠線をnone消す */
+    outline: none;
+    /* 影を消す */
+    box-shadow: none;
+    border: none;
+    background-color: #18ce0f; /* Yellow background */
+    color: black; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove default outline */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.modal-houkoku:hover{
+    transform: translateY(2px); /* Slightly moves down on hover */
+}
+
+select{
+    margin-top: 1rem;
+    background-color: #000;
+    color: white;
+    border: 0.05rem solid #18CE0F; /* Add a border to the input fields */
+    border-radius: 5px; /* Add rounded corners to the input fields */
+    font-size: 1rem;
 }

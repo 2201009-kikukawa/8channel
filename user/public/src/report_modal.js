@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const userName = event.target.getAttribute('data_user_name');
             const reportUserIdInput = document.getElementById('report_user_id');
             // ユーザー名を表示する要素にユーザー名を挿入する
-            reportedUserNameHeader.textContent = `このアカウントを報告します: ${userName}`;
+            reportedUserNameHeader.textContent = `アカウント名: ${userName}`;
             
             reportUserIdInput.value = userId;
             
