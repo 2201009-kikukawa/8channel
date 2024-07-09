@@ -22,11 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mail']) && isset($_PO
             header('Location: ReportList.php');
             exit();
         } else {
-            $login_error = "ユーザー名またはパスワードが間違っています。";
-            echo $login_error;
+            $_SESSION['error'] = 'ログインに失敗しました。メールアドレスまたはパスワードが正しくありません。';
+            header('Location: login_input.php');
+            exit();
         }
     } catch (PDOException $e) {
         echo 'データベースエラー: ' . $e->getMessage();
     }
 }
-?>
