@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <header class="bg-black p-3 border-bottom">
+    <header class="bg-black p-3 header-bottom">
         <div class="container d-flex justify-content-between align-items-center">
             <div>
                 <a href="Top-index.php"><img src="./image/rogo.jpg" alt="Site Logo" style="height: 50px;"></a>
@@ -32,5 +32,10 @@
             </div>
         </div>
     </header>
+
+    <div>
+        <img class="Topline" src="./image/haikeiTop.png">
+    </div>
+
 </body>
 </html>
