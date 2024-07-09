@@ -16,7 +16,7 @@ body {
 form {
     display: inline-block;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 table {
@@ -26,6 +26,7 @@ table {
     border: none; /* テーブルのラインを黄緑に設定 */
     margin-top: 20px; /* テーブル上部の余白を追加 */
     margin-bottom: 20px; /* テーブル下部の余白を追加 */
+    text-align: center;
 }
 
 th {
@@ -36,12 +37,19 @@ th {
     padding: 8px;
 }
 
+tr {
+    margin-bottom: 5px; /* 下方向の余白を5pxに設定 */
+    height: 30px;
+}
+
 td {
     text-align: center; /* 中央揃えに設定 */
-    padding: 8px;
+    vertical-align: middle;
+    padding: none;
     border-bottom: none !important;
     border-right: none !important;
     border-left: none !important;
+    vertical-align: middle;
 }
 
 input[type="text"], input[type="submit"] {
@@ -102,14 +110,14 @@ a {
   color:#fff;
 }
 
-.xx{
+.xx {
     cursor: pointer;
     border: 1px solid #00ff00;
-    /* 緑色の枠線を追加 */
     border-radius: 5px;
     background-color: #000;
-    /* 背景色を黒に変更 */
     color: white;
-    /* テキストの色を緑に変更 */
-    padding: 10px 40px;
+    padding: 8px 20px;
+    line-height: 10px; /* ボタンの高さに応じて適切な値を設定 */
+    margin-top: 5px;
+    font-size: 15px;
 }
