@@ -121,7 +121,7 @@ try {
     <div id="report-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>このコメントを報告</h2>
+            <h3>このアカウントを報告します</h3>
             <!-- ユーザー名を表示する要素 -->
             <div id="reported-user-name"></div>
             <form id="report-form">
@@ -132,7 +132,7 @@ try {
                     <option value="2">暴力的なコメント</option>
                     <option value="3">卑猥なコメント</option>
                 </select><br>
-                <button type="submit">報告する</button>
+                <button type="submit" class="modal-houkoku">報告する</button>
             </form>
         </div>
     </div>
