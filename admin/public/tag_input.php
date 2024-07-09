@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <div class="textbox-container">
-            <input type="text" name="tags[]" placeholder="タグ1">
+            <input type="text" name="tags[]" placeholder="タグ 1">
         </div>
         <div class="buttons-container">
             <button type="submit">作成</button>
