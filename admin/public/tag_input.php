@@ -105,36 +105,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     let textBoxCounter = 1;
 
     function addTextBox() {
-    textBoxCounter++;
+        if (textBoxCounter >= 5) {
+            alert("同時に追加できるタグは5個までです。");
+            return;
+        }
 
-    // 新しいテキストボックスを作成
-    const textBoxContainer = document.createElement("div");
-    textBoxContainer.className = "textbox-container";
+        textBoxCounter++;
 
-    const textBox = document.createElement("input");
-    textBox.type = "text";
-    textBox.name = "tags[]";
-    textBox.placeholder = "タグ " + textBoxCounter;
+        // 新しいテキストボックスを作成
+        const textBoxContainer = document.createElement("div");
+        textBoxContainer.className = "textbox-container";
 
-    textBoxContainer.appendChild(textBox);
+        const textBox = document.createElement("input");
+        textBox.type = "text";
+        textBox.name = "tags[]";
+        textBox.placeholder = "タグ " + textBoxCounter;
 
-    // 新しい要素を追加する前に、既存の最後のテキストボックスを探す
-    const currentTextBoxContainers = document.querySelectorAll('.textbox-container');
-    const lastTextBoxContainer = currentTextBoxContainers[currentTextBoxContainers.length - 1];
+        textBoxContainer.appendChild(textBox);
 
-    // 既存のテキストボックスが見つかった場合にのみ追加する
-    if (lastTextBoxContainer) {
-        lastTextBoxContainer.parentNode.insertBefore(textBoxContainer, lastTextBoxContainer.nextSibling);
-    } else {
-        // 既存のテキストボックスが見つからなかった場合は直接挿入する
-        const container = document.querySelector('.container');
-        container.insertBefore(textBoxContainer, document.querySelector('.buttons-container').nextSibling);
+        // 新しい要素を追加する前に、既存の最後のテキストボックスを探す
+        const currentTextBoxContainers = document.querySelectorAll('.textbox-container');
+        const lastTextBoxContainer = currentTextBoxContainers[currentTextBoxContainers.length - 1];
+
+        // 既存のテキストボックスが見つかった場合にのみ追加する
+        if (lastTextBoxContainer) {
+            lastTextBoxContainer.parentNode.insertBefore(textBoxContainer, lastTextBoxContainer.nextSibling);
+        } else {
+            // 既存のテキストボックスが見つからなかった場合は直接挿入する
+            const container = document.querySelector('.container');
+            container.insertBefore(textBoxContainer, document.querySelector('.buttons-container').nextSibling);
+        }
     }
-}
 
-function goBack() {
-    window.location.href = 'ReportList.php';
-}
+    function goBack() {
+        window.location.href = 'ReportList.php';
+    }
 </script>
 </body>
 </html>
