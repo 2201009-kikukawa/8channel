@@ -29,6 +29,11 @@ header{
     top: 10px;
 }
 
+.header-bottom{
+    border-bottom: 0.05rem solid #18CE0F;
+}
+
+
 .admin-link{
     color:white
 }
@@ -48,4 +53,8 @@ header{
     .h1{
         right: auto;
     }
+}
+
+.Topline{
+    width: 100%;
 }

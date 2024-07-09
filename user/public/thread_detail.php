@@ -70,6 +70,7 @@ try {
     <title>スレッド詳細</title>
     <link rel="stylesheet" href="./css/report_modal.css">
     <link rel="stylesheet" href="./css/sns_shere.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/thread_detail.css">
 </head>
 <body>
@@ -170,4 +171,5 @@ try {
     </script>
 
 </body>
+<?php require 'footer.php'?>
 </html>
