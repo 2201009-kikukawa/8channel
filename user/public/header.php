@@ -19,7 +19,7 @@
             
             <div class="header-text">
                 <h1 class="h1">8ちゃんねる</h1>
-                <p class="mb-0 text-muted" style="color: white !important;">ゲーム専門の掲示板やけん、ゲームに関する話をしろよぉ～</p>
+                <p class="mb-0 text-muted" style="color: white !important;">ゲーム専門の掲示板です、ゲームに関する話をしてねぇ～</p>
             </div>
 
             <div class="header-btn">
