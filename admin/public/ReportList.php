@@ -16,7 +16,8 @@
         <a class="aa" href="#" onclick="redirectToTagInput()">タグ作成</a>
         <a class="a1" href="StopUser.php">停止アカウント一覧へ</a>
         <a class="a2" href="logout.php">ログアウト</a>
-    <table>
+    <div class="scroll">
+        <table>
         <tr>
             <th>報告したユーザーID</th>
             <th>報告されたユーザーID</th>
@@ -40,8 +41,7 @@
             if($rowCount === 0) { // 検索結果がない場合
                 echo '<tr><td colspan="4">データが見つかりません</td></tr>';
             } else { // 検索結果がある場合
-                foreach($sql as $index => $row) {
-                    if ($index < 10) { // 最大10件まで表示する
+                foreach($sql as $row) {
                     echo '<tr>';
                     echo '<td>', '<a class="a5" href="message.php?user_id=', $row['user_id'], '">', $row['user_id'], '</a>', '</td>';
                     echo '<td>', '<a class="a6" href="message.php?user_id=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
@@ -63,11 +63,11 @@
                     echo '</td>';
                     echo '<td>', $row['data'], '</td>';
                     echo '</tr>';
-                    }
                 }   
             }
         ?>
-    </table>
+        </table>
+    </div>
     <script>
         function redirectToTagInput() {
             window.location.href = 'tag_input.php';
