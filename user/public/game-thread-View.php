@@ -58,9 +58,6 @@
     </div>
 
     <script src="./src/game-thread-vue.js"></script>
-    <?php require 'footer.php'?>
-
-<link rel="stylesheet" href="./css/footer.css">
 </body>
 <?php require 'footer.php'?>
 </html>

@@ -46,6 +46,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-<?php require 'footer.php'?>
-
-<link rel="stylesheet" href="./css/footer.css">
