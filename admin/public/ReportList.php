@@ -44,7 +44,22 @@
                     echo '<tr>';
                     echo '<td>', '<a class="a5" href="message.php?user_id=', $row['user_id'], '">', $row['user_id'], '</a>', '</td>';
                     echo '<td>', '<a class="a6" href="message.php?user_id=', $row['report_user'], '">', $row['report_user'], '</a>', '</td>';
-                    echo '<td>', $row['report_reason'], '</td>';
+                    echo '<td>';
+                        switch ($row['report_reason']) {
+                            case 1:
+                                echo '迷惑なコメント';
+                                break;
+                            case 2:
+                                echo '暴力的なコメント';
+                                break;
+                            case 3:
+                                echo '卑猥なコメント';
+                                break;
+                            default:
+                            echo $row['report_reason']; // デフォルトはそのまま表示
+                            break;
+                        }
+                    echo '</td>';
                     echo '<td>', $row['data'], '</td>';
                     echo '</tr>';
                 }
