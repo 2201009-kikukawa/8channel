@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>8ちゃんねるログイン</title>
   <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="./css/footer.css">
 </head>
 <body>
   <form name="loginForm" action="login-output.php" method="post" onsubmit="return validateForm()">
@@ -24,9 +25,7 @@
       echo '<p style="color:red;">' . htmlspecialchars($_GET['error']) . '</p>';
   }
   ?>
-  <?php require 'footer.php'?>
-
-<link rel="stylesheet" href="./css/footer.css">
 </body>
+<?php require 'footer.php'?>
 <script src="login.js"></script>
 </html>

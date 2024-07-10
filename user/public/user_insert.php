@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/footer.css">
     <title>ID入力フォーム</title>
 </head>
 <body>
@@ -27,8 +28,6 @@
             <button type="submit">登録</button>
         </div>
     </form>
-    <?php require 'footer.php'?>
-
-<link rel="stylesheet" href="./css/footer.css">
 </body>
+<?php require 'footer.php'?>
 </html>
