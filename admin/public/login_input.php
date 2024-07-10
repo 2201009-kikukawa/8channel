@@ -31,5 +31,6 @@ require "header.php";
         <p style="color: red;"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
     <?php endif; ?>
     </form>
+    <p class="back-link"><a href="javascript:history.back()">戻る</a></p>
 </body>
 </html>

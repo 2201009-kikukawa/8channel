@@ -24,7 +24,7 @@ body {
 
 form {
     display: inline-block;
-    margin-top: 20px; /* Adjust the position of the form relative to the line */
+    margin-top: -10px; /* Adjust the position of the form relative to the line */
 }
 
 label, input {
@@ -51,4 +51,9 @@ button {
     border: none;
     border-radius: 20px;
     cursor: pointer;
+}
+
+.back-link{
+    margin-top: 10px;
+    color: #ffffff;
 }
