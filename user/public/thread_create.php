@@ -2,8 +2,6 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-require 'header.php';
 require '../../config/db-connect.php';
 ?>
 
@@ -12,46 +10,54 @@ require '../../config/db-connect.php';
 <head>
   <meta charset="UTF-8">
   <title>スレッド作成</title>
+  <link rel="stylesheet" href="./css/create_style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
-<body>
+<body class="th-create">
     <form method="post" id="form">
-        <div class="fs-1">スレッド作成</div>
-        <div class="fs-3">スレッドの作成のためにはログインが必要です</div>
-        <div class="fs-3">ログインは<a href="login.php">「ゲーマーの登竜門」</a>からどうぞ。</div>
-
+        <div class="text-group">
+            <div class="fs-1">スレッド作成</div>
+            <div class="fs-3">スレッドの作成のためにはログインが必要です</div>
+            <div class="fs-3">ログインは<a href="login.php">「ゲーマーの登竜門」</a>からどうぞ。</div>
+        </div>
         <!--スレッド名入力-->
-        <div class="th_name">名前</div>
-        <div class="th_name-box">
-            <input type="text" name="th_name" id="th_name" required>
-            <div id="name_check_result" style="color: red;"></div>
+        <div class="th-name-group">
+            <div class="th_name">名前</div>
+            <div class="th_name-box">
+                <input type="text" name="th_name" id="th_name" class="thname-input" required>
+                <div id="name_check_result" style="color: red;"></div>
+            </div>
         </div>
 
         <!--ゲーム名選択-->
-        <div class="game-name">ゲーム名</div>
-        <div class="game-name-select">
-            <select name="channel_id" required>
-                <option value="">選択してください</option>
-                <?php
-                try {
-                    // クエリ実行
-                    $query = "SELECT channel_id, channel_name FROM channel";
-                    $stmt = $pdo->query($query);
+        <div class="gm-name-group">
+            <div class="game-name">ゲーム名</div>
+            <div class="game-name-select">
+                <select name="channel_id" required>
+                    <option value="">選択してください</option>
+                    <?php
+                    try {
+                        // クエリ実行
+                        $query = "SELECT channel_id, channel_name FROM channel";
+                        $stmt = $pdo->query($query);
 
-                    // 結果をチェック
-                    if ($stmt->rowCount() > 0) {
-                        // データをプルダウンメニューに追加
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            echo '<option value="' . htmlspecialchars($row['channel_id']) . '">' . htmlspecialchars($row['channel_name']) . '</option>';
+                        // 結果をチェック
+                        if ($stmt->rowCount() > 0) {
+                            // データをプルダウンメニューに追加
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                echo '<option value="' . htmlspecialchars($row['channel_id']) . '">' . htmlspecialchars($row['channel_name']) . '</option>';
+                            }
+                        } else {
+                            echo '<option value="">チャンネルが見つかりません</option>';
                         }
-                    } else {
-                        echo '<option value="">チャンネルが見つかりません</option>';
+                    } catch (PDOException $e) {
+                        echo '<option value="">クエリの実行に失敗しました: ' . htmlspecialchars($e->getMessage()) . '</option>';
                     }
-                } catch (PDOException $e) {
-                    echo '<option value="">クエリの実行に失敗しました: ' . htmlspecialchars($e->getMessage()) . '</option>';
-                }
-                ?>
-            </select>
+                    ?>
+                </select>
+            </div>
         </div>
 
         <!--タグ選択-->
@@ -126,4 +132,3 @@ require '../../config/db-connect.php';
 
 </body>
 </html>
-
