@@ -10,9 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 停止理由のマッピング
     $reasons = [
-        '1' => '理由1',
-        '2' => '理由2',
-        '3' => '理由3'
+        '1' => '迷惑なコメント',
+        '2' => '暴力的なコメント',
+        '3' => '卑猥なコメント'
     ];
 
     $stop_reason = isset($reasons[$reason_code]) ? $reasons[$reason_code] : '理由不明';
