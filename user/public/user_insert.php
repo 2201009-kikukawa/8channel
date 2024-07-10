@@ -27,5 +27,8 @@
             <button type="submit">登録</button>
         </div>
     </form>
+    <?php require 'footer.php'?>
+
+<link rel="stylesheet" href="./css/footer.css">
 </body>
 </html>

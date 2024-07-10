@@ -24,6 +24,9 @@
       echo '<p style="color:red;">' . htmlspecialchars($_GET['error']) . '</p>';
   }
   ?>
+  <?php require 'footer.php'?>
+
+<link rel="stylesheet" href="./css/footer.css">
 </body>
 <script src="login.js"></script>
 </html>

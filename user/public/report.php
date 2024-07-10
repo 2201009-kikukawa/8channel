@@ -43,3 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 echo json_encode($response);
 
 ?>
+<?php require 'footer.php'?>
+
+<link rel="stylesheet" href="./css/footer.css">
