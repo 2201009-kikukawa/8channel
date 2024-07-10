@@ -4,7 +4,7 @@ body {
     margin: 0;
     background-color: black; /* 背景を黒に設定 */
     color: white; /* テキストを白に設定 */
-    padding-top: 50px; /* 上部の余白を追加 */
+    padding-top: 40px; /* 上部の余白を追加 */
 }
 
 .container {
