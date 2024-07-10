@@ -16,7 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_id = isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : 0;
 
     if ($user_id === 0) {
-        die('ログインをしてください。ログインは<a href="login.php">「ゲーマーの登竜門」</a>からどうぞ。');
+        die(
+            "<script type='text/javascript'>
+                alert('スレッド作成にはログインが必要です');
+                window.location.href='/8channel/user/public/thread_create.php';
+            </script>"
+        );
     }
 
     try {
