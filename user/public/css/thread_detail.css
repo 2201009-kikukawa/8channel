@@ -13,8 +13,7 @@ body{
 }
 
 #title{
-    padding-left: 20%;
-    padding-right: 20%;
+    text-align: center;
 }
 
 h2{
@@ -41,6 +40,11 @@ textarea {
 textarea:focus {
     outline: none;
     border-color: #18ef00;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -99,6 +103,7 @@ textarea:focus {
 }
 
 .hyouzibotan{
+    margin-top: 5px;
     margin-left: 20%;
     margin-right: 20%;
     text-align: right;
@@ -138,4 +143,41 @@ textarea{
 
 .toukou-button:hover{
     transform: translateY(2px); /* Slightly moves down on hover */
+}
+
+@media (max-width: 768px) {    
+
+    .message{
+        text-align: left;
+        list-style: none;
+        margin-left: 0;
+        margin-right: 0;
+        border-width: 0.05rem;
+        border-style: solid;
+        border-color: #18ce0f;
+    }
+
+    .hyouzibotan{
+        text-align: center;
+    }
+
+    #m-number{
+        font-size: 1.1rem;
+        margin-left: 3%;
+    }
+    
+    #m-name{
+        font-size: 1.1rem;
+        margin-left: 8%;
+    }
+    
+    #m-data{
+        margin-left: 5%;
+    }
+
+    #m-message{
+        margin-left: 3%;
+        width: 370px;
+        overflow-wrap: break-word;
+    }
 }
