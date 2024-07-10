@@ -17,6 +17,3 @@ if(isset($_POST['th_name'])) {
     }
 }
 ?>
-<?php require 'footer.php'?>
-
-<link rel="stylesheet" href="./css/footer.css">

@@ -36,8 +36,5 @@
     <div>
         <img class="Topline" src="./image/haikeiTop.png">
     </div>
-    <?php require 'footer.php'?>
-
-<link rel="stylesheet" href="./css/footer.css">
 </body>
 </html>
