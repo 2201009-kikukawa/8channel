@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuejs-paginate@2.1.0"></script>
     <link rel="stylesheet" href="./css/popular-style.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -82,4 +83,5 @@
 
 <link rel="stylesheet" href="./css/footer.css">
 </body>
+<?php require 'footer.php'?>
 </html>
