@@ -20,9 +20,9 @@ include 'stop_check_output.php'; // ユーザー情報の取得
             <div class="stop">
             <label for="detail">停止理由を選択してください:&nbsp;&nbsp;&nbsp;</label>
             <select name="reason" id="detail">
-                <option value="1">理由1</option>
-                <option value="2">理由2</option>
-                <option value="3">理由3</option>
+                <option value="1">迷惑なコメント</option>
+                <option value="2">暴力的なコメント</option>
+                <option value="3">卑猥なコメント</option>
             </select>
             </div>
 
