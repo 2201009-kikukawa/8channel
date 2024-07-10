@@ -1,0 +1,117 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.th-create {
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    background: black;
+    border: solid 0.05rem #18CE0F;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%;
+    color: white;
+    margin-top: 10em;
+}
+
+.text-group {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fs-1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.fs-3 {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.th-name-group, .gm-name-group, .tag-group, .thread-group, .button-group {
+    margin-bottom: 15px;
+}
+
+.th_name, .game-name, .tag, .thread {
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.th_name-box, .game-name-select, .tag-select, .thread-box {
+    text-align: left;
+}
+
+.thname-input, select, textarea {
+    width: 100%;
+    color: white;
+    border: solid 0.05rem #18CE0F;
+    background: black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+button {
+    margin-top: 10px;
+    background: #18CE0F;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: black;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0FA60B;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+    form {
+        width: 95%;
+        margin-top: 5em;
+        padding: 20px;
+    }
+
+    .fs-1 {
+        font-size: 2em;
+    }
+
+    .fs-3 {
+        font-size: 1.2em;
+    }
+
+    .th_name, .game-name, .tag, .thread {
+        font-size: 1.5em;
+    }
+
+    .thname-input, select, textarea {
+        font-size: 1.2em;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 1.2em;
+        padding: 12px 24px;
+    }
+
+    textarea {
+        resize: vertical; /* Allow vertical resizing */
+    }
+}
+
+
+
+
