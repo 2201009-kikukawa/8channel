@@ -1,6 +1,4 @@
-<?php require 'footer.php'?>
 
-   <link rel="stylesheet" href="./css/footer.css">
 <?php require './header.php'; ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -14,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+<link rel="stylesheet" href="./css/footer.css">
     <div id = "app">
         <div id="side">
             <nav class="navbar navbar-dark bg-dark">
@@ -81,5 +80,8 @@
     </div>
     </div>
     <script src="./src/popular-threads.js"></script>
+    <?php require 'footer.php'?>
+
+   <link rel="stylesheet" href="./css/footer.css">
 </body>
 </html>

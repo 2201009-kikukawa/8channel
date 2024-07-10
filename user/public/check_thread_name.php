@@ -1,6 +1,4 @@
-<?php require 'footer.php'?>
 
-   <link rel="stylesheet" href="./css/footer.css">
 <?php
 require '../../config/db-connect.php';
 
@@ -19,4 +17,7 @@ if(isset($_POST['th_name'])) {
     } else {
     }
 }
+<?php require 'footer.php'?>
+
+   <link rel="stylesheet" href="./css/footer.css">
 ?>

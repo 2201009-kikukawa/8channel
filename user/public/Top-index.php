@@ -1,6 +1,3 @@
-<?php require 'footer.php'?>
-
-   <link rel="stylesheet" href="./css/footer.css">
 <?php require './header.php'; ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -12,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vuejs-paginate@2.1.0"></script>
     <link rel="stylesheet" href="./css/Top-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+   <link rel="stylesheet" href="./css/footer.css">
 </head>
 <body>
     <div id="app" class="container mt-4">
@@ -59,7 +58,7 @@
             :next-link-class="'page-link'"
         ></paginate>
     </div>
-
+    <?php require 'footer.php'?>
     <script src="./src/top-vue.js"></script>
 </body>
 </html>

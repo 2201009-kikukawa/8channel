@@ -1,4 +1,4 @@
-<?php require 'footer.php'?>
+
 
    <link rel="stylesheet" href="./css/footer.css">
 <?php
@@ -126,7 +126,9 @@ require '../../config/db-connect.php';
         $('#form').on('submit', create);
     });
     </script>
+<?php require 'footer.php'?>
 
+<link rel="stylesheet" href="./css/footer.css">
 </body>
 </html>
 

@@ -172,4 +172,6 @@ try {
 
 </body>
 <?php require 'footer.php'?>
+
+   <link rel="stylesheet" href="./css/footer.css">
 </html>

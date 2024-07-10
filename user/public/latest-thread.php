@@ -1,6 +1,4 @@
-<?php require 'footer.php'?>
 
-   <link rel="stylesheet" href="./css/footer.css">
 <?php require './header.php'; ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -81,5 +79,8 @@
         </div>
     </div>
     <script src="./src/latest-threads.js"></script>
+    <?php require 'footer.php'?>
+
+   <link rel="stylesheet" href="./css/footer.css">
 </body>
 </html>

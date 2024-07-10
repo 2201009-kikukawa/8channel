@@ -1,6 +1,4 @@
-<?php require 'footer.php'?>
 
-   <link rel="stylesheet" href="./css/footer.css">
 <?php
 require '../../config/db-connect.php';
 
@@ -18,3 +16,8 @@ try {
 } catch (PDOException $e) {
     die("データベースエラー: " . htmlspecialchars($e->getMessage()));
 }
+
+?>
+<?php require 'footer.php'?>
+
+<link rel="stylesheet" href="./css/footer.css">

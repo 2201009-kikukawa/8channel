@@ -1,6 +1,4 @@
-<?php require 'footer.php'?>
 
-   <link rel="stylesheet" href="./css/footer.css">
 <?php require './header.php'; ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -60,5 +58,8 @@
     </div>
 
     <script src="./src/game-thread-vue.js"></script>
+    <?php require 'footer.php'?>
+
+   <link rel="stylesheet" href="./css/footer.css">
 </body>
 </html>

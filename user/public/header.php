@@ -1,7 +1,3 @@
-<?php require 'footer.php'?>
-
-   <link rel="stylesheet" href="./css/footer.css">
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
