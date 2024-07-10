@@ -55,5 +55,8 @@ button {
 
 .back-link{
     margin-top: 10px;
-    color: #ffffff;
+}
+
+a{
+    color: white;
 }
