@@ -25,6 +25,7 @@ table {
     margin: auto; /* 中央に配置 */
     border: none; /* テーブルのラインを黄緑に設定 */
     margin-top: 20px; /* テーブル上部の余白を追加 */
+    overflow-y: auto;
     margin-bottom: 20px; /* テーブル下部の余白を追加 */
 }
 
