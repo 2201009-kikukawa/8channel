@@ -24,7 +24,7 @@ body {
 
 form {
     display: inline-block;
-    margin-top: 40px; /* Adjust the position of the form relative to the line */
+    margin-top: 20px; /* Adjust the position of the form relative to the line */
 }
 
 label, input {
@@ -49,5 +49,6 @@ button {
     background-color: #18CE0F;
     color: rgb(0, 0, 0);
     border: none;
+    border-radius: 20px;
     cursor: pointer;
 }
