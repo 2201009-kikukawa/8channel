@@ -32,7 +32,7 @@ try {
     // メッセージを取得
     if ($show_all) {
         $stmt = $pdo->prepare("
-            SELECT m.message_id, m.message_txt, m.data, u.user_id, u.user_name, md.message_cnt
+            SELECT m.message_id, m.message_txt, m.data, m.image_path, u.user_id, u.user_name, md.message_cnt
             FROM message m
             JOIN user u ON m.user_id = u.user_id
             JOIN message_detail md ON m.message_id = md.message_id
@@ -41,7 +41,7 @@ try {
         ");
     } else {
         $stmt = $pdo->prepare("
-            SELECT m.message_id, m.message_txt, m.data, u.user_id, u.user_name, md.message_cnt
+            SELECT m.message_id, m.message_txt, m.data, m.image_path, u.user_id, u.user_name, md.message_cnt
             FROM message m
             JOIN user u ON m.user_id = u.user_id
             JOIN message_detail md ON m.message_id = md.message_id
@@ -73,8 +73,7 @@ try {
     <link rel="stylesheet" href="./css/thread_detail.css">
 </head>
 <body>
-    
-
+    <div class="main">
     <div id="title">
         <h2><?= htmlspecialchars($thread['thread_name']) ?></h2>
         <h4><?= nl2br(htmlspecialchars($thread['thread_txt'])) ?></h4>
@@ -91,12 +90,15 @@ try {
                         <strong id="m-name"><?= htmlspecialchars($message['user_name']) ?></strong>
                         <small id="m-data"><?= htmlspecialchars($message['data']) ?></small>
                         <button id="rightbutton" class="report-button m-button" >
-                            <img id="imgbutton"　data-message-id="<?= $message['message_id'] ?>" data_user_name="<?= htmlspecialchars($message['user_name']) ?>" data_user_id="<?= htmlspecialchars($message['user_id']) ?>"  src="./image/houkoku.png" alt="報告">
+                            <img id="imgbutton" data-message-id="<?= $message['message_id'] ?>" data_user_name="<?= htmlspecialchars($message['user_name']) ?>" data_user_id="<?= htmlspecialchars($message['user_id']) ?>"  src="./image/houkoku.png" alt="報告">
                         </button>
                         <button class="m-button share-button">
                             <img id="imgbutton" src="./image/kyouyu.png" alt="共有">
                         </button>
                         <p id="m-message"><?= htmlspecialchars($message['message_txt']) ?></p>
+                        <?php if (isset($message['image_path']) && !empty($message['image_path'])): ?>
+                            <img class="message-image" src="<?= htmlspecialchars($message['image_path']) ?>" alt="メッセージ画像">
+                        <?php endif; ?>
                     </div>
                 </li>
             <?php endforeach; ?>
@@ -107,16 +109,20 @@ try {
             </button>
         </div>
     <?php endif; ?>
-    <div class="container"></div>
+    <div class="container">
         <h2>メッセージを投稿</h2>
-        <form action="post_message.php" method="post">
+        <form action="post_message.php" method="post" enctype="multipart/form-data">
             <textarea name="message_txt" rows="6" cols="50" required></textarea><br>
             <input type="hidden" name="thread_id" value="<?= $thread_id ?>">
             <input type="hidden" name="user_id" id="user_id" value="<?= isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : '' ?>">
+            <input type="file" name="message_image" accept="image/*">
             <button id="toukou" class="toukou-button" type="submit">投稿</button>
         </form>
     </div>
-
+    <div id="image-modal" class="image-modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
     <!-- 報告モーダル -->
     <div id="report-modal" class="modal">
         <div class="modal-content">
@@ -167,8 +173,39 @@ try {
             const url = `?thread_id=${threadId}&show_all=${showAll ? '0' : '1'}`;
             window.location.href = url;
         });
-    </script>
 
+        document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("image-modal");
+    var modalImg = document.getElementById("modal-image");
+    var closeBtn = document.getElementsByClassName("close")[0];
+
+    document.querySelectorAll(".message-image").forEach(function(img) {
+        img.addEventListener("click", function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        });
+    });
+
+    closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    document.getElementById('toggle-display').addEventListener('click', function() {
+        const showAll = this.getAttribute('data-show-all') === '1';
+        const threadId = document.getElementById('thread-id').value;
+        const url = `?thread_id=${threadId}&show_all=${showAll ? '0' : '1'}`;
+        window.location.href = url;
+    });
+});
+
+    </script>
+</div>
 </body>
 <?php require 'footer.php'?>
 </html>

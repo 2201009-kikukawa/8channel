@@ -1,4 +1,4 @@
-body{
+.main{
     margin: 0;
     padding: 0;
     text-align: center;
@@ -145,6 +145,51 @@ textarea{
     transform: translateY(2px); /* Slightly moves down on hover */
 }
 
+.message-image {
+    max-width: 20%;
+    height: auto;
+    cursor: pointer;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.image-modal .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    margin-top: 80px;
+}
+
+.image-modal .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.image-modal .close:hover,
+.image-modal .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {    
 
     .message{
@@ -168,11 +213,11 @@ textarea{
     
     #m-name{
         font-size: 1.1rem;
-        margin-left: 8%;
+        margin-left: 5%;
     }
     
     #m-data{
-        margin-left: 5%;
+        margin-left: 3%;
     }
 
     #m-message{
