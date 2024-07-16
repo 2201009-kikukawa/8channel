@@ -19,12 +19,6 @@ form {
     margin-bottom: 20px;
 }
 
-.scroll{
-    overflow-y: auto;
-    width: 100%;
-    max-height: 450px;
-}
-
 table {
     border-collapse: collapse;
     width: 80%; /* 横幅の70%に設定 */
