@@ -153,6 +153,18 @@ textarea{
     margin-bottom: 10px;
 }
 
+.spoiler-image{
+    max-width: 20%;
+    height: auto;
+    cursor: pointer;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.spoiler-image:hover::before,
+.spoiler-text:hover::before {
+    content: attr(data-hint);
+}
 .image-modal {
     display: none;
     position: fixed;
@@ -208,7 +220,30 @@ textarea{
     transform: translateY(2px); /* Slightly moves down on hover */
 }
 
-@media (max-width: 768px) {   
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {  
+    
+    .imgup-button::file-selector-button {
+        background-color: black; /* Yellow background */
+        color: #18ce0f; /* Text color */
+        padding: 8px 15px; /* Padding */
+        font-size: 16px; /* Font size */
+        font-weight: bold; /* Bold text */
+        border-width: 0.05rem;
+        border-style: solid;
+        border-color: #18ce0f;
+        cursor: pointer; /* Pointer cursor on hover */
+        outline: none; /* Remove default outline */
+        margin-bottom: 5%;
+    }
+    
+    .imgup-button::file-selector-button:hover{
+        transform: translateY(2px); /* Slightly moves down on hover */
+    } 
     
     .toukou-button{
         margin-top: 2%;

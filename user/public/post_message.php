@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $message_txt = $_POST['message_txt'];
     $thread_id = intval($_POST['thread_id']);
     $user_id = isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : 0;
+    $apply_blur = isset($_POST['apply_blur']) ? (bool)$_POST['apply_blur'] : false;
 
     if ($user_id === 0) {
         // ログインしていない場合のエラーをJavaScriptのアラートで表示
@@ -49,11 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         // メッセージを挿入
-        $stmt = $pdo->prepare("INSERT INTO message (message_txt, user_id, thread_id, image_path) VALUES (:message_txt, :user_id, :thread_id, :image_path)");
+        $stmt = $pdo->prepare("INSERT INTO message (message_txt, user_id, thread_id, image_path,spoiler) VALUES (:message_txt, :user_id, :thread_id, :image_path,:spoiler)");
         $stmt->bindParam(':message_txt', $message_txt);
         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':thread_id', $thread_id);
         $stmt->bindParam(':image_path', $image_path);
+        $stmt->bindParam(':spoiler', $apply_blur);
         $stmt->execute();
 
         // 直前の挿入IDを取得
