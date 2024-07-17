@@ -32,7 +32,7 @@ try {
     // メッセージを取得
     if ($show_all) {
         $stmt = $pdo->prepare("
-            SELECT m.message_id, m.message_txt, m.data, m.image_path, u.user_id, u.user_name, md.message_cnt
+            SELECT m.message_id, m.message_txt, m.data, m.image_path,m.spoiler, u.user_id, u.user_name, md.message_cnt
             FROM message m
             JOIN user u ON m.user_id = u.user_id
             JOIN message_detail md ON m.message_id = md.message_id
@@ -41,7 +41,7 @@ try {
         ");
     } else {
         $stmt = $pdo->prepare("
-            SELECT m.message_id, m.message_txt, m.data, m.image_path, u.user_id, u.user_name, md.message_cnt
+            SELECT m.message_id, m.message_txt, m.data, m.image_path,m.spoiler, u.user_id, u.user_name, md.message_cnt
             FROM message m
             JOIN user u ON m.user_id = u.user_id
             JOIN message_detail md ON m.message_id = md.message_id
@@ -71,6 +71,7 @@ try {
     <link rel="stylesheet" href="./css/report_modal.css">
     <link rel="stylesheet" href="./css/sns_shere.css">
     <link rel="stylesheet" href="./css/thread_detail.css">
+    <script type="text/javascript" src="./src/spoiler.js"></script>
 </head>
 <body>
     <div class="main">
@@ -95,9 +96,9 @@ try {
                         <button class="m-button share-button">
                             <img id="imgbutton" src="./image/kyouyu.png" alt="共有">
                         </button>
-                        <p id="m-message"><?= htmlspecialchars($message['message_txt']) ?></p>
+                        <p id="m-message" class="<?= $message['spoiler'] == 1 ? 'spoiler-text' : 'm-message' ?>"><?= htmlspecialchars($message['message_txt']) ?></p>
                         <?php if (isset($message['image_path']) && !empty($message['image_path'])): ?>
-                            <img class="message-image" src="<?= htmlspecialchars($message['image_path']) ?>" alt="メッセージ画像">
+                            <img class="<?= $message['spoiler'] == 1 ? 'spoiler-image' : 'message-image' ?>" src="<?= htmlspecialchars($message['image_path']) ?>" alt="メッセージ画像">
                         <?php endif; ?>
                     </div>
                 </li>
@@ -113,6 +114,9 @@ try {
         <h2>メッセージを投稿</h2>
         <form action="post_message.php" method="post" enctype="multipart/form-data">
             <textarea name="message_txt" rows="6" cols="50" required></textarea><br>
+            <label>
+                <input type="checkbox" name="apply_blur" value="1"> ネタバレを含む場合、ここにチェックを入れてください
+            </label>
             <input type="hidden" name="thread_id" value="<?= $thread_id ?>">
             <input type="hidden" name="user_id" id="user_id" value="<?= isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : '' ?>">
             <input class="imgup-button" type="file" name="message_image" accept="image/*">
@@ -167,6 +171,22 @@ try {
     <script src="./src/report_modal.js" defer></script>
     <script src="./src/sns_shere.js" defer></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            spoilerAlert('.spoiler-image', {
+                max: 8, // 最大ぼかしレベル
+                partial: 4, // 部分的なぼかしレベル
+                hintText: 'クリックして完全に表示'
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            spoilerAlert('.spoiler-text', {
+                max: 8, // 最大ぼかしレベル
+                partial: 4, // 部分的なぼかしレベル
+                hintText: 'クリックして完全に表示'
+            });
+        });
+
         document.getElementById('toggle-display').addEventListener('click', function() {
             const showAll = this.getAttribute('data-show-all') === '1';
             const threadId = document.getElementById('thread-id').value;
@@ -180,6 +200,13 @@ try {
     var closeBtn = document.getElementsByClassName("close")[0];
 
     document.querySelectorAll(".message-image").forEach(function(img) {
+        img.addEventListener("click", function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        });
+    });
+
+    document.querySelectorAll(".spoiler-image").forEach(function(img) {
         img.addEventListener("click", function() {
             modal.style.display = "block";
             modalImg.src = this.src;
