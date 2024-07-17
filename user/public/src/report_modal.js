@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const modal = document.getElementById('report-modal');
-    const span = document.getElementsByClassName('close')[0];
+    const closeButton = modal.querySelector('.close');
     const reportButtons = document.querySelectorAll('.report-button');
     const reportForm = document.getElementById('report-form');
     const reportedUserNameHeader = document.getElementById('reported-user-name'); // ユーザー名を表示する要素を取得する
 
-    span.onclick = function() {
+    closeButton.addEventListener('click', function() {
         modal.style.display = 'none';
-    }
+    });
 
-    window.onclick = function(event) {
+    window.addEventListener('click', function(event) {
         if (event.target == modal) {
             modal.style.display = 'none';
         }
-    }
+    });
 
     reportForm.addEventListener('submit', (event) => {
         event.preventDefault();
