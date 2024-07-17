@@ -190,7 +190,38 @@ textarea{
     cursor: pointer;
 }
 
-@media (max-width: 768px) {    
+.imgup-button::file-selector-button {
+    background-color: black; /* Yellow background */
+    color: #18ce0f; /* Text color */
+    padding: 8px 15px; /* Padding */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border-width: 0.05rem;
+    border-style: solid;
+    border-color: #18ce0f;
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove default outline */
+    margin-bottom: 5%;
+}
+
+.imgup-button::file-selector-button:hover{
+    transform: translateY(2px); /* Slightly moves down on hover */
+}
+
+@media (max-width: 768px) {   
+    
+    .toukou-button{
+        margin-top: 2%;
+        border: none;
+        background-color: #18ce0f; /* Yellow background */
+        color: black; /* Text color */
+        padding: 10px 20px; /* Padding */
+        font-size: 16px; /* Font size */
+        font-weight: bold; /* Bold text */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        outline: none; /* Remove default outline */
+    }
 
     .message{
         text-align: left;
