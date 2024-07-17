@@ -115,7 +115,7 @@ try {
             <textarea name="message_txt" rows="6" cols="50" required></textarea><br>
             <input type="hidden" name="thread_id" value="<?= $thread_id ?>">
             <input type="hidden" name="user_id" id="user_id" value="<?= isset($_SESSION['User']['id']) ? intval($_SESSION['User']['id']) : '' ?>">
-            <input type="file" name="message_image" accept="image/*">
+            <input class="imgup-button" type="file" name="message_image" accept="image/*">
             <button id="toukou" class="toukou-button" type="submit">投稿</button>
         </form>
     </div>
