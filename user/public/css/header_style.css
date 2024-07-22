@@ -66,4 +66,7 @@ header{
 
 .Topline{
     width: 100%;
+    position: relative;
+    margin-bottom: -7.5em;
+    z-index: -1;
 }
