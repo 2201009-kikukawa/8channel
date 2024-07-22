@@ -62,11 +62,18 @@ header{
     .h1{
         right: auto;
     }
+    
+    .Topline{
+        width: 100%;
+        position: relative;
+        margin-bottom: -0.2em;
+        z-index: -1;
+    }
 }
 
 .Topline{
     width: 100%;
     position: relative;
-    margin-bottom: -7.5em;
+    margin-bottom: -2.5em;
     z-index: -1;
 }

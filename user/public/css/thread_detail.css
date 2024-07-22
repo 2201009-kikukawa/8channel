@@ -6,6 +6,10 @@
     color: white;
 }
 
+body{
+    background-color: #000000;
+}
+
 .container {
     text-align: center;
     padding: 20px;
@@ -100,6 +104,8 @@ ul{
     background-color: black;
     height: 2rem;
     width: 3rem;
+    position: relative;
+    z-index: 1;
 }
 
 .hyouzibotan{
