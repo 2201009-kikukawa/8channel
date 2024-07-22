@@ -34,7 +34,7 @@
     </header>
 
     <div>
-        <img class="Topline" src="./image/haikeiTop.png">
+        <img class="Topline" src="./image/transparent_image_v2.png">
     </div>
 </body>
 </html>
