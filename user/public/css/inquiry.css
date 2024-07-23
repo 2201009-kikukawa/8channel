@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.inquiry-box{
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    background: black;
+    border: solid 0.05rem #18CE0F;
+    border-radius: 10px;
+    padding: 20px;
+    width: 75%;
+    color: white;
+}
+
+.return{
+    text-align:right;
+}
+
+.return-button{
+    border: none;
+    background-color: grey; /* Yellow background */
+    color: white; /* Text color */
+    padding: 5px 9px; /* Padding */
+    font-size: 10px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border: #18CE0F;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove default outline */
+}
+
+.return-button:hover{
+    transform: translateY(2px); /* Slightly moves down on hover */
+}
+
+h2{
+    text-align: center;  
+}
+
+.mail-reason{
+    width: 58%;
+    margin-left:27%;
+}
+
+.mail{
+    width: 75%;
+    text-align: left;
+}
+
+.reason{
+    width: 75%;
+    text-align: left;
+}
+
+.submit-button{
+    width: 75%;
+    text-align: right;
+}
+
+.button{
+    border: none;
+    background-color: #18ce0f; /* Yellow background */
+    color: black; /* Text color */
+    padding: 5px 9px; /* Padding */
+    font-size: 13px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove default outline */
+}
+
+.button:hover{
+    transform: translateY(2px); /* Slightly moves down on hover */
+}
