@@ -24,7 +24,7 @@ body {
 
 form {
     display: inline-block;
-    margin-top: 40px; /* Adjust the position of the form relative to the line */
+    margin-top: 20px; /* Adjust the position of the form relative to the line */
 }
 
 label, input {
