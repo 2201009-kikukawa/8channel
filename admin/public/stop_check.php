@@ -14,7 +14,7 @@ include 'stop_check_output.php'; // ユーザー情報の取得
     <?php include 'header.php'; ?>
     <main>
         <form method="post" action="stop_finish.php">
-            <h1>アカウントを停止してもよろしいですか？</h1>
+            <h2>アカウントを停止してもよろしいですか？</h2>
             <p class="ID"><strong>ユーザーID:&nbsp;&nbsp;&nbsp;</strong> <?php echo htmlspecialchars($user_id); ?></p>
             <p><strong>ユーザー名:&nbsp;&nbsp;&nbsp;</strong> <?php echo htmlspecialchars($userName); ?></p>
             <div class="stop">
