@@ -13,6 +13,7 @@
     <title>ログアウト結果</title>
 </head>
 <body>
+    <main>
     <?php
     // セッションが破棄されたことを確認する
     if (!isset($_SESSION['user_id'])) {
