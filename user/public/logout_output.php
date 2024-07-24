@@ -21,7 +21,7 @@
         echo "<p>ログアウトに失敗しました。</p>";
     }
     ?>
-    <p>トップページに戻ります...</p>
+    <p class="x">トップページに戻ります...</p>
     <script>
         setTimeout(function(){
             window.location.href = 'Top-index.php'; // ログイン画面のURLにリダイレクト
