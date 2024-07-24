@@ -24,7 +24,7 @@ session_start();
 <body>
     <main>
         <h1>ログアウトしますか？</h1>
-        <button onclick="handleLogout()">はい</button>
+        <button class="button-yes" onclick="handleLogout()">はい</button>
         <button onclick="redirectToPreviousPage()">いいえ</button>
     </main>
 </body>

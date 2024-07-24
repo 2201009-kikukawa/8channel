@@ -4,12 +4,12 @@ html{
 main{
     background-color: black;
     text-align: center;
-    margin-top: 17%;
+    margin-top: 14%;
 }
 h1{
-    font-size: 64px;
+    font-size: 50px;
     color: white !important;
-    margin-top: 5% !important;
+    margin-top: 2% !important;
 }
 button {
     padding: 10px 60px;
