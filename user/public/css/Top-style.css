@@ -4,29 +4,29 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+ 
 body {
     background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
 }
-
+ 
 h1 {
-    margin-top: 0;
+    margin-top: -50px;
     margin-bottom: .5rem;
     font-weight: 500;
     line-height: 1.2;
     text-align: center;
     font-size: 45px;
 }
-
+ 
 h5 {
     text-align: center;
     font-size: 25px;
     margin-top: 20px;
 }
-
+ 
 .container {
     width: 80%;
     margin: auto;
@@ -34,7 +34,7 @@ h5 {
     padding: 20px;
     border-radius: 10px;
 }
-
+ 
 #btns {
     border: solid 0.05rem #18CE0F;
     background-color: black;
@@ -45,12 +45,12 @@ h5 {
     width: 16em;
     margin-bottom: 20px;
 }
-
+ 
 #btns:hover {
     background-color: #18CE0F;
     color: black;
 }
-
+ 
 a.list-group-item {
     margin: auto;
     border: solid 0.05rem #18CE0F;
@@ -61,24 +61,24 @@ a.list-group-item {
     text-align: end;
     width: 80%;
 }
-
+ 
 a.list-group-item:hover {
     background-color: #18CE0F;
     color: black;
 }
-
+ 
 .d-flex {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
-
+ 
 .search-container {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
-
+ 
 .search-container input {
     width: 50%;
     padding: 10px;
@@ -87,7 +87,7 @@ a.list-group-item:hover {
     background-color: black;
     color: white;
 }
-
+ 
 .search-container button {
     padding: 10px;
     background: #18CE0F;
@@ -96,22 +96,22 @@ a.list-group-item:hover {
     cursor: pointer;
     border-radius: 0 4px 4px 0;
 }
-
+ 
 .search-container button:hover {
     background: #0E8C0A;
 }
-
+ 
 .pagination {
     display: flex;
     justify-content: center;
     list-style: none;
     padding: 0;
 }
-
+ 
 .pagination li {
     margin: 0 5px;
 }
-
+ 
 .pagination a {
     display: block;
     padding: 8px 16px;
@@ -121,17 +121,17 @@ a.list-group-item:hover {
     border-radius: 4px;
     background-color: black;
 }
-
+ 
 .pagination a:hover {
     background-color: #0E8C0A;
 }
-
+ 
 .pagination .active a {
     background-color: #18CE0F;
     color: black;
     border: 1px solid #18CE0F;
 }
-
+ 
 .title {
     display: flex;
     align-items: center;
@@ -144,14 +144,14 @@ a.list-group-item:hover {
     margin-left: auto;
     margin-right: auto;
 }
-
+ 
 .title-text {
     font-size: 30px;
     margin: auto;
     position: relative;
     left: 65px;
 }
-
+ 
 #title-btn {
     border: solid 0.05rem #18CE0F;
     background-color: black;
@@ -159,28 +159,28 @@ a.list-group-item:hover {
     font-size: 1rem;
     transition: background-color 0.3s, color 0.3s;
 }
-
+ 
 #title-btn:hover {
     background-color: #18CE0F;
     color: black;
 }
-
+ 
 .button-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: -15px;
 }
-
+ 
 @media (max-width: 768px) {
     .container {
         width: 100%;
     }
-
+ 
     .search-container input {
         width: 70%;
     }
-
+ 
     #btns {
         padding: 0.50rem 2.0rem;
         font-size: 0.9rem;
@@ -189,7 +189,7 @@ a.list-group-item:hover {
     .title {
         width: 100%;
         justify-content: space-between;
-
+ 
     }
     #title-btn {
         border: solid 0.05rem #18CE0F;
