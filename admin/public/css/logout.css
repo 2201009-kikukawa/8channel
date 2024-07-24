@@ -28,5 +28,12 @@ button {
 }
 p{
     color: white;
-    font-size: 64px;
+    font-size: 32px;
+    padding-top: 10%;
+}
+
+.x{
+    color: white;
+    font-size: 26px;
+    padding-top: 0%;
 }
