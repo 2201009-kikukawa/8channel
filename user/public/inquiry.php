@@ -24,8 +24,8 @@ require '../../config/db-connect.php';
             <div class="mail-reason">
                 <!--メールアドレス-->
                 <div class="mail">
-                    <label for="email">メールアドレス:</label>
-                    <input type="email" id="email" name="email" required><br><br>
+                    <label for="email">メールアドレス　:</label>
+                    <input type="email" id="email" name="email" size="33" required><br><br>
                 </div>
                 <!--お問い合わせ理由-->
                 <div class="reason">
@@ -40,7 +40,7 @@ require '../../config/db-connect.php';
                 <!--その他-->
                 <div class="inputre">
                     <label for="inputre">その他：</label><br>
-                    <textarea name="inputre" id="inputre" rows="3" cols="50"></textarea><br>
+                    <textarea name="inputre" id="inputre" rows="3" cols="56"></textarea><br>
                 </div>
                 <div class="submit-button">
                     <input class="button" type="submit" value="送信">
