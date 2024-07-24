@@ -19,6 +19,9 @@
   <div class="newlogin-confirmation">
     <a href="user_insert.php">8ちゃんねる ID 作成</a>
   </div>
+  <div class="newlogin-confirmation">
+    <a href="inquiry.php">お問い合わせ</a>
+  </div>
   <?php
   // エラーメッセージの表示
   if (isset($_GET['error'])) {

@@ -16,14 +16,36 @@ require '../../config/db-connect.php';
 </head>
 <body>
     <div class="inquiry-box">
-    <h2>お問い合わせフォーム</h2>
         <form action="send_email.php" method="post">
-            
-            <label for="email">メールアドレス:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
+        <div class="return">
+            <button class="return-button" type="button" onclick="history.back()">閉じる</butto>
+        </div>
+        <h2>お問い合わせフォーム</h2>
+            <div class="mail-reason">
+                <!--メールアドレス-->
+                <div class="mail">
+                    <label for="email">メールアドレス:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+                </div>
+                <!--お問い合わせ理由-->
+                <div class="reason">
+                    <label for="reason">お問い合わせ理由:</label>
+                    <select name="reason" id="reason" required>
+                        <option value="アカウント停止に対するお問い合わせ">アカウント停止に対するお問い合わせ</option>
+                        <option value="ログインに関するお問い合わせ">ログインに関するお問い合わせ</option>
+                        <option value="バグ・アイディア等のお問い合わせ">バグ・アイディア等のお問い合わせ</option>
+                    </select><br><br>
+                </div>
 
-
-            <input type="submit" value="送信">
+                <!--その他-->
+                <div class="inputre">
+                    <label for="inputre">その他：</label><br>
+                    <textarea name="inputre" id="inputre" rows="3" cols="50"></textarea><br>
+                </div>
+                <div class="submit-button">
+                    <input class="button" type="submit" value="送信">
+                </div>
+            </div>
         </form>
     </div>
 </body>
