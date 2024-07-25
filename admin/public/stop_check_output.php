@@ -16,10 +16,10 @@ $DBNAME = '8channel';
 $USER = 'eiki';
 $PASS = 'Pass0103';
 if ($rootDirectory != 'htdocs') {
-    $SERVER = "mysql304.phy.lolipop.lan";
+    $SERVER = "mysql308.phy.lolipop.lan";
     $USER = "LAA1516915";
     $PASS = "Pass1111";
-    $DBNAME = "LAA1516915-8cannel"; 
+    $DBNAME = "LAA1516915-8channel"; 
 }
 
 $conn = 'mysql:host=' . $SERVER . ';dbname=' . $DBNAME . ';charset=utf8';
